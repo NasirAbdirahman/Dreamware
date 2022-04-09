@@ -1,0 +1,22 @@
+<h1>Login Now</h1>
+
+{% for message in messages %}
+    <h2>{{message}}</h2>
+{% endfor %}
+
+<form method="POST" action="/login/">
+    {% csrf_token %}
+
+    <p>Username:</p>
+    <input type="text" name="username"/>
+
+    <p>Password:</p>
+    <input type="password" name="password"/><br>
+
+
+    <input type="submit"/>
+
+</form>
+
+<!-- Redirect To Register page for user's without an account-->
+<p>If you do not have an account, Create one <a href="/register/">here</a></p>

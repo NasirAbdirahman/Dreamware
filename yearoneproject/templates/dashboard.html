@@ -1,0 +1,15 @@
+
+{% if user.is_authenticated %}
+<h1>Welcome {{user.username}}, this is your dashboard</h1>
+{% else %}
+<h2>
+    This is the dashboard
+</h2>
+{% endif %}
+
+
+{% if user.is_authenticated %}
+<a href="/logout/">Logout</a>
+{% else %}
+<a href="/login/">Login</a>
+{% endif %}
