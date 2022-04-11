@@ -1,3 +1,4 @@
+<!--Member Login View-->
 <h1>Login Now</h1>
 
 {% for message in messages %}
@@ -7,8 +8,8 @@
 <form method="POST" action="/login/">
     {% csrf_token %}
 
-    <p>Username:</p>
-    <input type="text" name="username"/>
+    <p>Email:</p>
+    <input type="text" name="email"/>
 
     <p>Password:</p>
     <input type="password" name="password"/><br>

@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'dashboard' #my app is registered in django project
 ]
 
+#Use the new CustomUser class as Auth
+AUTH_USER_MODEL = 'dashboard.CustomUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -101,6 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization

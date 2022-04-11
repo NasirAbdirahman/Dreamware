@@ -1,6 +1,6 @@
-
+<!--Member Dashboard View-->
 {% if user.is_authenticated %}
-<h1>Welcome {{user.username}}, this is your dashboard</h1>
+<h1>Welcome {{user.first_name}}, this is your dashboard</h1>
 {% else %}
 <h2>
     This is the dashboard
