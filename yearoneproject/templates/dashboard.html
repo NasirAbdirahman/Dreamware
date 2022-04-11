@@ -1,15 +1,11 @@
 <!--Member Dashboard View-->
-{% if user.is_authenticated %}
+
 <h1>Welcome {{user.first_name}}, this is your dashboard</h1>
-{% else %}
-<h2>
-    This is the dashboard
-</h2>
-{% endif %}
 
 
-{% if user.is_authenticated %}
+
+
 <a href="/logout/">Logout</a>
-{% else %}
-<a href="/login/">Login</a>
-{% endif %}
+
+<a href="/profile/">Edit Profile</a>
+

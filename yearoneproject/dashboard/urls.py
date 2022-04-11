@@ -13,7 +13,7 @@ urlpatterns = [
     #more urls/views can be created below
 
     path('dashboard/', views.dashboard, name='dashboard'),
-    path('user/', views.user, name='user'),
+    path('profile/', views.profile, name='profile'),
     path('register/', views.register, name='register'),
     path('login/', views.view_login, name='login'),
     path('logout/', views.view_logout, name='logout'),

@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpRequest
 #from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 
 #Imported models we create
 from .models import Member
@@ -28,15 +28,15 @@ def index(request):
 
 
 #Dashboard page View
+@login_required(login_url='/login/') #redirects to login if not authenticated.(CHANGE TO UNIQUE HTML)
 def dashboard(request):
     return render(request, 'dashboard.html')
 
 
-#User profile View-- This is where they will be able to edit
-def user(request):
-    #IS taking the form data from index.html and rendering it to user.html
-    text = request.POST['text']
-    return render(request, 'user.html', {'userText': text})#key:value
+#User profile View
+@login_required(login_url='/login/') #redirects to login if not authenticated.(CHANGE TO UNIQUE HTML)
+def profile(request):
+    return render(request, 'profile.html')#key:value
 
 
 #User Registration View 
