@@ -1,3 +1,4 @@
+from email.policy import default
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
@@ -14,7 +15,8 @@ from .managers import CustomUserManager
 #CustomUser class that subclasses AbstractBaseUser with Extra fields
 class CustomUser(AbstractBaseUser, PermissionsMixin):
 
-    username = None # Disable a field from AbstractBaseUser
+    #Disable a field from AbstractBaseUser
+    username = None
 
     email = models.EmailField(
         'Email address',
@@ -41,6 +43,17 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     def __str__(self):
         return self.email 
+
+
+#Skills Model
+class TechSkills(models.Model):
+
+
+    name = models.CharField(max_length=65)
+    
+    #return all fields or just return specifics
+    def __str__(self):
+        return self.name
 
 
 
@@ -72,37 +85,27 @@ class Member(models.Model):
     )
 
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
     email = models.EmailField()
-    #password = models.CharField(max_length=20) #delete potentially
-    #picture = models.ImageField(upload_to="images/") #upload to images folder in database
+    #resume = models.ImageField(upload_to="images/") #upload to images folder in database
+    picture = models.ImageField(default="defaultuser.png",upload_to="profile_images") #upload to images folder in database
     location = models.CharField(max_length=100)
-    #skills = models.ForeignKey('TechSkills', on_delete=models.CASCADE)
+    personal_story = models.TextField(max_length=500)
+    education = models.CharField(max_length=100)
     linkedin = models.CharField(max_length=100)
     github = models.CharField(max_length=100)
     portfolio = models.CharField(max_length=100)
     interests = MultiSelectField(choices=INTERESTS)
-    previousoccupation = models.CharField(max_length=100)
+    previous_occupation = models.CharField(max_length=100)
     availability = models.CharField(max_length=2, choices=WORK_AVAILABILITY)
     workstatus = models.CharField(max_length=2, choices=WORK_STATUS)
+
+    #Tech Skills field
+    skills = models.ManyToManyField(TechSkills, related_name="CustomUsers")
+
 
     #return all fields or just return specifics
     def __str__(self):
         return self.email
-
-
-#Skills Model
-class TechSkills(models.Model):
-    #Members proficiency level based on grade
-    PROFICIENCY_LEVELS = (
-        ('BG', 'Beginnerr'),
-        ('IM', 'Intermediate'),
-        ('AD', 'Advanced')
-    )
-    name = models.CharField(max_length=65)
-    member = models.ForeignKey(Member, on_delete=models.CASCADE)
-    proficiency_level = models.CharField(max_length=100 , choices=PROFICIENCY_LEVELS)
 
 
 

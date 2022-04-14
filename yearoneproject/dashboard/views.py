@@ -10,6 +10,8 @@ from .models import Member
 from .models import TechSkills
 from .models import CustomUser
 
+#imported forms
+from .forms import MemberProfileForm, UserForm# MemberSkillsForm
 
 
 '''
@@ -30,13 +32,37 @@ def index(request):
 #Dashboard page View
 @login_required(login_url='/login/') #redirects to login if not authenticated.(CHANGE TO UNIQUE HTML)
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    members = Member.objects.all()
+    skills = TechSkills.objects.all()
+    return render(request, 'dashboard.html',{'members' : members, 'skills': skills})
 
 
 #User profile View
 @login_required(login_url='/login/') #redirects to login if not authenticated.(CHANGE TO UNIQUE HTML)
 def profile(request):
-    return render(request, 'profile.html')#key:value
+
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = MemberProfileForm(request.POST, instance=request.user.member)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+
+            messages.success(request, 'Your profile was updated successfully')
+            return redirect('profile')
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = MemberProfileForm(instance=request.user.member)
+
+
+    return render(request, 'profile.html',
+        {
+            'user_form': user_form,
+            'profile_form': profile_form
+        }
+    )
+
 
 
 #User Registration View 

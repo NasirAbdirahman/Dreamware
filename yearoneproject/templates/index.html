@@ -15,18 +15,23 @@
 {% endif %}
 
 
-<!--
 
+<!-- LOOPS THRU ALL TEH MEMBERS AND SHOWCASES THEIR SKILLS for Staff ONLY
+{% if user.is_staff %}
 {% for member in members %}
 <div>
-    <h1>{{member.first_name}}</h1>
-    <h1>{{member.last_name}}</h1>
-    <p> {{member.email}}</p>
+    <h1>{{member.user.first_name}}</h1>
+    <h1>{{member.user.last_name}}</h1>
+    {% for skill in member.skills.all %}
+        <h2>{{skill.name}}</h2>
+    {% endfor %}
 
 
 
 {% endfor %}
 
+{% endif %}
+<!--
 {% for skill in skills %}
 
     <h1>{{skill.name}}</h1>
