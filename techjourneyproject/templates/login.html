@@ -1,0 +1,74 @@
+<!--Member Login View-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8" />
+        <meta name= "viewport" content= "width=device-width, initial-scale=1" />
+
+        <!-- CSS -->
+        {% load static %}   
+        <link rel="stylesheet" href="{% static 'style.css' %}"> 
+        <!-- Custom Components -->
+        <script src="{% static 'components/header.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/footer.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/button.js' %}" type="text/javascript" defer></script>
+
+        <title>DreamWare: Login Page</title>
+    </head>
+
+    <body>
+
+        <main>
+            <a href="/"><img src="/static/images/dreamwareLogo.png" height="10%" width="10%"></a>
+
+            <section class="login-section">
+                
+                <section class="login-panel">
+                    
+                    <section>
+                        <img src="/static/images/dreamwareLogo.png" height="45%" width="45%">
+                        <h1 class="login-title">Member Login</h1>
+                    </section>
+                    
+                                      
+                    <form method="POST" action="/login/">
+                        {% csrf_token %}
+                       
+                        {% for message in messages %}
+                        <p class="invalid-warning">{{message}}</p>
+                        {% endfor %}
+                        
+                        <label class="input-labels" for="email">Email</label>
+                        <input type="text" name="email" placeholder="batman@gmail.com"/><br>
+
+                        <label class="input-labels" for="password">Password</label>
+                        <input type="password" name="password" placeholder="Secret Password"/><br>
+                        
+                        <section class="form-links">
+                            <button class="btn-main" type="submit">Login</button>
+                            <a class="form-registerbtn" href="/register">Not a Member? Register</a>
+                        </section>
+
+                    </form>
+
+                </section>
+        
+                <section class="login-imgpanel">
+                    <img src="/static/images/loginPage.svg"height="100%" width="100%"/>
+                </section>
+      
+            </section>
+
+        </main>
+
+    </body>
+
+    <!-- Footer 
+    <footer-component></footer-component>-->
+
+</html>
+
+
+

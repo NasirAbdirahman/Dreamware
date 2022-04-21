@@ -1,0 +1,143 @@
+<!--Index View-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8" />
+        <meta name= "viewport" content= "width=device-width, initial-scale=1" />
+
+        <!-- CSS -->
+        {% load static %}   
+        <link rel="stylesheet" href="{% static 'style.css' %}"> 
+        <!-- Custom Components -->
+        <script src="{% static 'components/header.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/footer.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/button.js' %}" type="text/javascript" defer></script>
+
+        <title>DreamWare: Software Community</title>
+    </head>
+
+    <body>
+
+        <!-- Main Nav Bar -->
+        {% if user.is_authenticated %}
+        <header-component text="Dashboard" href="/dashboard"> </header-component>  
+        {% else %}
+        <header-component text="Login/Signup" href="/login"> </header-component>  
+        {% endif %}
+
+            
+        <main>
+            
+            <!-- Main Intro -->
+            <section class="dual-section">
+                <section class="text-panel">
+                    <h1>Dreaming In Software</h1>
+                    <h2 class="subtitle">Join the community that celebrates your journey transitioning into tech.</h2>
+                    <button-component href="/register" text="Join Today"></button-component>
+                </section>
+        
+                <section class="img-panel">
+                    <img src="/static/images/dreamer.svg"height="85%" width="100%"></img> 
+                </section>
+        
+            </section>
+           
+            <!-- Features Section -->
+            <section class="dual-section">
+                <section class="text-panel">
+                    <h1>Create a custom user profile.</h1>
+                    <h2 class="subtitle">Share your story, and reason for transitioning. All the things companies won't see at first glance.</h2>
+                </section>
+        
+                <section class="img-panel">
+                    <img src="/static/images/customProfile.svg" height="80%" width="100%"></img> 
+                </section>
+                <!--Image of Profile card goes here-->
+            </section>
+
+            <section class="dual-section">
+                <section class="text-panel">
+                    <h1>Access your profile via the dashboard.</h1>
+                    <h2 class="subtitle">Edit your contact info, goals,and even view top partner companies that are hiring your skill set.</h2>
+                </section>
+        
+                <section class="img-panel">
+                    <img src="/static/images/curateDashboard.svg" height="80%" width="100%"></img> 
+                </section>
+                <!--Image of Dashboard goes here--MUST TAKE PIC AND CONVERT TO SVG-->
+            </section>
+
+
+            <section class="single-section">
+                <h1>Top companies discover you via search</h1>
+                <h2>Easily connect with our partners that are sourcing software engineers for entry level opportunities.</h2>
+                <!--Image of Company cards go here-->
+            </section>
+      
+
+
+            <!-- Partners Section -->
+            <section class="dual-section">
+                <section class="text-panel">
+                    <h1>Gauge what industry leaders want.</h1>
+                    <h2 class="subtitle">Practice the skills they are looking for in new candidates.</h2>
+                </section>
+        
+                <section class="img-panel">
+                    <img src="/static/images/connectPartners.svg" height="80%" width="100%"></img> 
+                </section>
+                <!--Image of Dashboard goes here--MUST TAKE PIC AND CONVERT TO SVG-->
+            </section>
+        
+
+            <!-- Community Section -->
+            <section class="single-section">
+                <h1>Free Community, Free Connections</h1>
+                <h2>Bringing together everything you need to share your journey.</h2>
+                <!--Image of Company cards go here-->
+            </section>
+            
+            <!-- Pricing Card goes here -->
+            
+
+
+
+            <!-- FAQ Section 
+            <section>
+                <h1>Frequently Asked Questions</h1>
+                <p>Learn A Little More</p>
+            
+                <section>
+                    <h2>General Questions</h2>
+                    <p>Dropdown questions</p>
+                </section>
+
+                <section>
+                    <h2>Subscription & Billing</h2>
+                    <p>Dropdown questions</p>
+                </section>
+
+            </section>-->
+      
+
+        </main>
+
+
+
+        <!-- jQuery must come first, then Popper.js, then the Bootstrap JavaScript plugins.--
+        <-- build:js js/main.js --
+        <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <-- endbuild -->
+
+    </body>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+
+</html>
+

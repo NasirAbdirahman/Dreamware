@@ -1,0 +1,80 @@
+<!--Member Registration View-->
+
+<h1>Register below</h1>
+
+{% for message in messages %}
+    <h2>{{message}}</h2>
+{% endfor %}
+
+<form method="POST" action="/register/">
+    {% csrf_token %}
+
+    <p>First Name:</p>
+    <input type="text" name="firstname"/>
+
+    <p>Last Name:</p>
+    <input type="text" name="lastname"/>
+
+    <p>Email:</p>
+    <input type="email" name="email"/>
+
+    <p>Password:</p>
+    <input type="password" name="password"/>
+
+    <p>Reenter Password:</p>
+    <input type="password" name="password2"/><br>
+
+    <input type="submit"/>
+
+</form>
+
+
+
+
+<!-- LOOPS THRU ALL TEH MEMBERS AND SHOWCASES THEIR SKILLS for Staff ONLY
+{% if user.is_staff %}
+{% for member in members %}
+<div>
+    <h1>{{member.user.first_name}}</h1>
+    <h1>{{member.user.last_name}}</h1>
+    {% for skill in member.skills.all %}
+        <h2>{{skill.name}}</h2>
+    {% endfor %}
+
+
+
+{% endfor %}
+
+{% endif %}
+<!--
+{% for skill in skills %}
+
+    <h1>{{skill.name}}</h1>
+    <h1>{{skill.member.id}}</h1>
+    {% if skill.proficiency_level == 'BG' %}
+    <p>He is a beginner</p>
+    {% else %}
+    <p> {{skill.proficiency_level}}</p>
+    {% endif %}
+</div>
+{% endfor %}
+-->
+<!-- 
+    Creating a form and POST request Steps
+    1-Create the form in the html file
+    2-Create the view that shows the POST data
+        -ensure the name of textarea is matching to the name in 
+        POST['HERE']
+        -pass the variable to the render
+    3-Key from POST data in views.py is passed to new html page
+
+
+
+<form method ="POST" action="user/">
+    <!-- Token needed to pass data-->
+    {% csrf_token %}
+    <!-- name must match the POST data in the view
+    <textarea name="text" rows="25" cols="100"></textarea>
+    <br/>
+    <input type="submit"/>
+</form>-->
