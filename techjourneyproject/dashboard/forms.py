@@ -30,14 +30,13 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 '''User Login Form'''
-#Form Logging in
+#Form for Users/Members to Log in
 class UserLoginForm(forms.ModelForm):
 
     #Fields created for Form
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'batman@gmail.com'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'off','data-toggle': 'password', 'placeholder':"Secret Password"}))
    
-    #loveme12345!@
     class Meta:
         model = Member
         fields = ( 'email',)

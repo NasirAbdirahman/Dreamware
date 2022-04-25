@@ -32,16 +32,14 @@ def index(request):
 #User Login View 
 def view_login(request):
     if request.method == 'POST':
-
         login_form = UserLoginForm(request.POST)
-
         if login_form.is_valid():
             
-            #userobj = login_form.save(commit=False)
-            #print(userobj)
+            #Data from fields
             email = login_form.cleaned_data['email']
             password = login_form.cleaned_data['password']
             
+            #user authenticated
             user = authenticate(request,
                 email=email, 
                 password=password
@@ -57,27 +55,6 @@ def view_login(request):
         login_form = UserLoginForm()
         
     return render(request, 'login.html',{'login_form': login_form})
-
-
-
-'''def view_login(request):
-    #Ensure it is a POST method
-    if request.method == 'POST':
-        #Data collected from registration form
-        email = request.POST['email']
-        password = request.POST['password']
-
-        #authenticate user
-        user = authenticate(request, email=email, password=password)
-        if user is not None:
-            login(request,user)
-            return redirect('/dashboard')
-        else:
-            messages.info(request, 'Email or password is Invalid')
-            return redirect('login')
-    else:
-        return render(request, 'login.html')'''
-
 
 
 #User Logout 
