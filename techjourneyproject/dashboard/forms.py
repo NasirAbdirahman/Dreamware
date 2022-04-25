@@ -37,8 +37,11 @@ class CustomUserChangeForm(UserChangeForm):
 #Form for letting members register as Users
 class CreateMemberForm(forms.ModelForm):
 
-    #Password Fields created for Form
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'off','data-toggle': 'password'}))    
+    #Fields created for Form
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Legal First Name'}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Legal Last Name'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'batman@gmail.com'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'off','data-toggle': 'password', 'placeholder':"Secret Password"}))    
     
     #validation to check PW
     def clean_password(self):

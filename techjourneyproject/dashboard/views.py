@@ -45,7 +45,6 @@ def view_login(request):
         else:
             messages.info(request, 'Email or password is Invalid')
             return redirect('login')
-
     else:
         return render(request, 'login.html')
 

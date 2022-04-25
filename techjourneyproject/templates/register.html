@@ -26,81 +26,44 @@
 
             <section class="register-section">
                 
-                <section class="register-panel">
+                
                     
+                <section>
+                    <img src="/static/images/dreamwareLogo.png" height="25%" width="25%">
+                    <h1 class="register-title">Become A Member</h1>
+                    <p class="register-text">Fill this form out & join the community today</p>
+                </section>
+                
+
+                <form  method="POST" action="/register/" enctype="multipart/form-data" class="register-form">
+                    {% csrf_token %} 
+                    {% for field in createuser_form %}
+                        {% for error in field.errors %}
+                        <p class="invalid-warning">{{error}}</p>
+                        {% endfor %}
+                    {% endfor %}
+                    
+                    <label class="input-labels" for={ createuser_form.first_name }>First Name</label>
+                    {{ createuser_form.first_name }}<br>
+                    
+
+                    <label class="input-labels" for={ createuser_form.last_name }>Last Name</label>
+                    {{ createuser_form.last_name }}<br>
+
+                    <label class="input-labels" for={ createuser_form.email }>Email</label>
+                    {{ createuser_form.email }}
+                    <br>
+
+                    <label class="input-labels" for={ createuser_form.password }>Password</label>
+                    {{ createuser_form.password }}<br>
+
                     <section>
-                        <img src="/static/images/dreamwareLogo.png" height="45%" width="45%">
-                        <h1 class="register-title">Become A Member</h1>
+                        <button class="btn-main" type="submit">Create your profile</button>
+                        <p>Already a Member? <a class="form-registerlink" href="/login">Login</a></p>
                     </section>
-                    
-                                      
-                    <!--<form method="POST" action="/register/">
-                        {% csrf_token %}
-                       
-                        {% for message in messages %}
-                        <p class="invalid-warning">{{message}}</p>
-                        {% endfor %}
-                        
-                        <label class="input-labels" for="firstname">First Name</label>
-                        <input type="text" name="firstname" placeholder="batman@gmail.com" required/><br>
+                
+                </form>
 
-                        <label class="input-labels" for="lastname">Last Name</label>
-                        <input type="text" name="lastname" placeholder="batman@gmail.com"required/><br>
-
-                        <label class="input-labels" for="email">Email</label>
-                        <input type="text" name="email" placeholder="batman@gmail.com"required/><br>
-
-                        <label class="input-labels" for="password">Password</label>
-                        <input type="password" name="password" placeholder="Secret Password"required/><br>
-
-                        <label class="input-labels" for="password2">Reenter Password</label>
-                        <input type="password" name="password2" placeholder="Secret Password"required/><br>
-                        
-                        <section>
-                            <button class="btn-main" type="submit">Create your profile</button>
-                            <p>Already a Member? <a class="form-registerlink" href="/login">Login</a></p>
-                        </section>
-
-                    </form>-->
-
-                    <form  method="POST" action="/register/" enctype="multipart/form-data">
-                        {% csrf_token %} 
-                        {% for field in createuser_form %}
-                            {% for error in field.errors %}
-                            <p class="invalid-warning">{{error}}</p>
-                            {% endfor %}
-                        {% endfor %}
-                       
-                        <label class="input-labels" for={ createuser_form.first_name }>First Name</label>
-                        {{ createuser_form.first_name }}<br>
-                      
-
-                        <label class="input-labels" for={ createuser_form.last_name }>Last Name</label>
-                        {{ createuser_form.last_name }}<br>
-
-                        <label class="input-labels" for={ createuser_form.email }>Email</label>
-                        {{ createuser_form.email }}
-                        <br>
-
-                        <label class="input-labels" for={ createuser_form.password }>Password</label>
-                        {{ createuser_form.password }}<br>
-
-                        <label class="input-labels" for={ createuser_form.password2 }>Renter-Password</label>
-                        {{ createuser_form.password2 }}<br>
-
-                        <section>
-                            <button class="btn-main" type="submit">Create your profile</button>
-                            <p>Already a Member? <a class="form-registerlink" href="/login">Login</a></p>
-                        </section>
-
-                 
-                    </form>
-
-                </section>
-        
-                <section class="register-imgpanel">
-                    <img src="/static/images/community.svg"height="60%" width="100%"/>
-                </section>
       
             </section>
 
