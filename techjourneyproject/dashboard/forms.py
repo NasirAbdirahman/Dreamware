@@ -29,6 +29,19 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 
+'''User Login Form'''
+#Form Logging in
+class UserLoginForm(forms.ModelForm):
+
+    #Fields created for Form
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'batman@gmail.com'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'off','data-toggle': 'password', 'placeholder':"Secret Password"}))
+   
+    #loveme12345!@
+    class Meta:
+        model = Member
+        fields = ( 'email',)
+        #fields = '__all__'
 
 
 '''Forms for users to create, update profiles'''
@@ -58,18 +71,7 @@ class CreateMemberForm(forms.ModelForm):
         if CustomUser.objects.filter(email=email).exists():
             self.add_error('email', "Your email is already in use. Please use another one")
         return email
-    
 
-    '''#validation fn to check for duplicate PWS
-        #REMOVED- due to django hdiding PWS, must validate in model or at CustomUser
-    def clean(self):
-        password = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('password2')
-
-        if password2 != password2:
-            self.add_error('password2', "Your Passwords are not matching")
-    
-        return password'''
 
    
 

@@ -33,7 +33,26 @@
                     </section>
                                       
                    
-                    <form method="POST" action="/login/">
+                    <form method="POST" action="/login/" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        {% for message in messages %}
+                            <p class="invalid-warning">{{message}}</p>
+                        {% endfor %}
+                        
+                        <label class="input-labels" for={ login_form.email }>Email</label>
+                        {{ login_form.email }}<br>
+
+                        <label class="input-labels" for={ login_form.password }>Password</label>
+                        {{ login_form.password }}<br>
+                        
+                        <section>
+                            <button class="btn-main" type="submit">Login</button>
+                            <p>No Account? <a class="form-registerlink" href="/register">Signup</a></p>
+                        </section>
+                    </form>
+
+                   <!-- <form method="POST" action="/login/">
                         {% csrf_token %}
                         
                         {% for message in messages %}
@@ -46,15 +65,15 @@
                         <label class="input-labels" for="password">Password</label>
                         <input type="password" name="password" placeholder="Secret Password" required/><br>
                         
-                        <!--<section class="form-links">
+                        --<section class="form-links">
                             <button class="btn-main" type="submit">Login</button>
                             <a class="form-registerbtn" href="/register">Not a Member? Register</a>
-                        </section>-->
+                        </section>-
                         <section>
                             <button class="btn-main" type="submit">Login</button>
                             <p>No Account? <a class="form-registerlink" href="/register">Signup</a></p>
                         </section>
-                    </form>
+                    </form>-->
 
                 </section>
         

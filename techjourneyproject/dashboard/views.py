@@ -11,7 +11,7 @@ from .models import TechSkills
 from .models import CustomUser
 
 #imported forms
-from .forms import MemberProfileForm, UpdateMemberForm, CreateMemberForm# MemberSkillsForm
+from .forms import MemberProfileForm, UpdateMemberForm, CreateMemberForm, UserLoginForm# MemberSkillsForm
 
 
 '''
@@ -31,6 +31,36 @@ def index(request):
 
 #User Login View 
 def view_login(request):
+    if request.method == 'POST':
+
+        login_form = UserLoginForm(request.POST)
+
+        if login_form.is_valid():
+            
+            #userobj = login_form.save(commit=False)
+            #print(userobj)
+            email = login_form.cleaned_data['email']
+            password = login_form.cleaned_data['password']
+            
+            user = authenticate(request,
+                email=email, 
+                password=password
+            )
+            
+            if user is not None: 
+                login(request,user)
+                return redirect('dashboard')
+            else:
+                messages.info(request, 'Email and/or password is Invalid')
+                return redirect('login')
+    else:
+        login_form = UserLoginForm()
+        
+    return render(request, 'login.html',{'login_form': login_form})
+
+
+
+'''def view_login(request):
     #Ensure it is a POST method
     if request.method == 'POST':
         #Data collected from registration form
@@ -46,7 +76,7 @@ def view_login(request):
             messages.info(request, 'Email or password is Invalid')
             return redirect('login')
     else:
-        return render(request, 'login.html')
+        return render(request, 'login.html')'''
 
 
 
