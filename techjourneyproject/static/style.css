@@ -252,6 +252,42 @@ button{
 
 }
 
+/*
+    Form General Styling
+*/
+
+.invalid-warning{
+    color: red;
+}
+
+
+.errorlist{
+    color: red;
+    list-style: none;
+    margin-top: -10px;
+
+}
+
+input{
+    width: 60%;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    text-align: center;
+    margin-bottom: 2em; 
+    border: 1px solid rgba(121, 81, 169, 0.47);
+}
+
+.input-labels{
+    position: absolute;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: rgb(121, 81, 169);
+    border-radius: 5px;
+    padding: 0.3em; 
+    margin-left: 10px;/*Controls positioning of Labels*/
+    margin-top: -10px;  
+}
+
 
 /*
     Login Page Styling
@@ -271,6 +307,7 @@ button{
     border-right-color: transparent;
     border-left-color: transparent; */
 }
+
 .login-panel{
     width:40%;
     height: auto;
@@ -282,7 +319,7 @@ button{
     border-style: solid;
     border-bottom-color: transparent;
     border-top-color: transparent;
-    border-right-color: #7951a9;
+    border-right-color: #7851a9;
     border-left-color: transparent; 
 
 }
@@ -297,43 +334,55 @@ button{
     margin-top:-1px;
 }
 
-.invalid-warning{
-    color: red;
+.form-registerlink{
+    font-size: inherit;
+    color:#7851a9;
 }
 
-input{
-    width: 60%;
-    padding-top: 0.7em;
-    padding-bottom: 0.7em;
-    text-align: center;
-    margin-bottom: 2em; 
-    border: 1px solid rgba(121, 81, 169, 0.47);
-}
 
-.input-labels{
-    position: absolute;
-    font-size: 12px;
-    color: #ffffff;
-    background-color: rgb(121, 81, 169);
-    padding: 0.3em; 
-    margin-left: 10px;/*Controls positioning of Labels*/
-    margin-top: -10px;
+/*
+    Register Page
+*/
+
+.register-section {
+    display:flex;
+    flex-direction: row;
+    width:100%;
+   /* background: rgba(94, 0, 155, 0.07);
+    backdrop-filter: blur(5px);*/
     
+    /*Border Styling for Section
+    border-style: solid;
+    /*border-bottom-color: #D9CDE7;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent; */
+}
+.register-panel{
+    width:40%;
+    height: auto;
+    margin-top: 2em;
+    align-self: center;
+    text-align: center;
+    padding-top: 7%;
+    padding-bottom: 10%;
+    border-style: solid;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-right-color: #7851a9;
+    border-left-color: transparent; 
+
 }
 
-.form-links{
-    padding-top: 1em;
-    width: 100%;
+.register-imgpanel{
+    width: 60%;
+    height: auto;
+    margin-top: 2em; 
 }
 
-.form-registerbtn{
-    padding-left: 1em;
-    font-size: 16px;
-    text-decoration: underline;
+.register-title{
+    margin-top:-1px;
 }
-
-
-
 
 
 /*

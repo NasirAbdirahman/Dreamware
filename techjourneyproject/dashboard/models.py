@@ -1,4 +1,4 @@
-from email.policy import default
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
@@ -15,15 +15,28 @@ from .managers import CustomUserManager
 #CustomUser class that subclasses AbstractBaseUser with Extra fields
 class CustomUser(AbstractBaseUser, PermissionsMixin):
 
+    #Email Validator
+    def validate_email(value):
+        #list of emails to accept
+        valid_emails = [
+            '@gmail.com',
+            '@outlook.com',
+            '@yahoo.com',
+            '@protonmail.com',
+            '@aol.com',
+            '@icloud.com',
+        ]
+
+        for x in valid_emails:
+            if x in value:
+                return value
+            else:
+                raise ValidationError("Email Field only accepts gmail, outlook, yahoo, aol and icloud addressees.")
+
     #Disable a field from AbstractBaseUser
     username = None
 
-    email = models.EmailField(
-        'Email address',
-        unique = True,
-        error_messages = {'unique': 'This email already exists.'}
-    )
-
+    email = models.EmailField(blank = False, unique = True, validators=[validate_email])
     #extra fields declared here
     first_name = models.CharField(blank = False,max_length=50)
     last_name = models.CharField(blank = False,max_length=50)
@@ -38,8 +51,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # required--can't create superuser
     REQUIRED_FIELDS = ['first_name','last_name'] 
 
-    #Specifies that all objects for the class come from CUstomUserManager
+    #Specifies that all objects for the class come from CustomUserManager
     objects = CustomUserManager() 
+    
     
     def __str__(self):
         return self.email 

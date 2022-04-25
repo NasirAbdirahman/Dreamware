@@ -1,21 +1,24 @@
+from xml.dom import ValidationErr
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, ReadOnlyPasswordHashField
 from .models import CustomUser, Member, TechSkills
 from django import forms
+from django.core.exceptions import ValidationError
+from django.contrib.auth.password_validation import validate_password
 
 
-'''Forms for Admin to create and update users'''
+'''Forms for Admin to create and update users from Admin Panel'''
 
 #A form for creating new users,Includes all the fields
 class CustomUserCreationForm(UserCreationForm):
+    
 
     class Meta:
         model = CustomUser
         fields = ('email','first_name','last_name')
-        #fields = ('email','first_name','last_name','location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus')
+
 
 # A form for updating users. 
 # Includes all the fields but replaces password field with admin's disabled password hash display field.
- 
 class CustomUserChangeForm(UserChangeForm):
 
     password = ReadOnlyPasswordHashField()
@@ -28,10 +31,54 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 
-'''Forms for users to update their profiles'''
+'''Forms for users to create, update profiles'''
+
+
+#Form for letting members register as Users
+class CreateMemberForm(forms.ModelForm):
+
+    #Password Fields created for Form
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'off','data-toggle': 'password'}))    
+    
+    #validation to check PW
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        validate_password(password)
+        return password
+
+
+    #validation to check reused email-(OVERRIDES DEFAULT IN MODEL)
+    def clean_email(self):
+        # extract the fields from the data
+        email = self.cleaned_data['email']
+
+        if CustomUser.objects.filter(email=email).exists():
+            self.add_error('email', "Your email is already in use. Please use another one")
+        return email
+    
+
+    '''#validation fn to check for duplicate PWS
+        #REMOVED- due to django hdiding PWS, must validate in model or at CustomUser
+    def clean(self):
+        password = self.cleaned_data.get('password')
+        password2 = self.cleaned_data.get('password2')
+
+        if password2 != password2:
+            self.add_error('password2', "Your Passwords are not matching")
+    
+        return password'''
+
+   
+
+    class Meta:
+        model = CustomUser
+        fields = ('first_name','last_name', 'email')
+        #fields = '__all__'
+
+
 
 # A form for letting members update their user data 
-class UserForm(forms.ModelForm):
+class UpdateMemberForm(forms.ModelForm):
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=50)
     email = forms.EmailField()
@@ -42,17 +89,18 @@ class UserForm(forms.ModelForm):
         #fields = '__all__'
 
 
-# A form for letting members update their profile data
+
+# Member Model Form - A form for letting members update their profile data
 class MemberProfileForm(forms.ModelForm):
     picture = forms.ImageField() #upload to images folder in database
-    location = forms.CharField(max_length=100)
+    location = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder': 'Location'}))
     personal_story = forms.Textarea()
-    education = forms.CharField(max_length=100)
-    linkedin = forms.CharField(max_length=100)
-    github = forms.CharField(max_length=100)
-    portfolio = forms.CharField(max_length=100)
+    education = forms.CharField(max_length=50)
+    linkedin = forms.CharField(max_length=50)
+    github = forms.CharField(max_length=50)
+    portfolio = forms.CharField(max_length=50)
     interests = forms.CheckboxSelectMultiple()
-    previous_occupation = forms.CharField(max_length=100)
+    previous_occupation = forms.CharField(max_length=50)
     availability = forms.CheckboxSelectMultiple
     workstatus = forms.CheckboxSelectMultiple
     skills = forms.ModelMultipleChoiceField(queryset=TechSkills.objects.all(),widget=forms.CheckboxSelectMultiple)

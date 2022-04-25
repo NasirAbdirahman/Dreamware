@@ -1,0 +1,116 @@
+<!--Member UpdateProfile View-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8" />
+        <meta name= "viewport" content= "width=device-width, initial-scale=1" />
+
+        <!-- CSS -->
+        {% load static %}   
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        
+        <!-- Custom Components -->
+        <script src="{% static 'components/header.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/footer.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/button.js' %}" type="text/javascript" defer></script>
+
+        <title>DreamWare: Edit Profile Page</title>
+    </head>
+
+    <body>
+
+        <main>
+            <a href="/"><img src="/static/images/dreamwareLogo.png" height="10%" width="10%"></a>
+
+            <section class="register-section">
+                
+                <section class="register-panel">
+                    
+                    <section>
+                        <img src="/static/images/dreamwareLogo.png" height="45%" width="45%">
+                        <h1 class="register-title">Edit Your Profile</h1>
+                    </section>
+                    
+                                      
+                    
+                    <form  method="POST" enctype="multipart/form-data">
+                        {% csrf_token %} 
+                        <label class="input-labels" for={ user_form.first_name }>First Name</label>
+                        {{ user_form.first_name }}<br>
+
+                        Last Name: {{ user_form.last_name }} <br> 
+                        Email: {{ user_form.email }} <br> 
+
+                        Picture: {{ profile_form.picture }} <br>
+                        Location: {{ profile_form.location }} <br>
+                        Personal Story:{{ profile_form.personal_story }} <br>
+                        Education: {{ profile_form.education }} <br>
+                        Linkedin: {{ profile_form.linkedin }}  <br>
+                        Github: {{ profile_form.github }}  <br>
+                        Portfolio: {{ profile_form.portfolio }}  <br>
+                        Previous Occupation: {{ profile_form.previous_occupation }}  <br>
+                        Interests: {{ profile_form.interests }}  <br>
+                        Availability: {{ profile_form.availability }}  <br>
+                        Work Status: {{ profile_form.workstatus }}  <br>
+                        Tech Skills: {{ profile_form.skills }} <br><br><br>
+
+                            
+                        <input type="submit" value="Save Changes" name="save" />
+                        <input type="reset" value="Cancel" name="cancel" />
+                        <br/>
+                    </form>
+
+                </section>
+        
+                <section class="register-imgpanel">
+                    <img src="/static/images/community.svg"height="60%" width="100%"/>
+                </section>
+      
+            </section>
+
+        </main>
+
+    </body>
+
+    <!-- Footer 
+    <footer-component></footer-component>-->
+
+</html>
+<!--
+{% for message in messages %}
+    <h2>{{message}}</h2>
+{% endfor %}
+<h1>Edit Profile Page</h1>
+
+<h1>Welcome {{user.first_name}}, this is your profile</h1>
+
+<form  method="POST" enctype="multipart/form-data">
+    {% csrf_token %} 
+    First Name: {{ user_form.first_name }}<br>
+    Last Name: {{ user_form.last_name }} <br> 
+    Email: {{ user_form.email }} <br> 
+
+    Picture: {{ profile_form.picture }} <br>
+    Location: {{ profile_form.location }} <br>
+    Personal Story:{{ profile_form.personal_story }} <br>
+    Education: {{ profile_form.education }} <br>
+    Linkedin: {{ profile_form.linkedin }}  <br>
+    Github: {{ profile_form.github }}  <br>
+    Portfolio: {{ profile_form.portfolio }}  <br>
+    Previous Occupation: {{ profile_form.previous_occupation }}  <br>
+    Interests: {{ profile_form.interests }}  <br>
+    Availability: {{ profile_form.availability }}  <br>
+    Work Status: {{ profile_form.workstatus }}  <br>
+    Tech Skills: {{ profile_form.skills }} <br><br><br>
+
+         
+    <input type="submit" value="Save Changes" name="save" />
+    <input type="reset" value="Cancel" name="cancel" />
+    <br/>
+</form>
+<a href="/logout/">Logout</a>
+<a href="/dashboard/">Dashboard</a>
+
+-->

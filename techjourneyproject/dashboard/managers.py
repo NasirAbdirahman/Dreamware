@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 from django.contrib.auth.base_user import BaseUserManager
 #from django.utils.translation import ugettext_lazy as _ #Allows me to mark as a translation string
 
@@ -13,10 +14,9 @@ class CustomUserManager(BaseUserManager):
     #Create and save a User with the given email and password.
     def create_user(self, email,first_name,last_name,password, **extra_fields):
     
-        if not email:
-            raise ValueError('The Email must be set')
+        #if not email:
+        #   raise ValueError("Email must be set")
         email = self.normalize_email(email)
-
         #Extra fields added to model
         user = self.model(email=email,first_name=first_name,last_name=last_name, **extra_fields)
         user.set_password(password)

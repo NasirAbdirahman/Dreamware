@@ -1,80 +1,114 @@
 <!--Member Registration View-->
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Register below</h1>
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8" />
+        <meta name= "viewport" content= "width=device-width, initial-scale=1" />
 
-{% for message in messages %}
-    <h2>{{message}}</h2>
-{% endfor %}
+        <!-- CSS -->
+        {% load static %}   
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        
+        <!-- Custom Components -->
+        <script src="{% static 'components/header.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/footer.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/button.js' %}" type="text/javascript" defer></script>
 
-<form method="POST" action="/register/">
-    {% csrf_token %}
+        <title>DreamWare: Register Page</title>
+    </head>
 
-    <p>First Name:</p>
-    <input type="text" name="firstname"/>
+    <body>
 
-    <p>Last Name:</p>
-    <input type="text" name="lastname"/>
+        <main>
+            <a href="/"><img src="/static/images/dreamwareLogo.png" height="10%" width="10%"></a>
 
-    <p>Email:</p>
-    <input type="email" name="email"/>
+            <section class="register-section">
+                
+                <section class="register-panel">
+                    
+                    <section>
+                        <img src="/static/images/dreamwareLogo.png" height="45%" width="45%">
+                        <h1 class="register-title">Become A Member</h1>
+                    </section>
+                    
+                                      
+                    <!--<form method="POST" action="/register/">
+                        {% csrf_token %}
+                       
+                        {% for message in messages %}
+                        <p class="invalid-warning">{{message}}</p>
+                        {% endfor %}
+                        
+                        <label class="input-labels" for="firstname">First Name</label>
+                        <input type="text" name="firstname" placeholder="batman@gmail.com" required/><br>
 
-    <p>Password:</p>
-    <input type="password" name="password"/>
+                        <label class="input-labels" for="lastname">Last Name</label>
+                        <input type="text" name="lastname" placeholder="batman@gmail.com"required/><br>
 
-    <p>Reenter Password:</p>
-    <input type="password" name="password2"/><br>
+                        <label class="input-labels" for="email">Email</label>
+                        <input type="text" name="email" placeholder="batman@gmail.com"required/><br>
 
-    <input type="submit"/>
+                        <label class="input-labels" for="password">Password</label>
+                        <input type="password" name="password" placeholder="Secret Password"required/><br>
 
-</form>
+                        <label class="input-labels" for="password2">Reenter Password</label>
+                        <input type="password" name="password2" placeholder="Secret Password"required/><br>
+                        
+                        <section>
+                            <button class="btn-main" type="submit">Create your profile</button>
+                            <p>Already a Member? <a class="form-registerlink" href="/login">Login</a></p>
+                        </section>
 
+                    </form>-->
 
+                    <form  method="POST" action="/register/" enctype="multipart/form-data">
+                        {% csrf_token %} 
+                        {% for field in createuser_form %}
+                            {% for error in field.errors %}
+                            <p class="invalid-warning">{{error}}</p>
+                            {% endfor %}
+                        {% endfor %}
+                       
+                        <label class="input-labels" for={ createuser_form.first_name }>First Name</label>
+                        {{ createuser_form.first_name }}<br>
+                      
 
+                        <label class="input-labels" for={ createuser_form.last_name }>Last Name</label>
+                        {{ createuser_form.last_name }}<br>
 
-<!-- LOOPS THRU ALL TEH MEMBERS AND SHOWCASES THEIR SKILLS for Staff ONLY
-{% if user.is_staff %}
-{% for member in members %}
-<div>
-    <h1>{{member.user.first_name}}</h1>
-    <h1>{{member.user.last_name}}</h1>
-    {% for skill in member.skills.all %}
-        <h2>{{skill.name}}</h2>
-    {% endfor %}
+                        <label class="input-labels" for={ createuser_form.email }>Email</label>
+                        {{ createuser_form.email }}
+                        <br>
 
+                        <label class="input-labels" for={ createuser_form.password }>Password</label>
+                        {{ createuser_form.password }}<br>
 
+                        <label class="input-labels" for={ createuser_form.password2 }>Renter-Password</label>
+                        {{ createuser_form.password2 }}<br>
 
-{% endfor %}
+                        <section>
+                            <button class="btn-main" type="submit">Create your profile</button>
+                            <p>Already a Member? <a class="form-registerlink" href="/login">Login</a></p>
+                        </section>
 
-{% endif %}
-<!--
-{% for skill in skills %}
+                 
+                    </form>
 
-    <h1>{{skill.name}}</h1>
-    <h1>{{skill.member.id}}</h1>
-    {% if skill.proficiency_level == 'BG' %}
-    <p>He is a beginner</p>
-    {% else %}
-    <p> {{skill.proficiency_level}}</p>
-    {% endif %}
-</div>
-{% endfor %}
--->
-<!-- 
-    Creating a form and POST request Steps
-    1-Create the form in the html file
-    2-Create the view that shows the POST data
-        -ensure the name of textarea is matching to the name in 
-        POST['HERE']
-        -pass the variable to the render
-    3-Key from POST data in views.py is passed to new html page
+                </section>
+        
+                <section class="register-imgpanel">
+                    <img src="/static/images/community.svg"height="60%" width="100%"/>
+                </section>
+      
+            </section>
 
+        </main>
 
+    </body>
 
-<form method ="POST" action="user/">
-    <!-- Token needed to pass data-->
-    {% csrf_token %}
-    <!-- name must match the POST data in the view
-    <textarea name="text" rows="25" cols="100"></textarea>
-    <br/>
-    <input type="submit"/>
-</form>-->
+    <!-- Footer 
+    <footer-component></footer-component>-->
+
+</html>
