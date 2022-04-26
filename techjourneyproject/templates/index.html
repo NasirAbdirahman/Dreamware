@@ -22,9 +22,9 @@
 
         <!-- Main Nav Bar -->
         {% if user.is_authenticated %}
-        <header-component text="Dashboard" href="/dashboard"> </header-component>  
+            <header-component loginHref="/logout" loginText="Logout" joinHref="/dashboard" joinText="Dashboard"> </header-component>  
         {% else %}
-        <header-component text="Login/Signup" href="/login"> </header-component>  
+            <header-component loginHref="/login" loginText="Login" joinHref="/register" joinText="Sign-Up"> </header-component>  
         {% endif %}
 
             

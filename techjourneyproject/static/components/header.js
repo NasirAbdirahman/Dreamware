@@ -22,8 +22,10 @@ class Header extends HTMLElement {
     //shadowRoot.appendChild(headerTemplate.content);
 
     //variables passed in from Django template language
-    var href = this.attributes.href.value
-    var text = this.attributes.text.value
+    var loginHref = this.attributes.loginhref.value
+    var loginText = this.attributes.logintext.value
+    var joinHref = this.attributes.joinHref.value
+    var joinText = this.attributes.joinText.value
 
     //Custom Html
     this.innerHTML = `
@@ -35,7 +37,8 @@ class Header extends HTMLElement {
           <ul class="nav-links">
             <ol><a href="/"> Companies</a> </ol>
             <ol><a href="/"> Features</a> </ol>
-            <ol><a class="nav-btn" href=${href}>${text}</a></ol>
+            <ol><a href=${loginHref} class="authenticate-link"> ${loginText}</a> </ol>
+            <ol><a class="nav-btn" href=${joinHref}>${joinText}</a></ol>
           </ul>
 
         </nav>

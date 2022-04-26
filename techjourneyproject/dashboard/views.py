@@ -63,13 +63,13 @@ def view_logout(request):
     return redirect('/')
 
 
-
 #Dashboard page View
 @login_required(login_url='/login/') 
 def dashboard(request):
-    members = Member.objects.all()
-    skills = TechSkills.objects.all()
-    return render(request, 'dashboard.html',{'members' : members, 'skills': skills})
+    users = Member.objects.filter(user=request.user)
+    #members = Member.objects.all()
+    #skills = TechSkills.objects.all()
+    return render(request, 'dashboard.html',{'users': users})#{'members' : members ,'skills': skills})
 
 
 
