@@ -61,9 +61,23 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 #Skills Model
 class TechSkills(models.Model):
-
+    #Members Current Work Status
+    '''SKILL_LEVEL = (
+        ('EX', 'Exposed'),
+        ('FM', 'Familiar'),
+        ('PR', 'Proficient')
+    )
+    SKILLS = (
+        ('RE', 'React.JS')
+        etc...
+    )
+    
+    '''
 
     name = models.CharField(max_length=65)
+    #TO WORK TRY 
+    # name = models.MultiSelectField(choices=SKILLS)
+    #skill_level = models.CharField(max_length=2, choices=SKILL_LEVEL)
     
     #return all fields or just return specifics
     def __str__(self):
@@ -121,6 +135,10 @@ class Member(models.Model):
     def __str__(self):
         return self.email
 
+    def interests_list(self):
+        list= str(self.interests)
+        list_ = list.split(',')
+        return list_
 
 
 

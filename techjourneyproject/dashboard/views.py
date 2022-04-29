@@ -67,6 +67,7 @@ def view_logout(request):
 @login_required(login_url='/login/') 
 def dashboard(request):
     users = Member.objects.filter(user=request.user)
+    #interests = Member.objects.filter(interests = request.user.member.get_interests_display)
     #members = Member.objects.all()
     #skills = TechSkills.objects.all()
     return render(request, 'dashboard.html',{'users': users})#{'members' : members ,'skills': skills})
@@ -79,18 +80,22 @@ def profile(request):
 
     if request.method == 'POST':
         user_form = UpdateMemberForm(request.POST, instance=request.user)
-        profile_form = MemberProfileForm(request.POST, instance=request.user.member)
-
+        profile_form = MemberProfileForm(request.POST,request.FILES, instance=request.user.member, )
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
 
             messages.success(request, 'Your profile was updated successfully')
             return redirect('profile')
-        #else:
+        else:
             # Redirect back to the same page if the data
             # was invalid
-            #return render(request, "memberProfile.html", {'user_form': user_form,'profile_form': profile_form} ) 
+            return render(request, "memberProfile.html", 
+                {
+                'user_form': user_form,
+                'profile_form': profile_form,
+                }
+            ) 
     else:
         user_form = UpdateMemberForm(instance=request.user)
         profile_form = MemberProfileForm(instance=request.user.member)
@@ -99,7 +104,7 @@ def profile(request):
     return render(request, 'memberProfile.html',
         {
             'user_form': user_form,
-            'profile_form': profile_form
+            'profile_form': profile_form,
         }
     )
 

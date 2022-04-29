@@ -1,24 +1,97 @@
 <!--Member Dashboard View-->
 
-<h1>Welcome {{user.first_name}}, this is your dashboard</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<h2>Info on you</h2>
-{{user.last_name}}<br>
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8" />
+        <meta name= "viewport" content= "width=device-width, initial-scale=1" />
 
-{{user.member.email}}<br>
-<img src="/media/{{user.member.picture}}"  width="50" height="50">
-<br>
-{{user.member.location}}<br>
-{{user.member.personalstory}}<br>
-{{user.member.education}}<br>
+        <!-- CSS -->
+        {% load static %}   
+        <link rel="stylesheet" href="{% static 'style.css' %}"> 
+        <!-- Custom Components -->
+        <script src="{% static 'components/header.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/footer.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/button.js' %}" type="text/javascript" defer></script>
 
-TechSkills:
-{% for skill in user.member.skills.all %}
-    <h2>{{skill}}</h2>
-{% endfor %}
+        <title>DreamWare: Software Community</title>
+    </head>
 
+    <body>
 
-<a href="/logout/">Logout</a>
+        <!-- Main Nav Bar -->
+        <header-component 
+            linkOneHref="/" linkOneText="Home"
+            linkTwoHref="/" linkTwoText="Companies"
+            loginHref="/logout" loginText="Logout" 
+            btnHref="/profile" btnText="Profile" 
+        >
+        </header-component>  
+       
 
-<a href="/profile/">Edit Profile</a>
+           
 
+            
+        <main>
+
+            <!-- Main Intro --> 
+            <section class="dashboard-main">
+                <section class="dashboard-lCol">
+                    
+                    <!--Identifiable Info & Links -->
+                        <img src="/media/{{user.member.picture}}"  width="50" height="50"><br>
+                        {{user.first_name}}, {{user.last_name}}
+                        {{user.member.education}}<br>
+                        {{user.member.location}}<br>
+                        {{user.member.email}}<br>
+                        {{user.member.linkedin}}<br>
+                        {{user.member.github}}<br>
+                        {{user.member.portfolio}}<br>
+                        <!--{{user.member.interests}}-->
+                        <!--Interests looped thru-->
+                        {% for x in user.member.interests_list %}
+                           {% if 'Front-End' in x %}
+                           <p class="frontend">{{x}}</p>
+                           {% else %}
+                            {{x}}
+                            {% endif %}
+                        {% endfor %}
+                        
+                    <!--End-->
+
+                    I can start in: {{user.member.get_availability_display}}<br>
+                    I am:{{user.member.get_workstatus_display}}<br>
+                    
+
+                </section>
+
+                <section class="dashboard-rCol">
+                    <!--Personal Goals
+                        TBD
+                    -->
+
+                    <!--Personal Story-->
+                    {{user.member.personal_story}}<br>
+                    {{user.member.previous_occupation}}<br>
+
+                    TechSkills:
+                    {% for skill in user.member.skills.all %}
+                        <p>{{skill}}</p>
+                    {% endfor %}
+
+                </section>
+
+        
+            </section>
+           
+           
+        </main>
+
+    </body>
+
+    <!-- Footer 
+    <footer-component></footer-component>-->
+
+</html>

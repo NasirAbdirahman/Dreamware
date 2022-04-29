@@ -22,9 +22,21 @@
 
         <!-- Main Nav Bar -->
         {% if user.is_authenticated %}
-            <header-component loginHref="/logout" loginText="Logout" joinHref="/dashboard" joinText="Dashboard"> </header-component>  
+            <header-component 
+                linkOneHref="/" linkOneText="Companies"
+                linkTwoHref="/" linkTwoText="Features"
+                loginHref="/logout" loginText="Logout" 
+                btnHref="/dashboard" btnText="Dashboard" 
+            >
+            </header-component>  
         {% else %}
-            <header-component loginHref="/login" loginText="Login" joinHref="/register" joinText="Sign-Up"> </header-component>  
+            <header-component 
+                linkOneHref="/" linkOneText="Companies"
+                linkTwoHref="/" linkTwoText="Features"
+                loginHref="/login" loginText="Login" 
+                btnHref="/register" btnText="Sign-Up"
+            > 
+            </header-component>  
         {% endif %}
 
             

@@ -22,10 +22,14 @@ class Header extends HTMLElement {
     //shadowRoot.appendChild(headerTemplate.content);
 
     //variables passed in from Django template language
+    var linkOneText = this.attributes.linkOneText.value
+    var linkOneHref = this.attributes.linkOneHref.value
+    var linkTwoText = this.attributes.linkTwoText.value
+    var linkTwoHref = this.attributes.linkTwoHref.value
     var loginHref = this.attributes.loginhref.value
     var loginText = this.attributes.logintext.value
-    var joinHref = this.attributes.joinHref.value
-    var joinText = this.attributes.joinText.value
+    var btnHref = this.attributes.btnHref.value
+    var btnText = this.attributes.btnText.value
 
     //Custom Html
     this.innerHTML = `
@@ -35,10 +39,10 @@ class Header extends HTMLElement {
           <a href="/"><img src="/static/images/dreamwareLogo.png" height="18%" width="18%"></a>
 
           <ul class="nav-links">
-            <ol><a href="/"> Companies</a> </ol>
-            <ol><a href="/"> Features</a> </ol>
+            <ol><a href=${linkOneHref}> ${linkOneText}</a> </ol>
+            <ol><a href=${linkTwoHref}> ${linkTwoText}</a> </ol>
             <ol><a href=${loginHref} class="authenticate-link"> ${loginText}</a> </ol>
-            <ol><a class="nav-btn" href=${joinHref}>${joinText}</a></ol>
+            <ol><a class="nav-btn" href=${btnHref}>${btnText}</a></ol>
           </ul>
 
         </nav>

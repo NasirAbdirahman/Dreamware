@@ -35,8 +35,13 @@
                     
                                       
                     
-                    <form  method="POST" enctype="multipart/form-data">
+                    <form  method="POST" enctype="multipart/form-data" >
                         {% csrf_token %} 
+
+                        {% for message in messages %}
+                            <p class="invalid-warning">{{message}}</p>
+                        {% endfor %}
+
                         <label class="input-labels" for={ user_form.first_name }>First Name</label>
                         {{ user_form.first_name }}<br>
 
@@ -63,10 +68,7 @@
                     </form>
 
                 </section>
-        
-                <section class="register-imgpanel">
-                    <img src="/static/images/community.svg"height="60%" width="100%"/>
-                </section>
+
       
             </section>
 

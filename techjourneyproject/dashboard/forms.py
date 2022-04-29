@@ -43,7 +43,7 @@ class UserLoginForm(forms.ModelForm):
         #fields = '__all__'
 
 
-'''Forms for users to create, update profiles'''
+'''Forms for users to create, update Member profiles'''
 
 
 #Form for letting members register as Users
@@ -108,12 +108,12 @@ class MemberProfileForm(forms.ModelForm):
     availability = forms.CheckboxSelectMultiple
     workstatus = forms.CheckboxSelectMultiple
     skills = forms.ModelMultipleChoiceField(queryset=TechSkills.objects.all(),widget=forms.CheckboxSelectMultiple)
-  
     
     class Meta:
         model = Member
         fields = (
-            'location','picture','personal_story','education','linkedin',
+            'picture',
+            'location','personal_story','education','linkedin',
             'github','portfolio','previous_occupation','availability',
             'workstatus','interests','skills'
             )
