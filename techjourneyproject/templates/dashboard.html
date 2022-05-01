@@ -37,50 +37,144 @@
         <main>
 
             <!-- Main Intro --> 
-            <section class="dashboard-main">
+            <section class="dashboard-container">
+
+                <!--Left Column-->
                 <section class="dashboard-lCol">
                     
-                    <!--Identifiable Info & Links -->
-                        <img src="/media/{{user.member.picture}}"  width="50" height="50"><br>
-                        {{user.first_name}}, {{user.last_name}}
-                        {{user.member.education}}<br>
-                        {{user.member.location}}<br>
-                        {{user.member.email}}<br>
-                        {{user.member.linkedin}}<br>
-                        {{user.member.github}}<br>
-                        {{user.member.portfolio}}<br>
-                        <!--{{user.member.interests}}-->
-                        <!--Interests looped thru-->
-                        {% for x in user.member.interests_list %}
-                           {% if 'Front-End' in x %}
-                           <p class="frontend">{{x}}</p>
-                           {% else %}
-                            {{x}}
-                            {% endif %}
-                        {% endfor %}
-                        
-                    <!--End-->
+                    <!--Profile Info -->
+                    <section class="profileSection"> 
+                        <img class="profileImg"src="/media/{{user.member.picture}}"  width="100px" height="100px"><br>
+                        <section class="profileText">
+                            <p class="dashboard-text">{{user.first_name}}, {{user.last_name}}</p>
+                            <p class="dashboard-text">{{user.member.education}}</p>
+                            <p class="dashboard-text">{{user.member.location}}</p>    
+                        </section>
+                    </section>
 
-                    I can start in: {{user.member.get_availability_display}}<br>
-                    I am:{{user.member.get_workstatus_display}}<br>
-                    
+                    <!--Contact Links -->
+                    <section class="contactSection">
+                        <p class="dashboard-title">Contacts</p>
+                        <section class="contactLinks">
+                            <div class="contactCards">
+                                <a href="mailto:{{user.member.email}}" aria-label="Member's Email"><img src="/static/images/dreamwareLogo.png" height="70px" width="70px"></a>
+                            </div>
+                            <div class="contactCards">
+                                <a href="{{user.member.linkedin}}" target="blank" aria-label="Member's LinkedIn"><img src="/static/images/dreamwareLogo.png" height="70px" width="70px"></a>
+                            </div>
+                            <div class="contactCards">
+                                <a href="{{user.member.github}}" target="blank" aria-label="Member's Github"><img src="/static/images/dreamwareLogo.png" height="70px" width="70px"></a>
+                            </div>
+                            <div class="contactCards">
+                                <a href="{{user.member.portfolio}}" target="blank" aria-label="Member's Portfolio"><img src="/static/images/dreamwareLogo.png" height="70px" width="70px"></a>
+                            </div>
+                            <div class="contactCards">
+                                <a href="{{user.member.portfolio}}" target="blank" aria-label="Member's Resume"><img src="/static/images/dreamwareLogo.png" height="70px" width="70px"></a>
+                            </div>
+                        </section>
+                    </section>
+
+                    <!--Interests Section -->
+                    <section class="interestsSection">
+                        <p class="dashboard-title">Interests</p>
+                        <section class="interestsContainer">
+                            {% for x in user.member.interests_list %}
+                                <div class="interestsCards">
+                                    <p class="dashboard-text">{{x}}</p>
+                                </div>
+                                <!--{% if 'Front-End' in x %}
+                                <p class="frontend">{{x}}</p>
+                                {% else %}
+                                {{x}}
+                                {% endif %}-->
+                            {% endfor %}
+                        </section>
+                    </section>
+                        
+                    <!--Status Section -->
+                    <section class="statusSection">
+                        <p class="dashboard-title">Status</p>
+                        <section class="statusContainer">
+                            <p class="dashboard-text">Relocation: {{user.member.get_availability_display}}</p>
+                            <p class="dashboard-text">Availability: {{user.member.get_availability_display}}</p>
+                            <p class="dashboard-text">Work Status: {{user.member.get_workstatus_display}}</p>
+                        </section>
+                    </section>
 
                 </section>
 
+
+                <!--Right Column-->
                 <section class="dashboard-rCol">
-                    <!--Personal Goals
-                        TBD
-                    -->
+                    
+                    <!--Personal Summaries-->
+                    <section class="personalSection">
 
-                    <!--Personal Story-->
-                    {{user.member.personal_story}}<br>
-                    {{user.member.previous_occupation}}<br>
+                        <!--Personal Goals-->
+                        <section class="rowOne-lCol">
+                            <p class="dashboard-title">Personal Goal</p>
+                            <p class="dashboard-text"> {{user.member.personal_story}}</p>
+                        </section>
 
-                    TechSkills:
-                    {% for skill in user.member.skills.all %}
-                        <p>{{skill}}</p>
-                    {% endfor %}
+                        <!--Personal Story-->
+                        <section class="rowOne-rCol">
+                            <p class="dashboard-title">My Story</p>
+                            <p class="dashboard-text"> Previous Occupation: {{user.member.previous_occupation}}</p>
+                            <p class="dashboard-text"> {{user.member.personal_story}}</p>
+                        </section>
 
+                    </section>
+
+                    <!--Tech Skills-->
+                    <section class="skillsSection">
+                        
+                        <p class="dashboard-title">Technology Skills</p>
+                        <section class="techskills">
+                           
+                            {% for skill in user.member.skills.all %}
+                            
+                                <div class="skill-circle">
+                                    <svg>
+                                        <circle cx="50" cy="50" r="50"></circle>
+                                        <circle cx="50" cy="50" r="50"></circle>
+                                    </svg>
+
+                                    <div class="text">
+                                        {{skill}}
+                                    </div>
+                                </div>
+                            
+                            {% endfor %}
+
+                        </section>
+
+                    </section>
+
+                    <!--Top Companies-->
+                    <section class="skillsSection">
+                    
+                        <p class="dashboard-title">Top Companies</p>
+                        <section class="techskills">
+                            
+                            {% for skill in user.member.skills.all %}
+                            
+                                <div class="skill-circle">
+                                    <svg>
+                                        <circle cx="50" cy="50" r="50"></circle>
+                                        <circle cx="50" cy="50" r="50"></circle>
+                                    </svg>
+
+                                    <div class="text">
+                                        {{skill}}
+                                    </div>
+                                </div>
+                            
+                            {% endfor %}
+
+                        </section>
+
+                    </section>
+                   
                 </section>
 
         

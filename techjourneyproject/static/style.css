@@ -3,9 +3,9 @@ Secondary COlor:#D9CDE7-(217, 205, 231)*/
 
 html,body{
     /*background-color: blue;*/
-    /*display:flex
-    background-color: #ffffff;*/
-    width: auto;
+    /*display:flex*/
+    background-color: #ffffff;
+    /*width: auto;/*100vw*/
 }
 
 
@@ -59,8 +59,11 @@ a{
 }
 
 
+/*------------------------------------------------------------------------*/
+
+
 /*
-    Dual-Section styling
+   Home Page styling
 */
 
 .dual-section {
@@ -98,19 +101,13 @@ a{
 }
 
 
-
-/*
-    Single-Section styling
-*/
-
-.single-section {
-    
+.single-section {  
     padding-top: 8em;
     text-align: center;
-
 }
 
 
+/*------------------------------------------------------------------------*/
 
 
 /*
@@ -137,7 +134,7 @@ header {
   border-bottom-color: #7851A9;
   border-left-color: transparent;
   border-right-color: transparent;
-  /*z-index: 100000;*/
+  z-index: 100000;
   
 }
 
@@ -164,7 +161,7 @@ header {
 }
 
 
-
+/*------------------------------------------------------------------------*/
 
 
 /*
@@ -187,6 +184,8 @@ header {
 
 }
 
+
+/*------------------------------------------------------------------------*/
 
 
 /*
@@ -235,6 +234,9 @@ header {
 }
 
 
+/*------------------------------------------------------------------------*/
+
+
 /*
     Button Component Styling
 
@@ -257,6 +259,10 @@ button{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
 }
+
+
+/*------------------------------------------------------------------------*/
+
 
 /*
     Form General Styling
@@ -293,6 +299,9 @@ input{
     margin-left: 10px;/*Controls positioning of Labels*/
     margin-top: -10px;  
 }
+
+
+/*------------------------------------------------------------------------*/
 
 
 /*
@@ -346,8 +355,11 @@ input{
 }
 
 
+/*------------------------------------------------------------------------*/
+
+
 /*
-    Register Page
+    Register Page Styling
 */
 
 .register-section {
@@ -384,45 +396,315 @@ input{
 }
 
 
+/*------------------------------------------------------------------------*/
+
 
 /* 
     Dashboard Page Styling
 */
 
-.dashboard-main{
-    height: auto;
+.dashboard-container{
+    height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row;/* Potentially Delete*/
     margin-top: 4.18em;
-    background: rgba(94, 0, 155, 0.07);
-    backdrop-filter: blur(10px);
-
-}
-.dashboard-lCol{
-    display: inherit;
-    width: 30%;
+    background: rgba(93, 0, 155, 0.05);
+    backdrop-filter: blur(5px);
 }
 
+/*Dashboard Font*/
+.dashboard-title{
+    display: block !important;
+    color: #000000;
+    font-family: 'JosefinSans-semibold',sans-serif;
+    font-size: 18px;
 
-.dashboard-rCol{
-    display: inherit;
-    flex-direction: row;
-    width: 70%;
-}
-
-
-.frontend{
-    color:red;
+    text-decoration: underline #7851A9;
+    text-decoration-style:wavy;
+    text-underline-offset: 2.5px;
    
 }
 
+.dashboard-text{
+    color: #000000;
+    font-family: 'JosefinSans-regular', sans-serif;
+    font-size: 16px;
+}
+
+/*------------------------------------------------------------------------*/
+
+/*
+    Left Column Styling
+*/
+.dashboard-lCol{
+    display: inherit;
+    flex-direction: column;
+    width: 30%;
+    height: inherit;
+}
+
+    /* Profile Section*/
+    .profileSection{
+        /*background: rgba(255, 255, 255, 0.711);
+        backdrop-filter: blur(5px);
+        margin-top: 50px;*/
+
+        border-radius: 10px;
+        border: 1px solid #decceb;
+        justify-content: center;
+        text-align: center;
+        /*padding: 15px;*/ 
+    }
+
+    .profileImg{
+        margin-top: 10px;
+        background-color: #ffffff;
+        border: 3px solid #decceb;
+        padding: 0.5em;
+        border-radius:75%
+    }
+
+    .profileText{
+        line-height: 1px;
+    }
+
+    /* Contact Section*/
+    .contactSection{
+        /*background: rgba(255, 255, 255, 0.711);
+        backdrop-filter: blur(5px);
+        margin-top: 50px;
+        display: inherit;
+        flex-flow: row wrap;*/
+        padding: 5px; 
+        border-radius: 10px;
+        border: 1px solid #decceb;
+    
+    }
+
+    .contactLinks{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        margin-top: -10px;
+    }
+
+    .contactCards{
+        height:65px;
+        width: 65px;
+        background-color: #ffffff;
+        border: 1px solid #decceb;
+        border-radius: 10px;
+        padding: 2.5px;
+        margin: 2px;
+        text-align: center;  
+    }
+
+    /* Interests Section*/
+    .interestsSection{
+        /*background: rgba(255, 255, 255, 0.711);
+        backdrop-filter: blur(5px);
+        margin-top: 50px;
+        display: inherit;
+        flex-flow: row wrap;*/
+        padding: 5px; 
+        border-radius: 10px;
+        border: 1px solid #decceb;
+    }
+
+    .interestsContainer{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        margin-top: -10px;
+
+    }
+    .interestsCards{
+        height: 65px;
+        width: 65px;
+        background-color: #ffffff;
+        border: 1px solid #decceb;
+        border-radius: 10px;
+        padding: 2.5px;
+        margin: 2px;
+        text-align: center;
+      
+    }
+
+    /* Status Section*/
+    .statusSection{
+        /*background: rgba(255, 255, 255, 0.711);
+        backdrop-filter: blur(5px);
+        margin-top: 50px;
+        display: inherit;
+        flex-flow: row wrap;*/
+        padding: 5px; 
+        border-radius: 10px;
+        border: 1px solid #decceb;
+    }
+
+    .statusContainer{
+        display: inherit;
+        flex-flow: inherit;
+        line-height: 0px;
+    }
+
+/*------------------------------------------------------------------------*/
+
+/*
+    Right Column Styling
+*/
+.dashboard-rCol{
+    display: inherit;
+    flex-direction: column;
+    width: 70%;
+}
+
+    /*
+        First Row
+    */
+    .personalSection{
+        display: inherit;
+        flex-flow: row wrap;
+        border: 3px solid ;
+        border-top-color: transparent;
+        border-bottom-color: #decceb;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        padding: 3px;
+    }
+
+        /*Personal Goal Section*/
+        .rowOne-lCol{           
+            width: 49%;
+            padding: 2px;
+            justify-content: center;
+            text-align: center;  
+            border: 3px solid ;
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            border-right-color: #decceb;
+            border-left-color: transparent;
+        }
+
+
+        /*Personal Story Section*/
+        .rowOne-rCol{
+            width: 49%;
+            padding: 2px;
+            justify-content: center;
+            text-align: center; 
+            /*background-color: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #decceb;*/
+        }
+
+
+    /*
+        Second Row
+    */
+
+    .skillsSection{
+        /* REMOVED ALLOWED FOR CENTERING
+        display: inherit;
+        flex-flow: row wrap;*/ 
+        position: relative;
+        border: 3px solid ;
+        border-top-color: transparent;
+        border-bottom-color: #decceb;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        padding: 3px;
+        text-align: center;
+        
+    }
+        .techskills{
+            /*display: inline-flex;
+            flex-flow: row wrap;
+            justify-content: center;*/
+            display: flex;
+            flex-flow: row wrap;
+            grid-template-rows: repeat(2, 1fr);
+            
+            /* ALLOWS SCROLLING WITHIN TECHSKILLS
+            overflow-y:scroll;
+            overflow-x: hidden;
+            */
+        }
+        
+        /*TechSkill SVG*/
+        svg {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            z-index: 1000;
+        }
+
+        /*TechSKill SVG Circle*/
+        svg circle {
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: translate(5px, 5px);         
+        }
+
+        /*Inner circle stroke*/
+        svg circle:nth-child(2) {
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+        }
+
+        /*outer circle stroke-Purple*/
+        svg circle:nth-child(2) {
+            stroke-dashoffset: calc(440 - (440 * 65) / 100 );/*Same calc(0);*/
+            stroke: #7851A9;
+            
+            /*animation: progres 4s infinite linear; */  
+        }
+        
+        /*Inner Frosted circle-DON'T CHANGE*/
+        .skill-circle {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            box-shadow: inset 0 0 50px blue /*rgb(120, 81, 169)*/;
+            background: inherit;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            border: 1px solid #decceb;
+            
+            margin: 1px;/*Space between*/
+        }
+          
+        /*Inner frosted circle-text*/
+        .skill-circle .text {
+            position: absolute;
+            display: flex;
+            
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #000000;
+            font-family: 'JosefinSans-regular', sans-serif;
+            font-size: 16px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+          
+         
+        
+          
 
 /*
     Profile Card Styling
 */
 .profile-card {
     /* Add shadows to create the "card" effect */
+    background-color: #ffffff;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 }
