@@ -404,13 +404,8 @@ input{
 */
 
 .dashboard-container{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;/* Potentially Delete*/
-    margin-top: 4.18em;
     background: rgba(93, 0, 155, 0.05);
-    backdrop-filter: blur(5px);
+  
 }
 
 /*Dashboard Font*/
@@ -438,10 +433,20 @@ input{
     Left Column Styling
 */
 .dashboard-lCol{
-    display: inherit;
-    flex-direction: column;
+    position: fixed;
+
     width: 30%;
-    height: inherit;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 50px;
+    /*Border Styling for Column*/
+    border-style: solid;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-right-color:  #D9CDE7;
+    border-left-color: transparent;  
 }
 
     /* Profile Section*/
@@ -449,12 +454,12 @@ input{
         /*background: rgba(255, 255, 255, 0.711);
         backdrop-filter: blur(5px);
         margin-top: 50px;*/
-
+        
         border-radius: 10px;
-        border: 1px solid #decceb;
+        /*border: 1px solid #decceb;*/
         justify-content: center;
         text-align: center;
-        /*padding: 15px;*/ 
+        padding-top: 20px;
     }
 
     .profileImg{
@@ -476,9 +481,10 @@ input{
         margin-top: 50px;
         display: inherit;
         flex-flow: row wrap;*/
-        padding: 5px; 
+        padding: 10px; 
+       
         border-radius: 10px;
-        border: 1px solid #decceb;
+        /*border: 1px solid #decceb;*/
     
     }
 
@@ -490,8 +496,8 @@ input{
     }
 
     .contactCards{
-        height:65px;
-        width: 65px;
+        height: 55px;
+        width: 55px;
         background-color: #ffffff;
         border: 1px solid #decceb;
         border-radius: 10px;
@@ -507,9 +513,10 @@ input{
         margin-top: 50px;
         display: inherit;
         flex-flow: row wrap;*/
-        padding: 5px; 
+        padding: 10px; 
+        
         border-radius: 10px;
-        border: 1px solid #decceb;
+        /*border: 1px solid #decceb;*/
     }
 
     .interestsContainer{
@@ -520,8 +527,8 @@ input{
 
     }
     .interestsCards{
-        height: 65px;
-        width: 65px;
+        height: 55px;
+        width: 55px;
         background-color: #ffffff;
         border: 1px solid #decceb;
         border-radius: 10px;
@@ -538,9 +545,10 @@ input{
         margin-top: 50px;
         display: inherit;
         flex-flow: row wrap;*/
-        padding: 5px; 
+        padding: 10px; 
+        
         border-radius: 10px;
-        border: 1px solid #decceb;
+        /*border: 1px solid #decceb;*/
     }
 
     .statusContainer{
@@ -555,16 +563,16 @@ input{
     Right Column Styling
 */
 .dashboard-rCol{
-    display: inherit;
-    flex-direction: column;
     width: 70%;
+    margin-left: 30%;
+    padding-top: 100px;
 }
 
     /*
         First Row
     */
     .personalSection{
-        display: inherit;
+        display: flex;
         flex-flow: row wrap;
         border: 3px solid ;
         border-top-color: transparent;
@@ -572,6 +580,7 @@ input{
         border-right-color: transparent;
         border-left-color: transparent;
         padding: 3px;
+        height:250px
     }
 
         /*Personal Goal Section*/
@@ -657,10 +666,10 @@ input{
 
         /*outer circle stroke-Purple*/
         svg circle:nth-child(2) {
-            stroke-dashoffset: calc(440 - (440 * 65) / 100 );/*Same calc(0);*/
+            stroke-dashoffset: calc(440 - (440 * 45) / 100 );/*Same calc(0);*/
             stroke: #7851A9;
             
-            /*animation: progres 4s infinite linear; */  
+            /*animation: progress 4s infinite linear; */  
         }
         
         /*Inner Frosted circle-DON'T CHANGE*/
@@ -681,8 +690,7 @@ input{
         /*Inner frosted circle-text*/
         .skill-circle .text {
             position: absolute;
-            display: flex;
-            
+            display: flex;  
             top: 0;
             left: 0;
             width: 100%;
