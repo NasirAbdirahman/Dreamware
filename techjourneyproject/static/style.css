@@ -405,7 +405,7 @@ input{
 
 .dashboard-container{
     background: rgba(93, 0, 155, 0.05);
-  
+    overflow: hidden;
 }
 
 /*Dashboard Font*/
@@ -424,7 +424,7 @@ input{
 .dashboard-text{
     color: #000000;
     font-family: 'JosefinSans-regular', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 /*------------------------------------------------------------------------*/
@@ -434,9 +434,8 @@ input{
 */
 .dashboard-lCol{
     position: fixed;
-
-    width: 30%;
-    height: 100%;
+    width: 25%;
+    height: auto;
     top: 0;
     left: 0;
     bottom: 0;
@@ -454,9 +453,11 @@ input{
         /*background: rgba(255, 255, 255, 0.711);
         backdrop-filter: blur(5px);
         margin-top: 50px;*/
-        
-        border-radius: 10px;
-        /*border: 1px solid #decceb;*/
+        border: 2px solid ;
+        border-top-color: transparent;
+        border-bottom-color: #decceb;
+        border-right-color: transparent;
+        border-left-color: transparent;
         justify-content: center;
         text-align: center;
         padding-top: 20px;
@@ -481,9 +482,13 @@ input{
         margin-top: 50px;
         display: inherit;
         flex-flow: row wrap;*/
-        padding: 10px; 
-       
-        border-radius: 10px;
+        padding: 7px; 
+        border: 2px solid ;
+        border-top-color: transparent;
+        border-bottom-color: #decceb;
+        border-right-color: transparent;
+        border-left-color: transparent;
+      
         /*border: 1px solid #decceb;*/
     
     }
@@ -492,16 +497,16 @@ input{
         display: flex;
         flex-flow: row wrap;
         justify-content: space-evenly;
-        margin-top: -10px;
+        margin-bottom: 10px;
     }
 
     .contactCards{
-        height: 55px;
-        width: 55px;
+        height: 45px;
+        width: 45px;
         background-color: #ffffff;
         border: 1px solid #decceb;
         border-radius: 10px;
-        padding: 2.5px;
+        padding: 2px;
         margin: 2px;
         text-align: center;  
     }
@@ -514,8 +519,12 @@ input{
         display: inherit;
         flex-flow: row wrap;*/
         padding: 10px; 
-        
-        border-radius: 10px;
+        margin-bottom: 7px;
+        border: 2px solid ;
+        border-top-color: transparent;
+        border-bottom-color: #decceb;
+        border-right-color: transparent;
+        border-left-color: transparent;
         /*border: 1px solid #decceb;*/
     }
 
@@ -523,16 +532,14 @@ input{
         display: flex;
         flex-flow: row wrap;
         justify-content: space-evenly;
-        margin-top: -10px;
-
     }
     .interestsCards{
-        height: 55px;
-        width: 55px;
+        height: 50px;
+        width: 50px;
         background-color: #ffffff;
         border: 1px solid #decceb;
         border-radius: 10px;
-        padding: 2.5px;
+        padding: 1.5px;
         margin: 2px;
         text-align: center;
       
@@ -545,8 +552,7 @@ input{
         margin-top: 50px;
         display: inherit;
         flex-flow: row wrap;*/
-        padding: 10px; 
-        
+        padding:10px; 
         border-radius: 10px;
         /*border: 1px solid #decceb;*/
     }
@@ -554,7 +560,8 @@ input{
     .statusContainer{
         display: inherit;
         flex-flow: inherit;
-        line-height: 0px;
+        line-height: 5px;
+        padding-top: 2px; 
     }
 
 /*------------------------------------------------------------------------*/
@@ -563,9 +570,8 @@ input{
     Right Column Styling
 */
 .dashboard-rCol{
-    width: 70%;
-    margin-left: 30%;
-    padding-top: 100px;
+    width: 75%;
+    margin-left: 25%;
 }
 
     /*
@@ -580,13 +586,13 @@ input{
         border-right-color: transparent;
         border-left-color: transparent;
         padding: 3px;
-        height:250px
+        height:auto;
     }
 
         /*Personal Goal Section*/
         .rowOne-lCol{           
             width: 49%;
-            padding: 2px;
+            padding-top: 50px;
             justify-content: center;
             text-align: center;  
             border: 3px solid ;
@@ -600,7 +606,7 @@ input{
         /*Personal Story Section*/
         .rowOne-rCol{
             width: 49%;
-            padding: 2px;
+            padding-top: 50px;
             justify-content: center;
             text-align: center; 
             /*background-color: #ffffff;
@@ -625,15 +631,13 @@ input{
         border-left-color: transparent;
         padding: 3px;
         text-align: center;
+       
         
     }
         .techskills{
-            /*display: inline-flex;
+            display: inline-flex;
             flex-flow: row wrap;
-            justify-content: center;*/
-            display: flex;
-            flex-flow: row wrap;
-            grid-template-rows: repeat(2, 1fr);
+            justify-content: center;
             
             /* ALLOWS SCROLLING WITHIN TECHSKILLS
             overflow-y:scroll;
@@ -682,8 +686,6 @@ input{
             background: inherit;
             backdrop-filter: blur(5px);
             z-index: 1000;
-            border: 1px solid #decceb;
-            
             margin: 1px;/*Space between*/
         }
           
