@@ -1,7 +1,7 @@
 <!--Member Dashboard View-->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dashboard">
 
     <head>
         <!-- Required meta tags always come first -->
@@ -34,7 +34,7 @@
            
 
             
-        <main>
+        <main class="dashboard" >
 
             <!-- Main Intro --> 
             <section>
@@ -151,25 +151,70 @@
                     </section>
 
                     <!--Top Companies-->
-                    <section class="skillsSection">
+                    <section class="companiesSection">
                     
                         <p class="dashboard-title">Top Companies</p>
-                        <section class="techskills">
+                        <section class="companyCards">
                             
-                            {% for skill in user.member.skills.all %}
-                            
-                                <div class="skill-circle">
-                                    <svg>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                    </svg>
+                            <!--{% for skill in user.member.skills.all %}
 
-                                    <div class="text">
-                                        {{skill}}
-                                    </div>
+                                <div class="text">
+                                    {{skill}}
                                 </div>
                             
-                            {% endfor %}
+                            {% endfor %}-->
+
+                            <section class="cards">
+
+                                <section class="infoSection">
+                                    <div class="companyTitle">
+                                        <p class="title"> Google</p>
+                                    </div>
+                                   
+                                    <p> Software Engineer</p>
+                                    <p>Remote</p>
+                                    <p>75,000k+</p>
+                                </section>
+                               
+                                <section class="skills">
+                                   <p>Skills</p>
+                                    <section class="skills-section">
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Docker
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Python
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                React
+                                            </div>
+                                        </div>
+                                    </section>
+                                </section>
+                                
+                            </section>
+                          
+                            
 
                         </section>
 

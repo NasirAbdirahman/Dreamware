@@ -200,7 +200,7 @@ header {
     background: rgba(255, 255, 255, 0.5);/*last digit is transparency*/
     backdrop-filter: blur(5px);
     border-radius: 10px;
-    border: 1px solid #decceb; 
+    border: 1px solid rgba(217, 205, 231);; 
 }
 
 .blur-square {
@@ -212,14 +212,14 @@ header {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(3.5px);
     border-radius: 10%;
-    border: 1px solid #decceb; 
+    border: 1px solid rgba(217, 205, 231);; 
 }
 
 .blur-background {
     background: rgba(94, 0, 155, 0.07);
     backdrop-filter: blur(5px);
     border-radius: 10px;
-    border: 1px solid #decceb;
+    border: 1px solid rgba(217, 205, 231);;
     margin-top: 50px;
     padding: 15px; 
 }
@@ -230,7 +230,7 @@ header {
     border-radius: 10px;
     width: 400px;
     padding: 1em;
-    border: 1px solid #decceb; 
+    border: 1px solid rgba(217, 205, 231);; 
 }
 
 
@@ -403,10 +403,20 @@ input{
     Dashboard Page Styling
 */
 
-.dashboard-container{
+.dashboard-container{ /*WHEN ADDED TO HTML, MAKES ENTIRE BG MOVE ON SCROLL*/
     background: rgba(93, 0, 155, 0.05);
+    width:auto;
     overflow: hidden;
 }
+/*not used*/
+.dashboard{
+    background: rgba(93, 0, 155, 0.05);
+    background-size: contain;
+    height: auto;
+
+}
+
+
 
 /*Dashboard Font*/
 .dashboard-title{
@@ -414,7 +424,6 @@ input{
     color: #000000;
     font-family: 'JosefinSans-semibold',sans-serif;
     font-size: 18px;
-
     text-decoration: underline #7851A9;
     text-decoration-style:wavy;
     text-underline-offset: 2.5px;
@@ -440,6 +449,7 @@ input{
     left: 0;
     bottom: 0;
     padding-top: 50px;
+   /* background-color: #ffffff !important;*/
     /*Border Styling for Column*/
     border-style: solid;
     border-bottom-color: transparent;
@@ -455,7 +465,7 @@ input{
         margin-top: 50px;*/
         border: 2px solid ;
         border-top-color: transparent;
-        border-bottom-color: #decceb;
+        border-bottom-color: rgba(217, 205, 231);
         border-right-color: transparent;
         border-left-color: transparent;
         justify-content: center;
@@ -466,7 +476,7 @@ input{
     .profileImg{
         margin-top: 10px;
         background-color: #ffffff;
-        border: 3px solid #decceb;
+        border: 3px solid rgba(217, 205, 231);;
         padding: 0.5em;
         border-radius:75%
     }
@@ -485,11 +495,11 @@ input{
         padding: 7px; 
         border: 2px solid ;
         border-top-color: transparent;
-        border-bottom-color: #decceb;
+        border-bottom-color: rgba(217, 205, 231);;
         border-right-color: transparent;
         border-left-color: transparent;
       
-        /*border: 1px solid #decceb;*/
+        /*border: 1px solid rgba(217, 205, 231);;*/
     
     }
 
@@ -504,7 +514,7 @@ input{
         height: 45px;
         width: 45px;
         background-color: #ffffff;
-        border: 1px solid #decceb;
+        border: 1px solid rgba(217, 205, 231);;
         border-radius: 10px;
         padding: 2px;
         margin: 2px;
@@ -522,10 +532,10 @@ input{
         margin-bottom: 7px;
         border: 2px solid ;
         border-top-color: transparent;
-        border-bottom-color: #decceb;
+        border-bottom-color: rgba(217, 205, 231);;
         border-right-color: transparent;
         border-left-color: transparent;
-        /*border: 1px solid #decceb;*/
+        /*border: 1px solid rgba(217, 205, 231);;*/
     }
 
     .interestsContainer{
@@ -537,7 +547,7 @@ input{
         height: 50px;
         width: 50px;
         background-color: #ffffff;
-        border: 1px solid #decceb;
+        border: 1px solid rgba(217, 205, 231);;
         border-radius: 10px;
         padding: 1.5px;
         margin: 2px;
@@ -554,7 +564,7 @@ input{
         flex-flow: row wrap;*/
         padding:10px; 
         border-radius: 10px;
-        /*border: 1px solid #decceb;*/
+        /*border: 1px solid rgba(217, 205, 231);;*/
     }
 
     .statusContainer{
@@ -572,6 +582,7 @@ input{
 .dashboard-rCol{
     width: 75%;
     margin-left: 25%;
+    
 }
 
     /*
@@ -580,38 +591,54 @@ input{
     .personalSection{
         display: flex;
         flex-flow: row wrap;
+        justify-content: space-evenly;
         border: 3px solid ;
         border-top-color: transparent;
-        border-bottom-color: #decceb;
+        border-bottom-color: rgba(217, 205, 231);;
         border-right-color: transparent;
         border-left-color: transparent;
-        padding: 3px;
+        margin-top: 45px;
+        padding-bottom: 25px;
         height:auto;
     }
 
         /*Personal Goal Section*/
         .rowOne-lCol{           
-            width: 49%;
-            padding-top: 50px;
+            width: 47%;
+            margin: 30px 5px 0 0;
+            padding: 5px;
             justify-content: center;
             text-align: center;  
-            border: 3px solid ;
+            /*border: 3px solid ;
             border-top-color: transparent;
             border-bottom-color: transparent;
-            border-right-color: #decceb;
-            border-left-color: transparent;
+            border-right-color: rgba(217, 205, 231);;
+            border-left-color: transparent;*/
+            background: rgb(255, 255, 255);
+            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            border: 1px solid rgb(255, 255, 255);
         }
 
 
         /*Personal Story Section*/
         .rowOne-rCol{
-            width: 49%;
-            padding-top: 50px;
+            width: 47%;
+            margin: 30px 0 0 0;
+            padding: 5px;
             justify-content: center;
             text-align: center; 
             /*background-color: #ffffff;
             border-radius: 20px;
-            border: 1px solid #decceb;*/
+            border: 1px solid rgba(217, 205, 231);;*/
+            background: rgb(255, 255, 255);
+            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            border: 1px solid rgb(255, 255, 255);
         }
 
 
@@ -623,21 +650,40 @@ input{
         /* REMOVED ALLOWED FOR CENTERING
         display: inherit;
         flex-flow: row wrap;*/ 
-        position: relative;
-        border: 3px solid ;
-        border-top-color: transparent;
-        border-bottom-color: #decceb;
-        border-right-color: transparent;
-        border-left-color: transparent;
-        padding: 3px;
-        text-align: center;
-       
         
+       /* border: 3px solid ;
+        border-top-color: transparent;
+        border-bottom-color: rgba(217, 205, 231);;
+        border-right-color: transparent;
+        border-left-color: transparent;*/
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        text-align: center;
+        margin: 15px;
+        padding-bottom: 25px;
+          
     }
         .techskills{
-            display: inline-flex;
+            display: flex;
             flex-flow: row wrap;
             justify-content: center;
+
+            background: rgba(93, 0, 155, 0.05);
+            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 15px;
+            margin: 10px 100px 10px 100px;
+            
+
+            
+         
             
             /* ALLOWS SCROLLING WITHIN TECHSKILLS
             overflow-y:scroll;
@@ -664,8 +710,8 @@ input{
 
         /*Inner circle stroke*/
         svg circle:nth-child(2) {
-            stroke-dasharray: 440;
-            stroke-dashoffset: 440;
+            stroke-dasharray: 400;/*440 WORDS FOR BIGGER CIRCLES*/
+            stroke-dashoffset: 400;
         }
 
         /*outer circle stroke-Purple*/
@@ -686,11 +732,137 @@ input{
             background: inherit;
             backdrop-filter: blur(5px);
             z-index: 1000;
-            margin: 1px;/*Space between*/
+            margin: 3px;/*Space between*/
         }
           
         /*Inner frosted circle-text*/
         .skill-circle .text {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #000000;
+            font-family: 'JosefinSans-regular', sans-serif;
+            font-size: 15px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+          
+
+     /*
+        Third Row
+    */
+
+    .companiesSection{
+        /* REMOVED ALLOWED FOR CENTERING
+        display: inherit;
+        flex-flow: row wrap;*/ 
+        position: relative;
+        border: 3px solid ;
+        border-top-color: transparent;
+        border-bottom-color: rgba(217, 205, 231);;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        padding: 3px;
+        text-align: center;   
+    }
+        .companyCards{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            margin-top: 50px;
+            margin-bottom: 35px;
+        }
+
+        .companyCards .cards {
+            /* WHITE CARD-PURPLE SHADE*/
+            background: rgb(255, 255, 255);
+            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            /*border: 1px solid ;
+            border-top-color: transparent;
+            border-bottom-color: rgba(217, 205, 231);;
+            border-right-color: rgba(217, 205, 231);;
+            border-left-color: rgba(217, 205, 231);;*/
+            border: 1px solid rgba(217, 205, 231);;
+            
+            padding: 15px; 
+            max-height:300px;
+            max-width:300px;
+        }
+
+        .companyCards .infoSection{
+            line-height: 5px;
+        }
+
+        .companyCards .companyTitle{
+            position: relative;
+            top: -35px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1px; 
+            border: 1px solid rgba(217, 205, 231);;
+            margin-bottom: -30px;
+
+            
+        }
+        .companyCards .title{
+            color: #000000;
+            font-family: 'JosefinSans-semibold',sans-serif;
+            font-size: 24px;
+        }
+        
+
+        .companyCards .skills{
+            /*background: rgba( 255, 255, 255, 0.75 );
+            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            border: 1px solid rgb(255, 255, 255);*/
+            /* WHITE CARD-PURPLE SHADE*/
+            background: rgba(93, 0, 155, 0.05);
+            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 0 10px 10px 10px;
+            
+
+        }
+        .companyCards .skills-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: -10px;
+
+        }
+
+
+        /*Inner Frosted circle-DON'T CHANGE*/
+        .companyCards .skill-circle {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            box-shadow: inset 0 0 25px blue /*rgb(120, 81, 169)*/;
+            background: inherit;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            margin: 1px;/*Space between*/
+        }
+          
+        /*Inner frosted circle-text*/
+        .companyCards .text {
             position: absolute;
             display: flex;  
             top: 0;
@@ -699,12 +871,12 @@ input{
             height: 100%;
             color: #000000;
             font-family: 'JosefinSans-regular', sans-serif;
-            font-size: 16px;
+            font-size: 13px;
             justify-content: center;
             align-items: center;
             border-radius: 50%;
         }
-          
+        
          
         
           
@@ -728,3 +900,130 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 .profile-card-container {
 padding: 2px 16px;
 }
+
+
+/* CARD STYLE 
+.companiesSection{
+       
+        position: relative;
+        border: 3px solid ;
+        border-top-color: transparent;
+        border-bottom-color: rgba(217, 205, 231);
+        border-right-color: transparent;
+        border-left-color: transparent;
+        padding: 3px;
+        text-align: center;
+       
+        
+    }
+        .companyCards{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            margin-top: 50px;
+            margin-bottom: 45px;
+        }
+
+        .companyCards .cards {
+            /* WHITE CARD-PURPLE SHADE
+            background: rgba(93, 0, 155, 0.1);
+            
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            /*border: 1px solid ;
+            border-top-color: transparent;
+            border-bottom-color: rgba(217, 205, 231);
+            border-right-color: rgba(217, 205, 231);
+            border-left-color: rgba(217, 205, 231);
+            border: 1px solid rgba(217, 205, 231);
+            
+            padding: 15px; 
+            max-height:200px;
+            max-width:300px;
+        }
+
+        .companyCards .infoSection{
+            line-height: 5px;
+        }
+
+        .companyCards .companyTitle{
+            position: relative;
+            top: -35px;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1px; 
+            border: 1px solid rgba(217, 205, 231);
+            margin-bottom: -30px;
+
+            
+        }
+        .companyCards .title{
+            color: #000000;
+            font-family: 'JosefinSans-semibold',sans-serif;
+            font-size: 24px;
+        }
+        
+
+        .companyCards .skills{
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            border: 1px solid rgba(217, 205, 231);
+            /* WHITE CARD-PURPLE SHADE
+            background: rgba(93, 0, 155, 0.1);
+            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.364);
+            backdrop-filter: blur( 10px );
+            -webkit-backdrop-filter: blur( 10px );
+            border-radius: 10px;
+            border: 0.5px solid rgb(255, 255, 255);
+            
+            
+            width: auto;
+            max-width: none;
+            padding: 0 10px 10px 10px;
+            margin-bottom: -10px;
+
+        }
+        .companyCards .skills-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: -10px;
+
+        }
+
+
+        
+        .companyCards .skill-circle {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            box-shadow: inset 0 0 25px blue /*rgb(120, 81, 169)/;
+            background: inherit;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            margin: 1px;/*Space between
+        }
+          
+        
+        .companyCards .text {
+            position: absolute;
+            display: flex;  
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #000000;
+            font-family: 'JosefinSans-regular', sans-serif;
+            font-size: 13px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        */
