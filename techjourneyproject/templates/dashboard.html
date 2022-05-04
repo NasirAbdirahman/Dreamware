@@ -44,7 +44,10 @@
                     
                     <!--Profile Info -->
                     <section class="profileSection"> 
-                        <img class="profileImg"src="/media/{{user.member.picture}}"  width="100px" height="100px"><br>
+                        
+                        <img class="profileImg"src="/media/{{user.member.picture}}"  width="100px" height="100px">
+                       
+                       
                         <section class="profileText">
                             <p class="dashboard-text">{{user.first_name}}, {{user.last_name}}</p>
                             <p class="dashboard-text">{{user.member.education}}</p>
@@ -163,6 +166,109 @@
                                 </div>
                             
                             {% endfor %}-->
+                            {% for skill in user.member.skills.all %}
+                            
+                                <section class="cards">
+
+                                    <section class="infoSection">
+                                        <div class="companyTitle">
+                                            <p class="title"> {{skill}}</p>
+                                        </div>
+                                    
+                                        <p> Software Engineer</p>
+                                        <p>Remote</p>
+                                        <p>75,000k+</p>
+                                    </section>
+                                
+                                    <section class="skills">
+                                    <p>Skills</p>
+                                        <section class="skills-section">
+                                            <div class="skill-circle">
+                                                <svg>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                </svg>
+            
+                                                <div class="text">
+                                                    Docker
+                                                </div>
+                                            </div>
+                                            <div class="skill-circle">
+                                                <svg>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                </svg>
+            
+                                                <div class="text">
+                                                    Python
+                                                </div>
+                                            </div>
+                                            <div class="skill-circle">
+                                                <svg>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                </svg>
+            
+                                                <div class="text">
+                                                    React
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </section>
+                                    
+                                </section>
+                        
+                            {% endfor %}
+
+                            <!--<section class="cards">
+
+                                <section class="infoSection">
+                                    <div class="companyTitle">
+                                        <p class="title"> Google</p>
+                                    </div>
+                                   
+                                    <p> Software Engineer</p>
+                                    <p>Remote</p>
+                                    <p>75,000k+</p>
+                                </section>
+                               
+                                <section class="skills">
+                                   <p>Skills</p>
+                                    <section class="skills-section">
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Docker
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Python
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                React
+                                            </div>
+                                        </div>
+                                    </section>
+                                </section>
+                                
+                            </section>
 
                             <section class="cards">
 
@@ -213,6 +319,156 @@
                                 </section>
                                 
                             </section>
+
+                            <section class="cards">
+
+                                <section class="infoSection">
+                                    <div class="companyTitle">
+                                        <p class="title"> Google</p>
+                                    </div>
+                                   
+                                    <p> Software Engineer</p>
+                                    <p>Remote</p>
+                                    <p>75,000k+</p>
+                                </section>
+                               
+                                <section class="skills">
+                                   <p>Skills</p>
+                                    <section class="skills-section">
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Docker
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Python
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                React
+                                            </div>
+                                        </div>
+                                    </section>
+                                </section>
+                                
+                            </section>
+
+                            <section class="cards">
+
+                                <section class="infoSection">
+                                    <div class="companyTitle">
+                                        <p class="title"> Google</p>
+                                    </div>
+                                   
+                                    <p> Software Engineer</p>
+                                    <p>Remote</p>
+                                    <p>75,000k+</p>
+                                </section>
+                               
+                                <section class="skills">
+                                   <p>Skills</p>
+                                    <section class="skills-section">
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Docker
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Python
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                React
+                                            </div>
+                                        </div>
+                                    </section>
+                                </section>
+                                
+                            </section>
+
+                            <section class="cards">
+
+                                <section class="infoSection">
+                                    <div class="companyTitle">
+                                        <p class="title"> Google</p>
+                                    </div>
+                                   
+                                    <p> Software Engineer</p>
+                                    <p>Remote</p>
+                                    <p>75,000k+</p>
+                                </section>
+                               
+                                <section class="skills">
+                                   <p>Skills</p>
+                                    <section class="skills-section">
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Docker
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                Python
+                                            </div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+        
+                                            <div class="text">
+                                                React
+                                            </div>
+                                        </div>
+                                    </section>
+                                </section>
+                                
+                            </section> -->
                           
                             
 

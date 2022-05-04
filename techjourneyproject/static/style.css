@@ -410,10 +410,9 @@ input{
 }
 /*not used*/
 .dashboard{
-    background: rgba(93, 0, 155, 0.05);
+    background: rgba(93, 0, 155, 0.04);
     background-size: contain;
     height: auto;
-
 }
 
 
@@ -423,10 +422,10 @@ input{
     display: block !important;
     color: #000000;
     font-family: 'JosefinSans-semibold',sans-serif;
-    font-size: 18px;
-    text-decoration: underline #7851A9;
+    font-size: 20px;
+    /*text-decoration: underline #7851A9;
     text-decoration-style:wavy;
-    text-underline-offset: 2.5px;
+    text-underline-offset: 2.5px;*/
    
 }
 
@@ -449,7 +448,7 @@ input{
     left: 0;
     bottom: 0;
     padding-top: 50px;
-   /* background-color: #ffffff !important;*/
+    /*background-color: #ffffff !important;*/
     /*Border Styling for Column*/
     border-style: solid;
     border-bottom-color: transparent;
@@ -460,26 +459,37 @@ input{
 
     /* Profile Section*/
     .profileSection{
-        /*background: rgba(255, 255, 255, 0.711);
-        backdrop-filter: blur(5px);
-        margin-top: 50px;*/
-        border: 2px solid ;
+
+       /* border: 2px solid ;
         border-top-color: transparent;
         border-bottom-color: rgba(217, 205, 231);
         border-right-color: transparent;
         border-left-color: transparent;
         justify-content: center;
         text-align: center;
-        padding-top: 20px;
+        padding-top: 20px;*/
+
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        text-align: center;
+        margin: 25px 10px 10px 10px;
+
     }
 
     .profileImg{
         margin-top: 10px;
-        background-color: #ffffff;
+        background: rgba(93, 0, 155, 0.04);
+        backdrop-filter: blur( 5px );
+        -webkit-backdrop-filter: blur( 5px );
         border: 3px solid rgba(217, 205, 231);;
         padding: 0.5em;
         border-radius:75%
     }
+
 
     .profileText{
         line-height: 1px;
@@ -487,19 +497,22 @@ input{
 
     /* Contact Section*/
     .contactSection{
-        /*background: rgba(255, 255, 255, 0.711);
-        backdrop-filter: blur(5px);
-        margin-top: 50px;
-        display: inherit;
-        flex-flow: row wrap;*/
-        padding: 7px; 
+
+        /*padding: 7px; 
         border: 2px solid ;
         border-top-color: transparent;
         border-bottom-color: rgba(217, 205, 231);;
         border-right-color: transparent;
-        border-left-color: transparent;
+        border-left-color: transparent;*/
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 11px;
+        padding: 7px;
       
-        /*border: 1px solid rgba(217, 205, 231);;*/
     
     }
 
@@ -507,7 +520,7 @@ input{
         display: flex;
         flex-flow: row wrap;
         justify-content: space-evenly;
-        margin-bottom: 10px;
+       
     }
 
     .contactCards{
@@ -517,18 +530,14 @@ input{
         border: 1px solid rgba(217, 205, 231);;
         border-radius: 10px;
         padding: 2px;
-        margin: 2px;
+        margin: 1px;
         text-align: center;  
     }
 
     /* Interests Section*/
     .interestsSection{
-        /*background: rgba(255, 255, 255, 0.711);
-        backdrop-filter: blur(5px);
-        margin-top: 50px;
-        display: inherit;
-        flex-flow: row wrap;*/
-        padding: 10px; 
+
+        /*padding: 10px; 
         margin-bottom: 7px;
         border: 2px solid ;
         border-top-color: transparent;
@@ -536,6 +545,16 @@ input{
         border-right-color: transparent;
         border-left-color: transparent;
         /*border: 1px solid rgba(217, 205, 231);;*/
+
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        margin: 11px;
+        padding: 7px;
+      
     }
 
     .interestsContainer{
@@ -550,28 +569,29 @@ input{
         border: 1px solid rgba(217, 205, 231);;
         border-radius: 10px;
         padding: 1.5px;
-        margin: 2px;
+        margin: 1px;
         text-align: center;
       
     }
 
     /* Status Section*/
     .statusSection{
-        /*background: rgba(255, 255, 255, 0.711);
-        backdrop-filter: blur(5px);
-        margin-top: 50px;
-        display: inherit;
-        flex-flow: row wrap;*/
-        padding:10px; 
+
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
-        /*border: 1px solid rgba(217, 205, 231);;*/
+        border: 1px solid rgb(255, 255, 255);
+        margin: 11px;
+        padding: 7px;
     }
 
     .statusContainer{
         display: inherit;
         flex-flow: inherit;
         line-height: 5px;
-        padding-top: 2px; 
+       
     }
 
 /*------------------------------------------------------------------------*/
@@ -671,8 +691,7 @@ input{
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
-
-            background: rgba(93, 0, 155, 0.05);
+            background: rgba(93, 0, 155, 0.04);
             box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
             backdrop-filter: blur( 10px );
             -webkit-backdrop-filter: blur( 10px );
@@ -680,10 +699,6 @@ input{
             border: 1px solid rgb(255, 255, 255);
             padding: 15px;
             margin: 10px 100px 10px 100px;
-            
-
-            
-         
             
             /* ALLOWS SCROLLING WITHIN TECHSKILLS
             overflow-y:scroll;
@@ -717,8 +732,7 @@ input{
         /*outer circle stroke-Purple*/
         svg circle:nth-child(2) {
             stroke-dashoffset: calc(440 - (440 * 45) / 100 );/*Same calc(0);*/
-            stroke: #7851A9;
-            
+            stroke: #7851A9;           
             /*animation: progress 4s infinite linear; */  
         }
         
@@ -761,27 +775,33 @@ input{
         /* REMOVED ALLOWED FOR CENTERING
         display: inherit;
         flex-flow: row wrap;*/ 
-        position: relative;
-        border: 3px solid ;
+        
+        /*border: 3px solid ;
         border-top-color: transparent;
         border-bottom-color: rgba(217, 205, 231);;
         border-right-color: transparent;
-        border-left-color: transparent;
-        padding: 3px;
-        text-align: center;   
+        border-left-color: transparent;*/
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        text-align: center;
+        margin: 15px;
+       
     }
         .companyCards{
             display: flex;
             flex-flow: row wrap;
-            justify-content: center;
-            margin-top: 50px;
-            margin-bottom: 35px;
+            justify-content: space-evenly;
+            margin-top: 50px;         
         }
 
         .companyCards .cards {
             /* WHITE CARD-PURPLE SHADE*/
             background: rgb(255, 255, 255);
-            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
+            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
             backdrop-filter: blur( 10px );
             -webkit-backdrop-filter: blur( 10px );
             border-radius: 10px;
@@ -791,7 +811,7 @@ input{
             border-right-color: rgba(217, 205, 231);;
             border-left-color: rgba(217, 205, 231);;*/
             border: 1px solid rgba(217, 205, 231);;
-            
+            margin-bottom: 35px;
             padding: 15px; 
             max-height:300px;
             max-width:300px;
@@ -805,10 +825,9 @@ input{
             position: relative;
             top: -35px;
             background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
+            box-shadow: 0 1.5px 25px 1.5px rgba(93, 0, 155, 0.04);
             backdrop-filter: blur(10px);
             border-radius: 10px;
-            padding: 1px; 
             border: 1px solid rgba(217, 205, 231);;
             margin-bottom: -30px;
 
@@ -829,7 +848,7 @@ input{
             border-radius: 10px;
             border: 1px solid rgb(255, 255, 255);*/
             /* WHITE CARD-PURPLE SHADE*/
-            background: rgba(93, 0, 155, 0.05);
+            background: rgba(93, 0, 155, 0.04);
             box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
             backdrop-filter: blur( 10px );
             -webkit-backdrop-filter: blur( 10px );
