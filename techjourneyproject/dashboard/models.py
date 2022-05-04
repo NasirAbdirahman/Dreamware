@@ -1,3 +1,4 @@
+from re import T
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
@@ -35,8 +36,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     #Disable a field from AbstractBaseUser
     username = None
-
     email = models.EmailField(blank = False, unique = True, validators=[validate_email])
+
     #extra fields declared here
     first_name = models.CharField(blank = False,max_length=50)
     last_name = models.CharField(blank = False,max_length=50)
@@ -74,7 +75,7 @@ class TechSkills(models.Model):
     
     '''
 
-    name = models.CharField(max_length=65)
+    name = models.CharField(max_length=65,unique=True)
     #TO WORK TRY 
     # name = models.MultiSelectField(choices=SKILLS)
     #skill_level = models.CharField(max_length=2, choices=SKILL_LEVEL)
@@ -112,11 +113,18 @@ class Member(models.Model):
         ('MT', 'Moving Target')
     )
 
+    #Members willingness to relocate
+    RELOCATION_STATUS = (
+        ('OK', 'Open To Relocate'),
+        ('NO', 'No')
+    )
+
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     email = models.EmailField()
     #resume = models.ImageField(upload_to="images/") #upload to images folder in database
     picture = models.ImageField(default="defaultuser.png",upload_to="profile_images") #upload to images folder in database
     location = models.CharField(max_length=100)
+    personal_goal = models.TextField(max_length=500)
     personal_story = models.TextField(max_length=500)
     education = models.CharField(max_length=100)
     linkedin = models.CharField(max_length=100)
@@ -126,15 +134,17 @@ class Member(models.Model):
     previous_occupation = models.CharField(max_length=100)
     availability = models.CharField(max_length=2, choices=WORK_AVAILABILITY)
     workstatus = models.CharField(max_length=2, choices=WORK_STATUS)
+    relocation = models.CharField(max_length=2, choices=RELOCATION_STATUS)
 
     #Tech Skills field
-    skills = models.ManyToManyField(TechSkills, related_name="CustomUsers")
+    skills = models.ManyToManyField(TechSkills,related_name="CustomUsers")
 
 
     #return all fields or just return specifics
     def __str__(self):
         return self.email
 
+    #Returns a list version of interests(Allows looping in template in HTML)
     def interests_list(self):
         list= str(self.interests)
         list_ = list.split(',')
@@ -144,5 +154,5 @@ class Member(models.Model):
 
 #Companies Model
 class Companies(models.Model):
+    #email = email = models.EmailField()
     pass
-

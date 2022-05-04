@@ -510,8 +510,8 @@ input{
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
         border: 1px solid rgb(255, 255, 255);
-        margin: 11px;
-        padding: 7px;
+        margin: 15px 11px 11px 11px;
+        padding: 0 7px 10px 7px;
       
     
     }
@@ -552,8 +552,8 @@ input{
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
         border: 1px solid rgb(255, 255, 255);
-        margin: 11px;
-        padding: 7px;
+        margin: 15px 11px 11px 11px;
+        padding: 0 7px 10px 7px;
       
     }
 
@@ -583,8 +583,8 @@ input{
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
         border: 1px solid rgb(255, 255, 255);
-        margin: 11px;
-        padding: 7px;
+        margin: 15px 11px 11px 11px;
+        padding: 0 7px 7px 7px;
     }
 
     .statusContainer{
@@ -612,19 +612,18 @@ input{
         display: flex;
         flex-flow: row wrap;
         justify-content: space-evenly;
-        border: 3px solid ;
+        /*border: 3px solid ;
         border-top-color: transparent;
         border-bottom-color: rgba(217, 205, 231);;
         border-right-color: transparent;
-        border-left-color: transparent;
-        margin-top: 45px;
-        padding-bottom: 25px;
+        border-left-color: transparent;*/
+        margin-top: 48px;
         height:auto;
     }
 
         /*Personal Goal Section*/
         .rowOne-lCol{           
-            width: 47%;
+            width: 46%;
             margin: 30px 5px 0 0;
             padding: 5px;
             justify-content: center;
@@ -645,7 +644,7 @@ input{
 
         /*Personal Story Section*/
         .rowOne-rCol{
-            width: 47%;
+            width: 46%;
             margin: 30px 0 0 0;
             padding: 5px;
             justify-content: center;
@@ -684,7 +683,8 @@ input{
         border: 1px solid rgb(255, 255, 255);
         text-align: center;
         margin: 15px;
-        padding-bottom: 25px;
+        padding: 7px 0 25px 0;
+        padding-top: 7px;
           
     }
         .techskills{
@@ -725,13 +725,13 @@ input{
 
         /*Inner circle stroke*/
         svg circle:nth-child(2) {
-            stroke-dasharray: 400;/*440 WORDS FOR BIGGER CIRCLES*/
-            stroke-dashoffset: 400;
+            stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
+            stroke-dashoffset: 440;
         }
 
         /*outer circle stroke-Purple*/
         svg circle:nth-child(2) {
-            stroke-dashoffset: calc(440 - (440 * 45) / 100 );/*Same calc(0);*/
+            stroke-dashoffset: calc(440 - (330 * 75) / 100 );/*Same calc(0);*/
             stroke: #7851A9;           
             /*animation: progress 4s infinite linear; */  
         }
@@ -739,6 +739,7 @@ input{
         /*Inner Frosted circle-DON'T CHANGE*/
         .skill-circle {
             position: relative;
+            flex-flow: row wrap; /*MAKE LONG SKILL TEXT BREAK*/
             width: 110px;
             height: 110px;
             border-radius: 50%;
@@ -789,6 +790,7 @@ input{
         border: 1px solid rgb(255, 255, 255);
         text-align: center;
         margin: 15px;
+        padding-top:7px
        
     }
         .companyCards{
@@ -836,7 +838,7 @@ input{
         .companyCards .title{
             color: #000000;
             font-family: 'JosefinSans-semibold',sans-serif;
-            font-size: 24px;
+            font-size: 20px;
         }
         
 
@@ -878,6 +880,19 @@ input{
             backdrop-filter: blur(5px);
             z-index: 1000;
             margin: 1px;/*Space between*/
+        }
+
+         /*Inner circle stroke*/
+        .companyCards svg circle:nth-child(2) {
+            stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
+            stroke-dashoffset: 440;
+        }
+
+        /*outer circle stroke-Purple*/
+        .companyCards svg circle:nth-child(2) {
+            stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
+            stroke: #7851A9;           
+            /*animation: progress 4s infinite linear; */  
         }
           
         /*Inner frosted circle-text*/

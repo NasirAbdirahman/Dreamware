@@ -98,7 +98,7 @@
                     <section class="statusSection">
                         <p class="dashboard-title">Status</p>
                         <section class="statusContainer">
-                            <p class="dashboard-text">Relocation: {{user.member.get_availability_display}}</p>
+                            <p class="dashboard-text">Relocation: {{user.member.get_relocation_display}}</p>
                             <p class="dashboard-text">Availability: {{user.member.get_availability_display}}</p>
                             <p class="dashboard-text">Work Status: {{user.member.get_workstatus_display}}</p>
                         </section>
@@ -134,20 +134,28 @@
                         <p class="dashboard-title">Technology Skills</p>
                         <section class="techskills">
                            
-                            {% for skill in user.member.skills.all %}
-                            
-                                <div class="skill-circle">
-                                    <svg>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                    </svg>
+                            {% if user.member.skills.all %}
 
-                                    <div class="text">
-                                        {{skill}}
+                                {% for skill in user.member.skills.all %}
+                                
+                                    <div class="skill-circle">
+                                        <svg>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                        </svg>
+
+                                        <div class="text">
+                                            {{skill}}
+                                        </div>
                                     </div>
-                                </div>
-                            
-                            {% endfor %}
+                                
+                                {% endfor %}
+
+                            {% else %}
+
+                                <p>This is where your skills will be listed once you add some.</p>
+
+                            {% endif %}
 
                         </section>
 

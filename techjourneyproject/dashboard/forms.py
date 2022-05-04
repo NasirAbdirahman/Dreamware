@@ -29,7 +29,9 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 
-'''User Login Form'''
+
+
+''' Forms for User to Login '''
 #Form for Users/Members to Log in
 class UserLoginForm(forms.ModelForm):
 
@@ -41,6 +43,8 @@ class UserLoginForm(forms.ModelForm):
         model = Member
         fields = ( 'email',)
         #fields = '__all__'
+
+
 
 
 '''Forms for users to create, update Member profiles'''
@@ -99,6 +103,7 @@ class MemberProfileForm(forms.ModelForm):
     picture = forms.ImageField() #upload to images folder in database
     location = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder': 'Location'}))
     personal_story = forms.Textarea()
+    personal_goal = forms.Textarea()
     education = forms.CharField(max_length=50)
     linkedin = forms.CharField(max_length=50)
     github = forms.CharField(max_length=50)
@@ -107,14 +112,14 @@ class MemberProfileForm(forms.ModelForm):
     previous_occupation = forms.CharField(max_length=50)
     availability = forms.CheckboxSelectMultiple
     workstatus = forms.CheckboxSelectMultiple
-    skills = forms.ModelMultipleChoiceField(queryset=TechSkills.objects.all(),widget=forms.CheckboxSelectMultiple)
+    relocation =  forms.CheckboxSelectMultiple
+    skills = forms.ModelMultipleChoiceField(required=False,queryset=TechSkills.objects.all(),widget=forms.CheckboxSelectMultiple)
     
     class Meta:
         model = Member
         fields = (
-            'picture',
-            'location','personal_story','education','linkedin',
+            'picture','location','personal_story','personal_goal','education','linkedin',
             'github','portfolio','previous_occupation','availability',
-            'workstatus','interests','skills'
+            'workstatus','interests','relocation' ,'skills'
             )
         #fields = '__all__'
