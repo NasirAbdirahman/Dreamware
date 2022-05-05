@@ -59,6 +59,7 @@ class CustomUserAdmin(UserAdmin):
 admin.site.register(Member)
 admin.site.register(TechSkills)
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Companies)
 
 # unregister the Group model from admin.
 admin.site.unregister(Group)

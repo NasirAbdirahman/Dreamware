@@ -1,4 +1,4 @@
-from re import T
+
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
@@ -146,7 +146,7 @@ class Member(models.Model):
 
     #Returns a list version of interests(Allows looping in template in HTML)
     def interests_list(self):
-        list= str(self.interests)
+        list = str(self.interests)
         list_ = list.split(',')
         return list_
 
@@ -154,5 +154,19 @@ class Member(models.Model):
 
 #Companies Model
 class Companies(models.Model):
-    #email = email = models.EmailField()
-    pass
+    #Company representative email-- Would have validators ensuring non-frauds, depending on org.
+    email = models.EmailField()
+
+    #ADD FIRSTNAME & LASTNAME USER FIELDS FOR REPRESENTATIVE
+    company_name =  models.CharField(max_length=60)
+    position_title = models.CharField(max_length=60)
+    #MUST BE STARTING SALARY
+    salary = models.IntegerField(null=True, blank=True)
+    location = models.CharField(max_length=65)
+    skill_one = models.CharField(max_length=100)
+    skill_two = models.CharField(max_length=100)
+    skill_three = models.CharField(max_length=100)
+  
+    #return all fields or just return specifics
+    def __str__(self):
+        return self.company_name

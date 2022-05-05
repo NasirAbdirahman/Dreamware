@@ -13,7 +13,7 @@ def create_member(sender, instance, created, **kwargs):
 
     if created:
         #ensures member model not created for admin users
-        if instance.has_perm('dashboard.view_Member') is not True:
+        if instance.has_perm('dashboard.is_admin') is not True:
             #Default data when new user is created,email is immediately passed to member
             default_data = dict(email=instance.email)
             
