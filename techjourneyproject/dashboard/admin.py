@@ -20,12 +20,12 @@ class CustomUserAdmin(UserAdmin):
 
     #Displayed fields of CustomUser Model on admin panel view
     list_display = (
-        'email', 'first_name','last_name','is_admin', 'is_staff', 'is_active', 'date_joined', #'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus'
+        'email', 'first_name','last_name','is_admin', 'is_staff', 'is_active', 'is_company', 'date_joined',#, 'date_joined', 'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus'
     )
 
     #Displayed filters of CustomUser Model on admin panel view
     list_filter = (
-        'email', 'first_name','last_name','is_admin', 'is_staff', 'is_active'#, 'date_joined', 'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus'
+        'email', 'first_name','last_name','is_admin', 'is_staff', 'is_active','is_company'#, 'date_joined', 'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus'
     )
 
     #Displayed field sets of CustomUser Model in admin panel(controls the layout of admin add/change page)--Editor privileges
@@ -35,7 +35,7 @@ class CustomUserAdmin(UserAdmin):
             'fields': (('email', 'password'), ('first_name','last_name'))#'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus')
             }
         ),
-        ('Permissions', {'fields': ('is_staff', 'is_active', 'is_admin')}),#Shows permissions in admin panel
+        ('Permissions', {'fields': ('is_staff', 'is_active', 'is_admin','is_company')}),#Shows permissions in admin panel
     )
     
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
@@ -43,7 +43,7 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',), #Extra CSS classes applied to fieldset.("pretty")
-            'fields': ('email', 'password1', 'password2', 'is_staff', 'is_active')}
+            'fields': ('email', 'password1', 'password2', 'is_staff', 'is_active','is_company')}
         ),
     )
 

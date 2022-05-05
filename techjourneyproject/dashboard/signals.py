@@ -3,6 +3,7 @@ from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver, Signal
 from .models import Member
 from .models import CustomUser
+from .models import Companies
 
 #Signal file
 #Allow certain senders to notify a set of receivers that some action has taken place
@@ -12,8 +13,15 @@ from .models import CustomUser
 def create_member(sender, instance, created, **kwargs):
 
     if created:
+        #Ensures that Company Model is created for companies but not created for Admins
+        if instance.has_perm('dashboard.is_admin') is not True & instance.is_company is True:#instance.has_perm('dashboard.is_company') is True:
+            #Default data when new user is created,email is immediately passed to member
+            default_data = dict(email=instance.email)
+            #Company Model created and saved
+            Companies.objects.create(user=instance,**default_data)
+            instance.save()
         #ensures member model not created for admin users
-        if instance.has_perm('dashboard.is_admin') is not True:
+        elif instance.has_perm('dashboard.is_admin') is not True:
             #Default data when new user is created,email is immediately passed to member
             default_data = dict(email=instance.email)
             

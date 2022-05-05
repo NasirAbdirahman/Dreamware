@@ -59,6 +59,9 @@ class CreateMemberForm(forms.ModelForm):
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'batman@gmail.com'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'off','data-toggle': 'password', 'placeholder':"Secret Password"}))    
     
+    #For companies to create Accounts-MUST BE CHECKED
+    is_company = forms.BooleanField(required=False)
+
     #validation to check PW
     def clean_password(self):
         password = self.cleaned_data.get('password')
@@ -80,7 +83,7 @@ class CreateMemberForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ('first_name','last_name', 'email')
+        fields = ('first_name','last_name', 'email','is_company',)
         #fields = '__all__'
 
 

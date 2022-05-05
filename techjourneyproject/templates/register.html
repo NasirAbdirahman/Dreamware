@@ -40,7 +40,9 @@
                         <p class="invalid-warning">{{error}}</p>
                         {% endfor %}
                     {% endfor %}
-                    
+                    <label class="input-labels" for={ createuser_form.is_company }>Check if you are a company?</label>
+                    {{ createuser_form.is_company }}<br>
+
                     <label class="input-labels" for={ createuser_form.first_name }>First Name</label>
                     {{ createuser_form.first_name }}<br>
                     

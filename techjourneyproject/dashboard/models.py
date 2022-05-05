@@ -44,6 +44,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_admin = models.BooleanField(default = False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    is_company = models.BooleanField(default=False) #Monitors companies active on platform
     date_joined = models.DateTimeField(default=timezone.now)
 
     #email is the unique identifier
@@ -83,7 +84,6 @@ class TechSkills(models.Model):
     #return all fields or just return specifics
     def __str__(self):
         return self.name
-
 
 
 #Member Model
@@ -151,13 +151,15 @@ class Member(models.Model):
         return list_
 
 
-
 #Companies Model
 class Companies(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     #Company representative email-- Would have validators ensuring non-frauds, depending on org.
     email = models.EmailField()
-
-    #ADD FIRSTNAME & LASTNAME USER FIELDS FOR REPRESENTATIVE
+    #is_company = models.BooleanField()
+    #USER FIELDS FOR REPRESENTATIVE
+    first_name = models.CharField(blank=False,max_length=50)
+    last_name = models.CharField(blank=False,max_length=50)
     company_name =  models.CharField(max_length=60)
     position_title = models.CharField(max_length=60)
     #MUST BE STARTING SALARY
@@ -169,4 +171,4 @@ class Companies(models.Model):
   
     #return all fields or just return specifics
     def __str__(self):
-        return self.company_name
+        return self.email
