@@ -368,10 +368,10 @@ input{
     width:100%;
     align-self: center;
     text-align: center;
-    margin-top: 0em;
+    margin-top: 0.8em;
 }
 .register-form{
-    width: 70%;
+    width: 50%;
     height: auto;
     align-self: center;
     text-align: center;
@@ -379,7 +379,7 @@ input{
 }
 
 .register-title{
-    margin-top:-1px;
+    margin-top:0.5px;
     font-size: 55px;
 }
 
@@ -447,7 +447,7 @@ input{
     position: relative;
     top: -35px;
     background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 1.5px 25px 1.5px rgba(93, 0, 155, 0.1);
+    box-shadow: 0 1.5px 25px 1.5px rgba(93, 0, 155, 0.05);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     border: 1px solid rgba(217, 205, 231);;

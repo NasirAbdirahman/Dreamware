@@ -1,0 +1,294 @@
+<!--Company Dashboard View-->
+
+<!DOCTYPE html>
+<html lang="en" class="dashboard">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8" />
+        <meta name= "viewport" content= "width=device-width, initial-scale=1" />
+
+        <!-- CSS -->
+        {% load static %}   
+        <link rel="stylesheet" href="{% static 'style.css' %}"> 
+        <!-- Custom Components -->
+        <script src="{% static 'components/header.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/footer.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/button.js' %}" type="text/javascript" defer></script>
+
+        <title>DreamWare: Software Community</title>
+    </head>
+
+    <body>
+
+        <!-- Main Nav Bar -->
+        <header-component 
+            linkOneHref="/" linkOneText="Home"
+            linkTwoHref="/" linkTwoText="Companies"
+            loginHref="/logout" loginText="Logout" 
+            btnHref="/companyProfile" btnText="Profile" 
+        >
+        </header-component>  
+       
+
+           
+
+            
+        <main class="dashboard" >
+
+            <!-- Main Intro --> 
+            <section>
+
+                <!--Left Column-->
+                <section class="dashboard-lCol">
+                    
+                    <!--Profile Info -->
+                    <section class="profileSection"> 
+                        
+                        <img class="profileImg"src="/media/{{user.member.picture}}"  width="100px" height="100px">
+                       
+                       
+                        <section class="profileText">
+                            <p class="dashboard-text">{{user.first_name}}, {{user.last_name}}</p>
+                            <p class="dashboard-text">{{user.member.education}}</p>
+                            <p class="dashboard-text">{{user.member.location}}</p>    
+                        </section>
+                    </section>
+
+                    <!--Contact Links -->
+                    <section class="contactSection">
+                        <p class="dashboard-title">Contacts</p>
+                        <section class="contactLinks">
+                            <div class="contactCards">
+                                <a href="mailto:{{user.member.email}}" aria-label="Member's Email"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
+                            </div>
+                            <div class="contactCards">
+                                <a href="{{user.member.linkedin}}" target="blank" aria-label="Member's LinkedIn"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
+                            </div>
+                            <div class="contactCards">
+                                <a href="{{user.member.github}}" target="blank" aria-label="Member's Github"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
+                            </div>
+                            <div class="contactCards">
+                                <a href="{{user.member.portfolio}}" target="blank" aria-label="Member's Portfolio"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
+                            </div>
+                            <div class="contactCards">
+                                <a href="{{user.member.portfolio}}" target="blank" aria-label="Member's Resume"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
+                            </div>
+                        </section>
+                    </section>
+
+                    <!--Interests Section -->
+                    <section class="interestsSection">
+                        <p class="dashboard-title">Interests</p>
+                        <section class="interestsContainer">
+                            {% for x in user.member.interests_list %}
+                                <div class="interestsCards">
+                                    <p class="dashboard-text">{{x}}</p>
+                                </div>
+                                <!--{% if 'Front-End' in x %}
+                                <p class="frontend">{{x}}</p>
+                                {% else %}
+                                {{x}}
+                                {% endif %}-->
+                            {% endfor %}
+                        </section>
+                    </section>
+                        
+                    <!--Status Section -->
+                    <section class="statusSection">
+                        <p class="dashboard-title">Status</p>
+                        <section class="statusContainer">
+                            <p class="dashboard-text">Relocation: {{user.member.get_relocation_display}}</p>
+                            <p class="dashboard-text">Availability: {{user.member.get_availability_display}}</p>
+                            <p class="dashboard-text">Work Status: {{user.member.get_workstatus_display}}</p>
+                        </section>
+                    </section>
+
+                </section>
+
+
+                <!--Right Column-->
+                <section class="dashboard-rCol">
+                    
+                    <!--Personal Summaries-->
+                    <section class="personalSection">
+
+                        <!--Personal Goals-->
+                        <section class="rowOne-lCol">
+                            <p class="dashboard-title">Personal Goal</p>
+                            <p class="dashboard-text"> {{user.member.personal_story}}</p>
+                        </section>
+
+                        <!--Personal Story-->
+                        <section class="rowOne-rCol">
+                            <p class="dashboard-title">My Story</p>
+                            <p class="dashboard-text"> Previous Occupation: {{user.member.previous_occupation}}</p>
+                            <p class="dashboard-text"> {{user.member.personal_story}}</p>
+                        </section>
+
+                    </section>
+
+                    <!--Tech Skills-->
+                    <section class="skillsSection">
+                        
+                        <p class="dashboard-title">Technology Skills</p>
+                        <section class="techskills">
+                           
+                            {% if user.member.skills.all %}
+
+                                {% for skill in user.member.skills.all %}
+                                
+                                    <div class="skill-circle">
+                                        <svg>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                        </svg>
+
+                                        <div class="text">
+                                            {{skill}}
+                                        </div>
+                                    </div>
+                                
+                                {% endfor %}
+
+                            {% else %}
+
+                                <p>This is where your skills will be listed once you add some.</p>
+
+                            {% endif %}
+
+                        </section>
+
+                    </section>
+
+                    <!--Top Companies-->
+                    <section class="companiesSection">
+                    
+                        <p class="dashboard-title">Top Companies</p>
+                        <section class="companySubtitle">
+                            {% if companies %}
+                                <p>These companies have positions that match your skillset</p>
+                            {% else %}
+                                <p>This is where companies you match with will be listed once you add your skills.</p>
+                            {% endif %}
+                        </section>
+                        
+                        <section class="companyCards">
+                            
+                            <!--Company Cards-->
+                            {% if companies %}
+
+                                {% for company in companies %}
+                            
+                                    <section class="cards">
+
+                                        <section class="infoSection">
+                                            <div class="companyTitle">
+                                                <p class="title"> {{company.company_name}}</p>
+                                            </div>
+                                        
+                                            <p> {{company.position_title}}</p>
+                                            <p>{{company.location}}</p>
+
+                                            {% if company.salary == none %}
+                                                <p>Salary Not Disclosed</p>
+                                            {% else %}
+                                                <p>{{company.salary}} USD</p>
+                                            {% endif %}
+                                        </section>
+                                    
+                                        <section class="skills">
+                                            <p>Skills</p>
+                                            <section class="skills-container">
+                                                <div class="skill-circle">
+                                                    <svg>
+                                                        <circle cx="30" cy="30" r="30"></circle>
+                                                        <circle cx="30" cy="30" r="30"></circle>
+                                                    </svg>
+                                                    <div class="text">{{company.skill_one}}</div>
+                                                </div>
+
+                                                <div class="skill-circle">
+                                                    <svg>
+                                                        <circle cx="30" cy="30" r="30"></circle>
+                                                        <circle cx="30" cy="30" r="30"></circle>
+                                                    </svg>
+                                                    <div class="text">{{company.skill_two}}</div>
+                                                </div>
+                                                <div class="skill-circle">
+                                                    <svg>
+                                                        <circle cx="30" cy="30" r="30"></circle>
+                                                        <circle cx="30" cy="30" r="30"></circle>
+                                                    </svg>
+                                                    <div class="text">{{company.skill_three}}</div>
+                                                </div>
+                                            </section>
+                                        </section>
+                                        
+                                    </section>
+                        
+                                {% endfor %}
+
+                            {% else %}
+
+                                <!--Default Card if no Matches-->
+                                <section class="cards">
+
+                                    <section class="infoSection">
+                                        <div class="companyTitle">
+                                            <p class="title"> Company Name </p>
+                                        </div>
+                                        <p> Position Title </p>
+                                        <p>Location or Remote </p>
+                                        <p>Starting Salary</p>
+                                    </section>
+                                
+                                    <section class="skills">
+                                        <p>Top 3 Skills</p>
+                                        <section class="skills-container">
+                                            <div class="skill-circle">
+                                                <svg>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                </svg>
+                                                <div class="text">Skill One</div>
+                                            </div>
+
+                                            <div class="skill-circle">
+                                                <svg>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                </svg>
+                                                <div class="text">Skill Two</div>
+                                            </div>
+                                            <div class="skill-circle">
+                                                <svg>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                    <circle cx="30" cy="30" r="30"></circle>
+                                                </svg>
+                                                <div class="text">Skill Three</div>
+                                            </div>
+                                        </section>
+                                    </section>
+                                    
+                                </section>
+                                
+                            {% endif %}
+
+                        </section>
+
+                    </section>
+                   
+                </section>
+
+            </section>
+           
+           
+        </main>
+
+    </body>
+
+    <!-- Footer 
+    <footer-component></footer-component>-->
+
+</html>
