@@ -22,7 +22,7 @@
     <body>
 
         <main>
-            <a href="/"><img src="/static/images/dreamwareLogo.png" height="15%" width="15%"></a>
+            <a href="/"><img src="/static/images/dreamwareLogo.png" height="13%" width="13%"></a>
 
             <section class="register-section">
                 
@@ -32,8 +32,6 @@
                     <p class="register-text">Select a profile type & join the community</p>
                 </section>
                 
-            
-               
 
                 <form  method="POST" action="/register/" enctype="multipart/form-data" class="register-form">
                     {% csrf_token %} 
@@ -43,68 +41,70 @@
                         {% endfor %}
                     {% endfor %}
                     
-                    <!--Profile Cards
+                    <!--Profile Cards Radio Input-->
                     <section class="loginCards">
+                        {% for radio in createuser_form.is_company %}
 
-                        <label class="engineerCheckbox"> 
-                            <section class="cards">
-                                <section class="infoSection">
-                                    
-                                    <div class="companyTitle">
-                                        <p class="title"> Engineer </p>
-                                    </div>
+                            <label for="{{ radio.id_for_label }}" class="memberProfile">
+                                <!--{{ radio.choice_label }}-->
+                                <section class="cards">
+                                    <section class="infoSection">
+                                        
+                                        <div class="companyTitle">
+                                            <p class="title">{{ radio.choice_label }} </p>
+                                        </div>
 
-                                    <img src="/static/images/dreamwareLogo.png" height="150px" width="150px">
+                                        {% if radio.choice_label == 'Member'%}
+                                            <img src="/static/images/memberAccount.svg" height="185px" width="190px">
+                                        {% else %}
+                                            <img src="/static/images/companyAccount.svg" height="185px" width="190px">
+                                        {% endif %}
 
-                                    <input type="radio" checked="checked" name="radio">
-                                    <span class="checkmark"></span> 
-                                    
+                                        <!--<input type="radio" checked="checked" name="radio">-->
+                                        {{ radio.tag }} 
+                                        <span class="checkmark"></span> 
+                                        
+                                    </section>
                                 </section>
-                            </section>
-                        </label>
-                        
-                        <label class="companyCheckbox"> 
-                            <section class="cards">
-                                <section class="infoSection">
-                                    
-                                    <div class="companyTitle">
-                                        <p class="title"> Company </p>
-                                    </div>
+                                <!--<span class="radio">{{ radio.tag }}</span>-->
+                            </label>
 
-                                    <img src="/static/images/dreamwareLogo.png" height="150px" width="150px">
+                        {% endfor %}
+                    </section>
+                   
+                    <!--Input Section-->
+                    <section class="registerInputSection">
 
-                                    <input type="radio" name="radio">
-                                    <span class="checkmark"></span> 
-                                
-                                </section>
-                            </section>
-                        </label>
-                        
-                    </section>-->
-               
+                        <section class="register-namePanel">
+                            <!--First Name Input-->
+                            <label class="input-labels" for={ createuser_form.first_name }>First Name</label>
+                            {{ createuser_form.first_name }}<br>
+                            
+                            <!--Last Name Input-->
+                            <label class="input-labels" for={ createuser_form.last_name }>Last Name</label>
+                            {{ createuser_form.last_name }}<br>
+                        </section>
+                       
+                        <section class="register-secretPanel">
+                            <!--Email Input-->
+                            <label class="input-labels" for={ createuser_form.email }>Email</label>
+                            {{ createuser_form.email }}<br>
 
-                    <label class="input-labels" for={ createuser_form.is_company }>Company?</label>
-                    {{ createuser_form.is_company }}<br>
+                            <!--Password Input-->
+                            <label class="input-labels" for={ createuser_form.password }>Password</label>
+                            {{ createuser_form.password }}<br>
+                        </section>
+                       
+                    </section>
 
-                    <label class="input-labels" for={ createuser_form.first_name }>First Name</label>
-                    {{ createuser_form.first_name }}<br>
-                    
-
-                    <label class="input-labels" for={ createuser_form.last_name }>Last Name</label>
-                    {{ createuser_form.last_name }}<br>
-
-                    <label class="input-labels" for={ createuser_form.email }>Email</label>
-                    {{ createuser_form.email }}
-                    <br>
-
-                    <label class="input-labels" for={ createuser_form.password }>Password</label>
-                    {{ createuser_form.password }}<br>
-
+                    <!--Submit Button & Link-->
                     <section>
                         <button class="btn-main" type="submit">Create your profile</button>
                         <p>Already a Member? <a class="form-registerlink" href="/login">Login</a></p>
                     </section>
-                
+            
+                    
+                   
                 </form>
 
       

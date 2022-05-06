@@ -1,3 +1,5 @@
+from secrets import choice
+from tkinter import Widget
 from xml.dom import ValidationErr
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, ReadOnlyPasswordHashField
 from .models import CustomUser, Member, TechSkills
@@ -60,8 +62,12 @@ class CreateMemberForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'off','data-toggle': 'password', 'placeholder':"Secret Password"}))    
     
     #For companies to create Accounts-MUST BE CHECKED
-    is_company = forms.BooleanField(required=False)
-
+    MEMBER_STATUS = (
+        (False, 'Member'),
+        (True, 'Company'),
+    )
+    is_company = forms.ChoiceField(widget=forms.RadioSelect,choices=MEMBER_STATUS, initial=False)
+   
     #validation to check PW
     def clean_password(self):
         password = self.cleaned_data.get('password')

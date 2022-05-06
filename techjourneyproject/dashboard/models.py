@@ -44,7 +44,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_admin = models.BooleanField(default = False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    is_company = models.BooleanField(default=False) #Monitors companies active on platform
+    is_company = models.BooleanField(blank=False,default=False)#Monitors companies active on platform
     date_joined = models.DateTimeField(default=timezone.now)
 
     #email is the unique identifier
