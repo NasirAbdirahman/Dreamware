@@ -22,16 +22,18 @@
     <body>
 
         <main>
-            <a href="/"><img src="/static/images/dreamwareLogo.png" height="10%" width="10%"></a>
+            <a href="/"><img src="/static/images/dreamwareLogo.png" height="15%" width="15%"></a>
 
             <section class="register-section">
                 
                 <section>
-                    <img src="/static/images/dreamwareLogo.png" height="25%" width="25%">
+                    <!--<img src="/static/images/dreamwareLogo.png" height="25%" width="25%">-->
                     <h1 class="register-title">Become A Member</h1>
-                    <p class="register-text">Fill this form out & join the community today</p>
+                    <p class="register-text">Select a profile type & join the community</p>
                 </section>
                 
+            
+               
 
                 <form  method="POST" action="/register/" enctype="multipart/form-data" class="register-form">
                     {% csrf_token %} 
@@ -40,7 +42,48 @@
                         <p class="invalid-warning">{{error}}</p>
                         {% endfor %}
                     {% endfor %}
-                    <label class="input-labels" for={ createuser_form.is_company }>Check if you are a company?</label>
+                    
+                    <!--Profile Cards
+                    <section class="loginCards">
+
+                        <label class="engineerCheckbox"> 
+                            <section class="cards">
+                                <section class="infoSection">
+                                    
+                                    <div class="companyTitle">
+                                        <p class="title"> Engineer </p>
+                                    </div>
+
+                                    <img src="/static/images/dreamwareLogo.png" height="150px" width="150px">
+
+                                    <input type="radio" checked="checked" name="radio">
+                                    <span class="checkmark"></span> 
+                                    
+                                </section>
+                            </section>
+                        </label>
+                        
+                        <label class="companyCheckbox"> 
+                            <section class="cards">
+                                <section class="infoSection">
+                                    
+                                    <div class="companyTitle">
+                                        <p class="title"> Company </p>
+                                    </div>
+
+                                    <img src="/static/images/dreamwareLogo.png" height="150px" width="150px">
+
+                                    <input type="radio" name="radio">
+                                    <span class="checkmark"></span> 
+                                
+                                </section>
+                            </section>
+                        </label>
+                        
+                    </section>-->
+               
+
+                    <label class="input-labels" for={ createuser_form.is_company }>Company?</label>
                     {{ createuser_form.is_company }}<br>
 
                     <label class="input-labels" for={ createuser_form.first_name }>First Name</label>

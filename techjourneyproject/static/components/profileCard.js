@@ -1,5 +1,6 @@
 /* 
     Custom Profile Card Component 
+    Will render user's profiles as cards for companies to view
 */
 
 class ProfileCard extends HTMLElement {

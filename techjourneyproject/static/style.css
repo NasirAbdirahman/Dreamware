@@ -395,6 +395,124 @@ input{
     margin-top:-40px;
 }
 
+/* Login Cards Styling */
+.loginCards{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.loginCards .cards {
+    /* WHITE CARD-PURPLE SHADE*/
+    background: rgb(255, 255, 255);
+    box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    /*border: 1px solid ;
+    border-top-color: transparent;
+    border-bottom-color: rgba(217, 205, 231);;
+    border-right-color: rgba(217, 205, 231);;
+    border-left-color: rgba(217, 205, 231);;*/
+    border: 1px solid rgba(217, 205, 231);;
+    padding: 15px; 
+    max-height:300px;
+    max-width:300px;
+    height: auto;
+    width: auto;
+    margin: 15px;
+
+    /*Container code for RADIO BUTTONS*/
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.loginCards .infoSection{
+    line-height: 5px !important;
+}
+
+.loginCards .companyTitle{
+    position: relative;
+    top: -35px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 1.5px 25px 1.5px rgba(93, 0, 155, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(217, 205, 231);;
+    margin-bottom: -30px;
+
+    
+}
+.loginCards .title{
+    color: #000000;
+    font-family: 'JosefinSans-semibold',sans-serif;
+    font-size: 20px;
+}
+
+/* PROFILE cards/Radio Button STYLING */
+
+/* Engineer Card MouseOver effect on checkmark */
+.engineerCheckbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* Company Card MouseOver effect on checkmark*/
+.companyCheckbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+
+/* GLOBAL-Hide the browser's default radio button */
+.loginCards input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+/* GLOBAL-Checkmark styling */
+.checkmark {
+    position: absolute;
+    top: 180px;
+    left: 155px;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 20px;
+}
+/* GLOBAL-SELECTED checkmark styling*/
+.loginCards .checkmark:after {
+    left: 9px;
+    top: 3px;
+    width: 7.5px;
+    height: 15px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/* GLOBAL- checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* GLOBAL- SELECTED CHECKMARK BACKGROUND styling */
+.loginCards input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+/* GLOBAL-SHOW checkmark when selected*/
+.loginCards input:checked ~ .checkmark:after {
+    display: block;
+}
+
+
 
 /*------------------------------------------------------------------------*/
 
