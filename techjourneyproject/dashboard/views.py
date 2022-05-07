@@ -1,3 +1,4 @@
+from logging import raiseExceptions
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
 #from django.contrib.auth.models import User
@@ -6,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.validators import validate_email
 from django.db.models import Q
+from django.core.exceptions import PermissionDenied
 #Imported models we create
 from .models import Member
 from .models import TechSkills
@@ -165,66 +167,75 @@ def memberProfile(request):
 
 
 #Company Dashboard page View
-@login_required(login_url='/login/')
+@login_required(login_url='/login/') 
+#@permission_required('dashboard.CustomUser.is_company',raise_exception=True) #NOT WORKING(https://stackoverflow.com/questions/62689245/permission-required-decorator-not-working-on-view-in-django)
 def companyDashboard(request):
-    #Return User's Member Model
-    users = Companies.objects.filter(user=request.user)
+    #Custom permission check for non-company users
+    if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+        #Return User's Company Model
+        users = Companies.objects.filter(user=request.user)
+   
 
-    #Returns User's Member Skills
-    #skills = list(request.user.member.skills.all())
-    #member_skills = list(skills)
+        #Returns User's Member Skills
+        #skills = list(request.user.member.skills.all())
+        #member_skills = list(skills)
 
-    #filtering all the companies whose skill fields(Skill_one,skill_two,skill_three) contains members skill
-    '''companies = Companies.objects.filter(#If Company MODEL skill_one contains ANYTHING user has
-        Q(skill_one__in = skills) | 
-        Q(skill_two__in = skills) |
-        Q(skill_three__in = skills)
-    )'''
+        #filtering all the companies whose skill fields(Skill_one,skill_two,skill_three) contains members skill
+        '''companies = Companies.objects.filter(#If Company MODEL skill_one contains ANYTHING user has
+            Q(skill_one__in = skills) | 
+            Q(skill_two__in = skills) |
+            Q(skill_three__in = skills)
+        )'''
 
-    #If Company MODEL skill_one contains ANYTHING user has
-    #companies = Companies.objects.filter(skill_one__in=member_skills)
-    #companiesskills = Companies.objects.values_list('skill_one','skill_two', 'skill_three')#flat returns single values
+        #If Company MODEL skill_one contains ANYTHING user has
+        #companies = Companies.objects.filter(skill_one__in=member_skills)
+        #companiesskills = Companies.objects.values_list('skill_one','skill_two', 'skill_three')#flat returns single values
 
-    #interests = Member.objects.filter(interests = request.user.member.get_interests_display)
-    
-    #members = Member.objects.all()
-    
-    return render(request, 'companyDashboard.html',{'users': users,})# 'companies':companies}) #{'members' : members ,'skills': skills})
+        #interests = Member.objects.filter(interests = request.user.member.get_interests_display)
+        
+        #members = Member.objects.all()
+        
+        return render(request, 'companyDashboard.html',{'users': users,})# 'companies':companies}) #{'members' : members ,'skills': skills})
 
-
+    else:
+        raise PermissionDenied()
 
 
 #Company profile View
 @login_required(login_url='/login/') 
+#@permission_required('dashboard.is_company',raise_exception=True) #NOT WORKING(https://stackoverflow.com/questions/62689245/permission-required-decorator-not-working-on-view-in-django)
 def companyProfile(request):
+    #Custom permission check for non-company users
+    if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+        if request.method == 'POST':
+            user_form = UpdateMemberForm(request.POST, instance=request.user)
+            profile_form = MemberProfileForm(request.POST,request.FILES, instance=request.user.member, )
+            if user_form.is_valid() and profile_form.is_valid():
+                user_form.save()
+                profile_form.save()
 
-    if request.method == 'POST':
-        user_form = UpdateMemberForm(request.POST, instance=request.user)
-        profile_form = MemberProfileForm(request.POST,request.FILES, instance=request.user.member, )
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-
-            messages.success(request, 'Your profile was updated successfully')
-            return redirect('companyProfile')
+                messages.success(request, 'Your profile was updated successfully')
+                return redirect('companyProfile')
+            else:
+                # Redirect back to the same page if the data
+                # was invalid
+                return render(request, "companyProfile.html", 
+                    {
+                    'user_form': user_form,
+                    'profile_form': profile_form,
+                    }
+                ) 
         else:
-            # Redirect back to the same page if the data
-            # was invalid
-            return render(request, "companyProfile.html", 
-                {
+            user_form = UpdateMemberForm(instance=request.user)
+            #profile_form = MemberProfileForm(instance=request.user.member)
+
+
+        return render(request, 'companyProfile.html',
+            {
                 'user_form': user_form,
-                'profile_form': profile_form,
-                }
-            ) 
+                #'profile_form': profile_form,
+            }
+        )
+
     else:
-        user_form = UpdateMemberForm(instance=request.user)
-        #profile_form = MemberProfileForm(instance=request.user.member)
-
-
-    return render(request, 'companyProfile.html',
-        {
-            'user_form': user_form,
-            #'profile_form': profile_form,
-        }
-    )
-
+        raise PermissionDenied()

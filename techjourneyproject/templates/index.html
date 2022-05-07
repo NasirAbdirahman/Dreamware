@@ -22,13 +22,23 @@
 
         <!-- Main Nav Bar -->
         {% if user.is_authenticated %}
-            <header-component 
-                linkOneHref="/" linkOneText="Companies"
-                linkTwoHref="/" linkTwoText="Features"
-                loginHref="/logout" loginText="Logout" 
-                btnHref="/dashboard" btnText="Dashboard" 
-            >
-            </header-component>  
+            {% if user.is_company %}
+                <header-component 
+                    linkOneHref="/" linkOneText="Members"
+                    linkTwoHref="/" linkTwoText="Features"
+                    loginHref="/logout" loginText="Logout" 
+                    btnHref="/companyDashboard" btnText="Dashboard" 
+                >
+                </header-component> 
+                {% else %}
+                    <header-component 
+                        linkOneHref="/" linkOneText="Companies"
+                        linkTwoHref="/" linkTwoText="Features"
+                        loginHref="/logout" loginText="Logout" 
+                        btnHref="/memberDashboard" btnText="Dashboard" 
+                    >
+                    </header-component> 
+                {% endif %}
         {% else %}
             <header-component 
                 linkOneHref="/" linkOneText="Companies"

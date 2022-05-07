@@ -172,3 +172,9 @@ class Companies(models.Model):
     #return all fields or just return specifics
     def __str__(self):
         return self.email
+
+    #Can add permissions to model here if needed
+    '''class Meta:
+        permissions = [
+            ("is_company", "Is a company"),
+        ]'''

@@ -49,60 +49,14 @@
                        
                        
                         <section class="profileText">
-                            <p class="dashboard-text">{{user.first_name}}, {{user.last_name}}</p>
-                            <p class="dashboard-text">{{user.member.education}}</p>
+                            <!--<p class="dashboard-text">{{user.first_name}}, {{user.last_name}}</p>-->
+                            <p class="dashboard-text">{{user.companies.first_name}}, {{user.companies.last_name}}</p>
+                            <p class="dashboard-text">{{user.companies.company_name}}</p>
                             <p class="dashboard-text">{{user.member.location}}</p>    
                         </section>
                     </section>
 
-                    <!--Contact Links -->
-                    <section class="contactSection">
-                        <p class="dashboard-title">Contacts</p>
-                        <section class="contactLinks">
-                            <div class="contactCards">
-                                <a href="mailto:{{user.member.email}}" aria-label="Member's Email"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
-                            </div>
-                            <div class="contactCards">
-                                <a href="{{user.member.linkedin}}" target="blank" aria-label="Member's LinkedIn"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
-                            </div>
-                            <div class="contactCards">
-                                <a href="{{user.member.github}}" target="blank" aria-label="Member's Github"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
-                            </div>
-                            <div class="contactCards">
-                                <a href="{{user.member.portfolio}}" target="blank" aria-label="Member's Portfolio"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
-                            </div>
-                            <div class="contactCards">
-                                <a href="{{user.member.portfolio}}" target="blank" aria-label="Member's Resume"><img src="/static/images/dreamwareLogo.png" height="40px" width="40px"></a>
-                            </div>
-                        </section>
-                    </section>
-
-                    <!--Interests Section -->
-                    <section class="interestsSection">
-                        <p class="dashboard-title">Interests</p>
-                        <section class="interestsContainer">
-                            {% for x in user.member.interests_list %}
-                                <div class="interestsCards">
-                                    <p class="dashboard-text">{{x}}</p>
-                                </div>
-                                <!--{% if 'Front-End' in x %}
-                                <p class="frontend">{{x}}</p>
-                                {% else %}
-                                {{x}}
-                                {% endif %}-->
-                            {% endfor %}
-                        </section>
-                    </section>
-                        
-                    <!--Status Section -->
-                    <section class="statusSection">
-                        <p class="dashboard-title">Status</p>
-                        <section class="statusContainer">
-                            <p class="dashboard-text">Relocation: {{user.member.get_relocation_display}}</p>
-                            <p class="dashboard-text">Availability: {{user.member.get_availability_display}}</p>
-                            <p class="dashboard-text">Work Status: {{user.member.get_workstatus_display}}</p>
-                        </section>
-                    </section>
+                    
 
                 </section>
 
