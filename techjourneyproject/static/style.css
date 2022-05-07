@@ -528,6 +528,7 @@ input{
 
 /* 
     Dashboard Page Styling
+    -GlOBAL + MemberDashboard
 */
 
 .dashboard-container{ /*WHEN ADDED TO HTML, MAKES ENTIRE BG MOVE ON SCROLL*/
@@ -1042,152 +1043,103 @@ input{
         }
         
          
-        
-          
+/* 
+    Company Dashboard Page Styling
+*/     
+
+.company-techskills{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background: rgba(93, 0, 155, 0.04);
+    box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 15px;
+    margin: 50px 10px 10px 10px ;
+
+}
+
+/*TechSkill SVG*/
+.company-techskills svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    z-index: 1000;
+}
+
+/*TechSKill SVG Circle*/
+.company-techskills svg circle {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);         
+}
+
+/*Inner circle stroke*/
+.company-techskills svg circle:nth-child(2) {
+    stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
+    stroke-dashoffset: 440;
+}
+
+/*outer circle stroke-Purple*/
+.company-techskills svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
+    stroke: #7851A9;           
+    /*animation: progress 4s infinite linear; */  
+}
+
+/*Inner Frosted circle-DON'T CHANGE*/
+.company-techskills .skill-circle {
+    position: relative;
+    flex-flow: row wrap; /*MAKE LONG SKILL TEXT BREAK*/
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px blue /*rgb(120, 81, 169)*/;
+    background: inherit;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    margin: 3px;/*Space between*/
+}
+  
+/*Inner frosted circle-text*/
+.company-techskills .skill-circle .text {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #000000;
+    font-family: 'JosefinSans-regular', sans-serif;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
 
 /*
     Profile Card Styling
-*/
+
 .profile-card {
-    /* Add shadows to create the "card" effect */
+    /* Add shadows to create the "card" effect /
     background-color: #ffffff;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 }
 
-/* On mouse-over, add a deeper shadow */
+/* On mouse-over, add a deeper shadow /
 .profile-card:hover {
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* Add some padding inside the card container */
+/* Add some padding inside the card container /
 .profile-card-container {
 padding: 2px 16px;
 }
-
-
-/* CARD STYLE 
-.companiesSection{
-       
-        position: relative;
-        border: 3px solid ;
-        border-top-color: transparent;
-        border-bottom-color: rgba(217, 205, 231);
-        border-right-color: transparent;
-        border-left-color: transparent;
-        padding: 3px;
-        text-align: center;
-       
-        
-    }
-        .companyCards{
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: center;
-            margin-top: 50px;
-            margin-bottom: 45px;
-        }
-
-        .companyCards .cards {
-            /* WHITE CARD-PURPLE SHADE
-            background: rgba(93, 0, 155, 0.1);
-            
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 10px );
-            border-radius: 10px;
-            /*border: 1px solid ;
-            border-top-color: transparent;
-            border-bottom-color: rgba(217, 205, 231);
-            border-right-color: rgba(217, 205, 231);
-            border-left-color: rgba(217, 205, 231);
-            border: 1px solid rgba(217, 205, 231);
-            
-            padding: 15px; 
-            max-height:200px;
-            max-width:300px;
-        }
-
-        .companyCards .infoSection{
-            line-height: 5px;
-        }
-
-        .companyCards .companyTitle{
-            position: relative;
-            top: -35px;
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 1px; 
-            border: 1px solid rgba(217, 205, 231);
-            margin-bottom: -30px;
-
-            
-        }
-        .companyCards .title{
-            color: #000000;
-            font-family: 'JosefinSans-semibold',sans-serif;
-            font-size: 24px;
-        }
-        
-
-        .companyCards .skills{
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 10px );
-            border-radius: 10px;
-            border: 1px solid rgba(217, 205, 231);
-            /* WHITE CARD-PURPLE SHADE
-            background: rgba(93, 0, 155, 0.1);
-            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.364);
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 10px );
-            border-radius: 10px;
-            border: 0.5px solid rgb(255, 255, 255);
-            
-            
-            width: auto;
-            max-width: none;
-            padding: 0 10px 10px 10px;
-            margin-bottom: -10px;
-
-        }
-        .companyCards .skills-section {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-top: -10px;
-
-        }
-
-
-        
-        .companyCards .skill-circle {
-            position: relative;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            box-shadow: inset 0 0 25px blue /*rgb(120, 81, 169)/;
-            background: inherit;
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            margin: 1px;/*Space between
-        }
-          
-        
-        .companyCards .text {
-            position: absolute;
-            display: flex;  
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: #000000;
-            font-family: 'JosefinSans-regular', sans-serif;
-            font-size: 13px;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-        }
-        */
+*/

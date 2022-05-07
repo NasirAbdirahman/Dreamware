@@ -174,7 +174,21 @@ def companyDashboard(request):
     if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
         #Return User's Company Model
         users = Companies.objects.filter(user=request.user)
-   
+
+        #return User's Company TechSkills
+        skillOne = request.user.companies.skill_one
+        skillTwo = request.user.companies.skill_two
+        skillThree = request.user.companies.skill_three
+        #return User's Company TechSkills as list
+        skills ={skillOne,skillTwo,skillThree}
+
+        '''#return User's Company JD
+        companyName = request.user.companies.company_name
+        position=request.user.companies.position_title
+        salary=request.user.companies.salary
+        location=request.user.companies.location
+        #return User's Company TechSkills as list
+        JD =(companyName,position,salary,location)'''
 
         #Returns User's Member Skills
         #skills = list(request.user.member.skills.all())
@@ -195,7 +209,7 @@ def companyDashboard(request):
         
         #members = Member.objects.all()
         
-        return render(request, 'companyDashboard.html',{'users': users,})# 'companies':companies}) #{'members' : members ,'skills': skills})
+        return render(request, 'companyDashboard.html',{'users': users, 'skills':skills})# 'companies':companies}) #{'members' : members ,'skills': skills})
 
     else:
         raise PermissionDenied()
