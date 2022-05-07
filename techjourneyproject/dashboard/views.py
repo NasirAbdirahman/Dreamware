@@ -175,12 +175,12 @@ def companyDashboard(request):
         #Return User's Company Model
         users = Companies.objects.filter(user=request.user)
 
-        #return User's Company TechSkills
+        #return User's Company Model Skills
         skillOne = request.user.companies.skill_one
         skillTwo = request.user.companies.skill_two
         skillThree = request.user.companies.skill_three
         #return User's Company TechSkills as list
-        skills ={skillOne,skillTwo,skillThree}
+        topSkills ={skillOne,skillTwo,skillThree}
 
         '''#return User's Company JD
         companyName = request.user.companies.company_name
@@ -190,26 +190,13 @@ def companyDashboard(request):
         #return User's Company TechSkills as list
         JD =(companyName,position,salary,location)'''
 
-        #Returns User's Member Skills
-        #skills = list(request.user.member.skills.all())
-        #member_skills = list(skills)
-
-        #filtering all the companies whose skill fields(Skill_one,skill_two,skill_three) contains members skill
-        '''companies = Companies.objects.filter(#If Company MODEL skill_one contains ANYTHING user has
-            Q(skill_one__in = skills) | 
-            Q(skill_two__in = skills) |
-            Q(skill_three__in = skills)
-        )'''
-
-        #If Company MODEL skill_one contains ANYTHING user has
-        #companies = Companies.objects.filter(skill_one__in=member_skills)
-        #companiesskills = Companies.objects.values_list('skill_one','skill_two', 'skill_three')#flat returns single values
-
-        #interests = Member.objects.filter(interests = request.user.member.get_interests_display)
-        
-        #members = Member.objects.all()
-        
-        return render(request, 'companyDashboard.html',{'users': users, 'skills':skills})# 'companies':companies}) #{'members' : members ,'skills': skills})
+        #filtering all the Members whose skills field contains companies skill
+            #If Member MODEL skills contains ANYTHING Company needs
+        candidates = Member.objects.filter(skills__name__in = topSkills).distinct() #removes duplicate values returned
+    
+        return render(request, 'companyDashboard.html',
+            {'users': users, 'topSkills':topSkills, 'candidates':candidates}
+        )# 'companies':companies}) #{'members' : members ,'skills': skills})
 
     else:
         raise PermissionDenied()

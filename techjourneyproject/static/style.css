@@ -1125,21 +1125,54 @@ input{
 
 /*
     Profile Card Styling
-
-.profile-card {
-    /* Add shadows to create the "card" effect /
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-
-/* On mouse-over, add a deeper shadow /
-.profile-card:hover {
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-/* Add some padding inside the card container /
-.profile-card-container {
-padding: 2px 16px;
-}
 */
+.profileCards{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-top: 50px;         
+}
+
+.profileCards .cards {
+    /* WHITE CARD-PURPLE SHADE*/
+    background: rgb(255, 255, 255);
+    box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    /*border: 1px solid ;
+    border-top-color: transparent;
+    border-bottom-color: rgba(217, 205, 231);;
+    border-right-color: rgba(217, 205, 231);;
+    border-left-color: rgba(217, 205, 231);;*/
+    border: 1px solid rgba(217, 205, 231);;
+    margin-bottom: 35px;
+    padding: 15px; 
+    max-height:300px;
+    max-width:300px;
+}
+.companiesSection .companySubtitle {
+    margin-top: -15px;
+
+}
+.profileCards .infoSection{
+    line-height: 5px !important;
+}
+
+.profileCards .companyTitle{
+    position: relative;
+    top: -35px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 1.5px 25px 1.5px rgba(93, 0, 155, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(217, 205, 231);;
+    margin-bottom: -30px;
+
+    
+}
+.profileCards .title{
+    color: #000000;
+    font-family: 'JosefinSans-semibold',sans-serif;
+    font-size: 20px;
+}
