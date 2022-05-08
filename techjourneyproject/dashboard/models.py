@@ -96,7 +96,7 @@ class Member(models.Model):
         ('FS', 'Full-Stack'),
         ('MD', 'Mobile Dev'),
         ('DO', 'Dev Ops'),
-        ('SI', 'Security & Infrastructure') #CHANGE TO SEC.& IF
+        ('CS', 'CyberSec.')
     )
 
     #Members Current Work Status
@@ -116,7 +116,7 @@ class Member(models.Model):
     #Members willingness to relocate
     RELOCATION_STATUS = (
         ('OK', 'Open To Relocate'),
-        ('NO', 'No')#CHANGE TO 'NO RELOCATION'
+        ('NO', 'No Relocation')
     )
 
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -127,9 +127,9 @@ class Member(models.Model):
     personal_goal = models.TextField(max_length=500)
     personal_story = models.TextField(max_length=500)
     education = models.CharField(max_length=100)
-    linkedin = models.CharField(max_length=100)
-    github = models.CharField(max_length=100)
-    portfolio = models.CharField(max_length=100)
+    linkedin = models.URLField()
+    github = models.URLField()
+    portfolio = models.URLField()
     interests = MultiSelectField(choices=INTERESTS)
     previous_occupation = models.CharField(max_length=100)
     availability = models.CharField(max_length=2, choices=WORK_AVAILABILITY)
@@ -144,7 +144,7 @@ class Member(models.Model):
     def __str__(self):
         return self.email
 
-    #Returns a list version of interests(Allows looping in template in HTML)
+    #Returns a list version of interests(Allows looping in template in view)
     def interests_list(self):
         list = str(self.interests)
         list_ = list.split(',')
@@ -159,16 +159,17 @@ class Companies(models.Model):
     #USER FIELDS FOR REPRESENTATIVE
     first_name = models.CharField(blank=False,max_length=50)
     last_name = models.CharField(blank=False,max_length=50)
+    company_title = models.CharField(max_length=100)
     company_name =  models.CharField(max_length=60)
-    #company_picture = models.ImageField(default="defaultuser.png",upload_to="profile_images") #upload to images folder in database
-    #company_title = models.CharField(max_length=60)
+    company_logo = models.ImageField(default="defaultuser.png",upload_to="company_images") #upload to images folder in database
+    #Job Description
     position_title = models.CharField(max_length=60)
-    #MUST BE STARTING SALARY
-    salary = models.IntegerField(null=True, blank=True)
+    salary = models.IntegerField(null=True, blank=True)#MUST BE STARTING SALARY
     location = models.CharField(max_length=65)
     skill_one = models.CharField(max_length=100)
     skill_two = models.CharField(max_length=100)
     skill_three = models.CharField(max_length=100)
+    #job_link = models.URLField() #URL LINK-POTENTIALLY
   
     #return all fields or just return specifics
     def __str__(self):

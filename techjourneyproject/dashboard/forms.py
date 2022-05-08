@@ -32,7 +32,6 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 
-
 ''' Forms for User to Login '''
 #Form for Users/Members to Log in
 class UserLoginForm(forms.ModelForm):
@@ -49,7 +48,7 @@ class UserLoginForm(forms.ModelForm):
 
 
 
-'''Forms for users to create, update Member profiles'''
+'''Forms for users to create, update Member/Company profiles'''
 
 
 #Form for letting members register as Users
@@ -113,12 +112,12 @@ class MemberProfileForm(forms.ModelForm):
     location = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder': 'Location'}))
     personal_story = forms.Textarea()
     personal_goal = forms.Textarea()
-    education = forms.CharField(max_length=50)
-    linkedin = forms.CharField(max_length=50)
-    github = forms.CharField(max_length=50)
-    portfolio = forms.CharField(max_length=50)
+    education = forms.CharField()
+    linkedin = forms.URLField()
+    github = forms.URLField()
+    portfolio = forms.URLField()
     interests = forms.CheckboxSelectMultiple()
-    previous_occupation = forms.CharField(max_length=50)
+    previous_occupation = forms.CharField()
     availability = forms.CheckboxSelectMultiple
     workstatus = forms.CheckboxSelectMultiple
     relocation =  forms.CheckboxSelectMultiple
@@ -132,3 +131,31 @@ class MemberProfileForm(forms.ModelForm):
             'workstatus','interests','relocation' ,'skills'
             )
         #fields = '__all__'
+
+
+'''# Company Model Form - A form for letting companies update their profile data
+class CompanyProfileForm(forms.ModelForm):
+    picture = forms.ImageField() #upload to images folder in database
+    location = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder': 'Location'}))
+    personal_story = forms.Textarea()
+    personal_goal = forms.Textarea()
+    education = forms.CharField()
+    linkedin = forms.URLField()
+    github = forms.URLField()
+    portfolio = forms.URLField()
+    interests = forms.CheckboxSelectMultiple()
+    previous_occupation = forms.CharField()
+    availability = forms.CheckboxSelectMultiple
+    workstatus = forms.CheckboxSelectMultiple
+    relocation =  forms.CheckboxSelectMultiple
+    skills = forms.ModelMultipleChoiceField(required=False,queryset=TechSkills.objects.all(),widget=forms.CheckboxSelectMultiple)
+    
+    class Meta:
+        model = Member
+        fields = (
+            'picture','location','personal_story','personal_goal','education','linkedin',
+            'github','portfolio','previous_occupation','availability',
+            'workstatus','interests','relocation' ,'skills'
+            )
+        #fields = '__all__'
+'''

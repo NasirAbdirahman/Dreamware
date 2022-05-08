@@ -144,6 +144,7 @@ header {
 }
 
 .nav-btn {
+    /*display: block;*/
     background-color:#D9CDE7;
     padding: 10px;
     border-radius: 15px;
@@ -410,7 +411,7 @@ input{
 }
 
 
-/* PROFILE cards/Radio Button STYLING */
+/* PROFILE cards/Radio STYLING */
 .loginCards{
     display: flex;
     flex-flow: row wrap;

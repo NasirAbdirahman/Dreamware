@@ -81,16 +81,20 @@
                     <section class="interestsSection">
                         <p class="dashboard-title">Interests</p>
                         <section class="interestsContainer">
-                            {% for x in user.member.interests_list %}
-                                <div class="interestsCards">
-                                    <p class="dashboard-text">{{x}}</p>
-                                </div>
-                                <!--{% if 'Front-End' in x %}
-                                <p class="frontend">{{x}}</p>
-                                {% else %}
-                                {{x}}
-                                {% endif %}-->
-                            {% endfor %}
+                            {% if user.member.interests %}
+                                {% for x in user.member.interests_list %}
+                                    <div class="interestsCards">
+                                        <p class="dashboard-text">{{x}}</p>
+                                    </div>
+                                    <!--{% if 'Front-End' in x %}
+                                    <p class="frontend">{{x}}</p>
+                                    {% else %}
+                                    {{x}}
+                                    {% endif %}-->
+                                {% endfor %}
+                            {% else %}
+                                <p class="dashboard-text">PRETTY Cards will appear once you add your interests!</p>
+                            {% endif %}
                         </section>
                     </section>
                         
@@ -116,7 +120,7 @@
                         <!--Personal Goals-->
                         <section class="rowOne-lCol">
                             <p class="dashboard-title">Personal Goal</p>
-                            <p class="dashboard-text"> {{user.member.personal_story}}</p>
+                            <p class="dashboard-text"> {{user.member.personal_goal}}</p>
                         </section>
 
                         <!--Personal Story-->

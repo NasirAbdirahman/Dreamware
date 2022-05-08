@@ -45,8 +45,7 @@
                     <!--Profile Info -->
                     <section class="profileSection"> 
                         
-                        <img class="profileImg"src="/media/defaultuser.png"  width="100px" height="100px">
-                        <!--<img class="profileImg"src="/media/{{candidate.picture}}"  width="110px" height="110px">-->
+                        <img class="profileImg"src="/media/{{user.companies.company_logo}}"  width="110px" height="110px">
 
                         <section class="profileText">
                             <!--<p class="dashboard-text">{{user.first_name}}, {{user.last_name}}</p>-->
@@ -82,36 +81,34 @@
                                     {% endfor %}          
                                 </section>
 
-                            {% else %}
+                            {% else %} <!--COntrol will be passed to MODEL to show default-->
 
                                 <p>Skills will be listed here once you add them.</p>
+                                <section class="company-techskills">
+                                    <div class="skill-circle">
+                                        <svg>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                        </svg>
+                                        <div class="text">Skill</div>
+                                    </div>
+                                    <div class="skill-circle">
+                                        <svg>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                        </svg>
+                                        <div class="text">Skill</div>
+                                    </div>
+                                    <div class="skill-circle">
+                                        <svg>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                            <circle cx="50" cy="50" r="50"></circle>
+                                        </svg>
+                                        <div class="text">Skill</div>
+                                    </div>
+                                </section>
                                 
                             {% endif %}
-                            <!--<section class="company-techskills">
-                                
-                                <div class="skill-circle">
-                                    <svg>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                    </svg>
-                                    <div class="text">{{user.companies.skill_one}}</div>
-                                </div>
-                                <div class="skill-circle">
-                                    <svg>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                    </svg>
-                                    <div class="text">{{user.companies.skill_two}}</div>
-                                </div>
-                                <div class="skill-circle">
-                                    <svg>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                        <circle cx="50" cy="50" r="50"></circle>
-                                    </svg>
-                                    <div class="text">{{user.companies.skill_three}}</div>
-                                </div>
-  
-                            </section>-->
                         </section>
 
                         <!--Companies Job Card-->
@@ -211,12 +208,8 @@
                                             <img class="profileImg"src="/media/{{candidate.picture}}"  width="100px" height="100px">
                                             <p>{{candidate.get_workstatus_display}}</p>
                                             <p>{{candidate.get_availability_display}}</p>
-                                            
-                                            {% if candidate.get_relocation_display == 'No' %}
-                                                <p>{{candidate.get_relocation_display}} Relocation</p>
-                                            {% else %}
-                                                <p>{{candidate.get_relocation_display}}</p>
-                                            {% endif %}
+                                            <p>{{candidate.get_relocation_display}}</p>
+                                           
                                         </section>
 
                                         <!--<section class="skills">
@@ -263,38 +256,29 @@
 
                                     <section class="infoSection">
                                         <div class="companyTitle">
-                                            <p class="title"> Company Name </p>
+                                            <p class="title"> Candidate Name </p>
                                         </div>
-                                        <p> Position Title </p>
-                                        <p>Location or Remote </p>
-                                        <p>Starting Salary</p>
+                                        <p> Work Status </p>
+                                        <p>Availability </p>
+                                        <p>Open to relocate</p>
                                     </section>
                                 
-                                    <section class="skills">
-                                        <p>Top 3 Skills</p>
-                                        <section class="skills-container">
-                                            <div class="skill-circle">
-                                                <svg>
-                                                    <circle cx="30" cy="30" r="30"></circle>
-                                                    <circle cx="30" cy="30" r="30"></circle>
-                                                </svg>
-                                                <div class="text">Skill One</div>
-                                            </div>
-
-                                            <div class="skill-circle">
-                                                <svg>
-                                                    <circle cx="30" cy="30" r="30"></circle>
-                                                    <circle cx="30" cy="30" r="30"></circle>
-                                                </svg>
-                                                <div class="text">Skill Two</div>
-                                            </div>
-                                            <div class="skill-circle">
-                                                <svg>
-                                                    <circle cx="30" cy="30" r="30"></circle>
-                                                    <circle cx="30" cy="30" r="30"></circle>
-                                                </svg>
-                                                <div class="text">Skill Three</div>
-                                            </div>
+                                    <section class="interests">
+                                        <p> Candidate's Interests</p>
+                                        <section class="interestsContainer">
+                                        
+                                                <div class="interestsCards">
+                                                    <p class="text">Front-End</p>
+                                                </div>
+                                           
+                                                <div class="interestsCards">
+                                                    <p class="text">Back-End</p>
+                                                </div>
+                                           
+                                                <div class="interestsCards">
+                                                    <p class="text">Dev-ops</p>
+                                                </div>
+                                           
                                         </section>
                                     </section>
                                     

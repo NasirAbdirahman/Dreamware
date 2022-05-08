@@ -15,8 +15,8 @@ def create_member(sender, instance, created, **kwargs):
     if created:
         #Ensures that Company Model is created for companies but not created for Admins
         if instance.has_perm('dashboard.is_admin') is not True & instance.is_company is True:#instance.has_perm('dashboard.is_company') is True:
-            #Default data when new user is created,email is immediately passed to member
-            default_data = dict(email=instance.email)
+            #Default data when new user is created,email is immediately passed to company model
+            default_data = dict(email=instance.email,first_name=instance.first_name,last_name=instance.last_name)
             #Company Model created and saved
             Companies.objects.create(user=instance,**default_data)
             instance.save()
