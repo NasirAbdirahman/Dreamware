@@ -794,15 +794,6 @@ input{
     */
 
     .skillsSection{
-        /* REMOVED ALLOWED FOR CENTERING
-        display: inherit;
-        flex-flow: row wrap;*/ 
-        
-       /* border: 3px solid ;
-        border-top-color: transparent;
-        border-bottom-color: rgba(217, 205, 231);;
-        border-right-color: transparent;
-        border-left-color: transparent;*/
         background: rgb(255, 255, 255);
         box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
         backdrop-filter: blur( 10px );
@@ -859,7 +850,7 @@ input{
 
         /*outer circle stroke-Purple*/
         svg circle:nth-child(2) {
-            stroke-dashoffset: calc(440 - (330 * 75) / 100 );/*Same calc(0);*/
+            stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
             stroke: #7851A9;           
             /*animation: progress 4s infinite linear; */  
         }
@@ -1123,9 +1114,11 @@ input{
     border-radius: 50%;
 }
 
+
 /*
     Profile Card Styling
 */
+
 .profileCards{
     display: flex;
     flex-flow: row wrap;
@@ -1140,21 +1133,15 @@ input{
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     border-radius: 10px;
-    /*border: 1px solid ;
-    border-top-color: transparent;
-    border-bottom-color: rgba(217, 205, 231);;
-    border-right-color: rgba(217, 205, 231);;
-    border-left-color: rgba(217, 205, 231);;*/
     border: 1px solid rgba(217, 205, 231);;
     margin-bottom: 35px;
     padding: 15px; 
-    max-height:300px;
-    max-width:300px;
+    height:auto;
+    width:auto;
+    max-height:500px;
+    max-width:500px;
 }
-.companiesSection .companySubtitle {
-    margin-top: -15px;
 
-}
 .profileCards .infoSection{
     line-height: 5px !important;
 }
@@ -1175,4 +1162,36 @@ input{
     color: #000000;
     font-family: 'JosefinSans-semibold',sans-serif;
     font-size: 20px;
+}
+
+.profileCards .text {
+    font-size: 14px;
+}
+ /* Skills Section */
+ .profileCards .interests{
+    background: rgba(93, 0, 155, 0.04);
+    box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 0 5px 5px 5px;
+    
+}
+
+.profileCards .interestsContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: -10px;
+}
+.profileCards .interestsCards{
+    height: 50px;
+    width: 50px;
+    background-color: #ffffff;
+    border: 1px solid rgba(217, 205, 231);;
+    border-radius: 10px;
+    padding: 0px;
+    margin: 1px;
+    text-align: center;
 }

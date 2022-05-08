@@ -96,7 +96,7 @@ class Member(models.Model):
         ('FS', 'Full-Stack'),
         ('MD', 'Mobile Dev'),
         ('DO', 'Dev Ops'),
-        ('SI', 'Security & Infrastructure')
+        ('SI', 'Security & Infrastructure') #CHANGE TO SEC.& IF
     )
 
     #Members Current Work Status
@@ -116,7 +116,7 @@ class Member(models.Model):
     #Members willingness to relocate
     RELOCATION_STATUS = (
         ('OK', 'Open To Relocate'),
-        ('NO', 'No')
+        ('NO', 'No')#CHANGE TO 'NO RELOCATION'
     )
 
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -156,11 +156,12 @@ class Companies(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     #Company representative email-- Would have validators ensuring non-frauds, depending on org.
     email = models.EmailField()
-    #is_company = models.BooleanField()
     #USER FIELDS FOR REPRESENTATIVE
     first_name = models.CharField(blank=False,max_length=50)
     last_name = models.CharField(blank=False,max_length=50)
     company_name =  models.CharField(max_length=60)
+    #company_picture = models.ImageField(default="defaultuser.png",upload_to="profile_images") #upload to images folder in database
+    #company_title = models.CharField(max_length=60)
     position_title = models.CharField(max_length=60)
     #MUST BE STARTING SALARY
     salary = models.IntegerField(null=True, blank=True)
