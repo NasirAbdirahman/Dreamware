@@ -5,6 +5,7 @@ html,body{
     /*background-color: blue;*/
     /*display:flex*/
     background-color: #ffffff;
+    font-family: 'JosefinSans-regular', sans-serif;
     /*width: auto;/*100vw*/
     scroll-behavior: smooth;
 }
@@ -140,6 +141,7 @@ a{
 
 header {
     padding-bottom: 0em;
+    font-size: 16px;
 }
 .nav-container {
   height: 45px;
@@ -194,6 +196,7 @@ header {
     Footer Component
 */
 .footer-nav{
+    font-size: 16px;
     height: 40px;
     width: 100%;
     display: flex;
