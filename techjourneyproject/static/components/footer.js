@@ -28,7 +28,6 @@ class Footer extends HTMLElement {
   
             <ul class="nav-links">
               <ol><a href="/">Companies</a> </ol>
-              <ol><a href="/">Features</a> </ol>
               <ol><a href="/">Team</a> </ol>           
             </ul>
   

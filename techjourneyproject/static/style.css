@@ -6,6 +6,7 @@ html,body{
     /*display:flex*/
     background-color: #ffffff;
     /*width: auto;/*100vw*/
+    scroll-behavior: smooth;
 }
 
 
@@ -67,7 +68,7 @@ a{
 */
 
 .dual-section {
-    margin-top: 10em;
+    padding-top: 10em;
     display:flex;
     flex-direction: row;
     width:100%;
@@ -84,7 +85,7 @@ a{
     border-left-color: transparent;*/   
 }
 .reversedDual-section {
-    margin-top: 10em;
+    padding-top: 10em;
     display:flex;
     flex-direction: row-reverse;
     width:100%;
@@ -118,13 +119,13 @@ a{
 
 
 .single-section {  
-    margin-top: 10em;
+    padding-top: 13em;
     text-align: center;
 }
 
 .footer-section {  
     margin-top: 5em;
-    margin-bottom: 5em;
+    margin-bottom: 8em;
     text-align: center;
 }
 
@@ -163,6 +164,7 @@ header {
 .nav-links {
   display: inherit;
   margin-left: auto;   
+  margin-right: 1em;
 }
 
 .nav-btn {
@@ -204,6 +206,12 @@ header {
     border-left-color: transparent;
     border-right-color: transparent;
 
+}
+
+.footer-nav .nav-links{
+
+display: inherit;
+   margin-right: 1em;
 
 }
 
