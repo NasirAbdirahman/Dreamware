@@ -36,7 +36,7 @@ html,body{
 
 
 h1 {
-    color: #7851A9;
+    color: rgba(120, 81, 169);
     font-family: 'JosefinSans-bold',sans-serif;
     font-size: 50px;
 }
@@ -131,7 +131,7 @@ header {
   top: 0;
   border-style: solid;
   border-top-color: transparent;
-  border-bottom-color: #7851A9;
+  border-bottom-color: rgba(120, 81, 169);
   border-left-color: transparent;
   border-right-color: transparent;
   z-index: 100000;
@@ -145,20 +145,20 @@ header {
 
 .nav-btn {
     /*display: block;*/
-    background-color:#D9CDE7;
+    background-color:rgba(217, 205, 231);
     padding: 10px;
     border-radius: 15px;
-    border-color: #7851A9;
+    border-color: rgba(120, 81, 169);
     align-self: center;
 }
 .nav-btn:hover {
-    background-color:#7851A9;
+    background-color:rgba(120, 81, 169);
     color: #ffffff !important;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
 }
 .authenticate-link{
-    color:#7851A9
+    color:rgba(120, 81, 169)
 }
 
 
@@ -177,7 +177,7 @@ header {
     padding-bottom: 5px;
 
     border-style: solid;
-    border-top-color: #7851A9;
+    border-top-color: rgba(120, 81, 169);
     border-bottom-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;
@@ -246,8 +246,9 @@ header {
 button{
     border-style: none;
 }
+
 .btn-main {
-    background-color:#D9CDE7;
+    background-color:rgba(217, 205, 231);
     font-size: 20px !important;
     padding: 10px 20px 10px 20px;
     border-radius: 15px;
@@ -255,9 +256,9 @@ button{
 
 }
 .btn-main:hover {
-    background-color:#7851A9;
+    background-color:rgba(120, 81, 169);
     color: #ffffff !important;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.352);
 
 }
 
@@ -287,7 +288,7 @@ input{
     padding-bottom: 0.9em;
     text-align: center;
     margin-bottom: 2em; 
-    border: 1px solid rgba(121, 81, 169, 0.47);
+    border: 1px solid rgb(121, 81, 169);
 }
 
 .input-labels{
@@ -330,12 +331,11 @@ input{
     margin-top: 2em;
     align-self: center;
     text-align: center;
-    padding-top: 7%;
-    padding-bottom: 10%;
+    padding-top: 5%;
     border-style: solid;
     border-bottom-color: transparent;
     border-top-color: transparent;
-    border-right-color: #7851a9;
+    border-right-color: rgba(120, 81, 169);
     border-left-color: transparent; 
 
 }
@@ -352,7 +352,7 @@ input{
 
 .form-registerlink{
     font-size: inherit;
-    color:#7851a9;
+    color:rgba(120, 81, 169);
 }
 
 
@@ -424,7 +424,7 @@ input{
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     border-radius: 10px;
-    border: 1px solid rgba(217, 205, 231);;
+    border: 1px solid rgba(121, 81, 169, 0.236);
     padding: 15px; 
     max-height:300px;
     max-width:300px;
@@ -448,7 +448,7 @@ input{
     position: relative;
     top: -35px;
     background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 1.5px 25px 1.5px rgba(93, 0, 155, 0.05);
+    box-shadow: 0 1.5px 25px 1.5px rgb(120, 81, 169, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     border: 1px solid rgba(217, 205, 231);;
@@ -463,13 +463,13 @@ input{
 
 /* Member Profile Card Hover effect on Card */
 .memberProfile .cards:hover{
-    border: 1px solid rgba(217, 205, 231);;
-    box-shadow: 0 1.5px 15px 1.5px rgba(93, 0, 155, 0.5);
+    border: 1px solid rgba(121, 81, 169);
+    box-shadow: 0 1.5px 15px 1.5px rgba(121, 81, 169, 0.5);
 }
 
 /* Member Profile Card Hover effect on checkmark */
 .memberProfile:hover input ~ .checkmark {
-    background: rgba(93, 0, 155, 0.3);
+    background: rgba(217, 205, 231, 0.5);
     box-shadow: 0 1.5px 25px 1.5px rgb(255, 255, 255);
     border: 1px solid rgb(120, 81, 169);
 }
@@ -490,7 +490,7 @@ input{
     height: 40px;
     width: 40px;
     background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 1.5px 25px 1.5px rgba(93, 0, 155, 0.2);
+    box-shadow: 0 1.5px 25px 1.5px rgba(217, 205, 231);
     border: 1px solid rgb(120, 81, 169);
     border-radius: 20px;
     backdrop-filter: blur(10px);
@@ -517,7 +517,7 @@ input{
 /* GLOBAL- SELECTED CHECKMARK BACKGROUND styling */
 .memberProfile input:checked ~ .checkmark {
     background-color: rgb(120, 81, 169);
-    box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+    box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169);
 }
 /* GLOBAL-SHOW checkmark when selected*/
 .memberProfile input:checked ~ .checkmark:after {
@@ -532,14 +532,14 @@ input{
     -GlOBAL + MemberDashboard
 */
 
-.dashboard-container{ /*WHEN ADDED TO HTML, MAKES ENTIRE BG MOVE ON SCROLL*/
-    background: rgba(93, 0, 155, 0.05);
+/*.dashboard-container{ /WHEN ADDED TO HTML, MAKES ENTIRE BG MOVE ON SCROLL/
+    background: rgb(120, 81, 169, 0.05);
     width:auto;
     overflow: hidden;
 }
-/*not used*/
+NOT USED*/
 .dashboard{
-    background: rgba(93, 0, 155, 0.04);
+    background: rgba(217, 205, 231, 0.2);
     background-size: contain;
     height: auto;
 }
@@ -552,7 +552,7 @@ input{
     color: #000000;
     font-family: 'JosefinSans-semibold',sans-serif;
     font-size: 20px;
-    /*text-decoration: underline #7851A9;
+    /*text-decoration: underline rgba(120, 81, 169);
     text-decoration-style:wavy;
     text-underline-offset: 2.5px;*/
    
@@ -582,7 +582,7 @@ input{
     border-style: solid;
     border-bottom-color: transparent;
     border-top-color: transparent;
-    border-right-color:  #D9CDE7;
+    border-right-color:  rgba(217, 205, 231);
     border-left-color: transparent;  
 }
 
@@ -599,7 +599,7 @@ input{
         padding-top: 20px;*/
 
         background: rgb(255, 255, 255);
-        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
         backdrop-filter: blur( 10px );
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
@@ -611,10 +611,10 @@ input{
 
     .profileImg{
         margin-top: 10px;
-        background: rgba(93, 0, 155, 0.04);
+        background: rgba(217, 205, 231, 0.2);
         backdrop-filter: blur( 5px );
         -webkit-backdrop-filter: blur( 5px );
-        border: 3px solid rgba(217, 205, 231);;
+        border: 3px solid rgba(217, 205, 231);
         padding: 0.5em;
         border-radius:75%
     }
@@ -634,7 +634,7 @@ input{
         border-right-color: transparent;
         border-left-color: transparent;*/
         background: rgb(255, 255, 255);
-        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
         backdrop-filter: blur( 10px );
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
@@ -656,7 +656,7 @@ input{
         height: 45px;
         width: 45px;
         background-color: #ffffff;
-        border: 1px solid rgba(217, 205, 231);;
+        border: 1px solid rgba(217, 205, 231);
         border-radius: 10px;
         padding: 2px;
         margin: 1px;
@@ -676,7 +676,7 @@ input{
         /*border: 1px solid rgba(217, 205, 231);;*/
 
         background: rgb(255, 255, 255);
-        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
         backdrop-filter: blur( 10px );
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
@@ -695,7 +695,7 @@ input{
         height: 50px;
         width: 50px;
         background-color: #ffffff;
-        border: 1px solid rgba(217, 205, 231);;
+        border: 1px solid rgba(217, 205, 231);
         border-radius: 10px;
         padding: 1.5px;
         margin: 1px;
@@ -707,7 +707,7 @@ input{
     .statusSection{
 
         background: rgb(255, 255, 255);
-        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
         backdrop-filter: blur( 10px );
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
@@ -763,7 +763,7 @@ input{
             border-right-color: rgba(217, 205, 231);;
             border-left-color: transparent;*/
             background: rgb(255, 255, 255);
-            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+            box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
             backdrop-filter: blur( 10px );
             -webkit-backdrop-filter: blur( 10px );
             border-radius: 10px;
@@ -782,7 +782,7 @@ input{
             border-radius: 20px;
             border: 1px solid rgba(217, 205, 231);;*/
             background: rgb(255, 255, 255);
-            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+            box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
             backdrop-filter: blur( 10px );
             -webkit-backdrop-filter: blur( 10px );
             border-radius: 10px;
@@ -796,7 +796,7 @@ input{
 
     .skillsSection{
         background: rgb(255, 255, 255);
-        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
         backdrop-filter: blur( 10px );
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
@@ -811,8 +811,8 @@ input{
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
-            background: rgba(93, 0, 155, 0.04);
-            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+            background: rgba(217, 205, 231, 0.2);
+            box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
             backdrop-filter: blur( 10px );
             -webkit-backdrop-filter: blur( 10px );
             border-radius: 10px;
@@ -852,7 +852,7 @@ input{
         /*outer circle stroke-Purple*/
         svg circle:nth-child(2) {
             stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
-            stroke: #7851A9;           
+            stroke: rgba(120, 81, 169);   /*(217, 205, 231)  */      
             /*animation: progress 4s infinite linear; */  
         }
         
@@ -863,7 +863,7 @@ input{
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            box-shadow: inset 0 0 50px blue /*rgb(120, 81, 169)*/;
+            box-shadow: inset 0 0 30px rgb(120, 81, 169);
             background: inherit;
             backdrop-filter: blur(5px);
             z-index: 1000;
@@ -903,7 +903,7 @@ input{
         border-right-color: transparent;
         border-left-color: transparent;*/
         background: rgb(255, 255, 255);
-        box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
         backdrop-filter: blur( 10px );
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
@@ -924,7 +924,7 @@ input{
         .companyCards .cards {
             /* WHITE CARD-PURPLE SHADE*/
             background: rgb(255, 255, 255);
-            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+            box-shadow: 0 1.5px 10px 1.5px rgba(121, 81, 169, 0.3);
             backdrop-filter: blur( 10px );
             -webkit-backdrop-filter: blur( 10px );
             border-radius: 10px;
@@ -951,7 +951,7 @@ input{
             position: relative;
             top: -35px;
             background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 1.5px 25px 1.5px rgba(93, 0, 155, 0.1);
+            box-shadow: 0 1.5px 25px 1.5px rgb(120, 81, 169, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 10px;
             border: 1px solid rgba(217, 205, 231);;
@@ -974,8 +974,8 @@ input{
             border-radius: 10px;
             border: 1px solid rgb(255, 255, 255);*/
             /* WHITE CARD-PURPLE SHADE*/
-            background: rgba(93, 0, 155, 0.04);
-            box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+            background: rgba(217, 205, 231, 0.2);
+            box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
             backdrop-filter: blur( 10px );
             -webkit-backdrop-filter: blur( 10px );
             border-radius: 10px;
@@ -998,7 +998,7 @@ input{
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            box-shadow: inset 0 0 25px blue /*rgb(120, 81, 169)*/;
+            box-shadow: inset 0 0 30px rgb(120, 81, 169);
             background: inherit;
             backdrop-filter: blur(5px);
             z-index: 1000;
@@ -1014,7 +1014,7 @@ input{
         /*outer circle stroke-Purple*/
         .companyCards svg circle:nth-child(2) {
             stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
-            stroke: #7851A9;           
+            stroke: rgba(120, 81, 169);           
             /*animation: progress 4s infinite linear; */  
         }
           
@@ -1043,8 +1043,8 @@ input{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    background: rgba(93, 0, 155, 0.04);
-    box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+    background: rgba(217, 205, 231, 0.2);
+    box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     border-radius: 10px;
@@ -1080,7 +1080,7 @@ input{
 /*outer circle stroke-Purple*/
 .company-techskills svg circle:nth-child(2) {
     stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
-    stroke: #7851A9;           
+    stroke: rgba(120, 81, 169);           
     /*animation: progress 4s infinite linear; */  
 }
 
@@ -1091,7 +1091,7 @@ input{
     width: 110px;
     height: 110px;
     border-radius: 50%;
-    box-shadow: inset 0 0 50px blue /*rgb(120, 81, 169)*/;
+    box-shadow: inset 0 0 30px rgb(120, 81, 169);
     background: inherit;
     backdrop-filter: blur(5px);
     z-index: 1000;
@@ -1130,7 +1130,7 @@ input{
 .profileCards .cards {
     /* WHITE CARD-PURPLE SHADE*/
     background: rgb(255, 255, 255);
-    box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+    box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     border-radius: 10px;
@@ -1146,12 +1146,20 @@ input{
 .profileCards .infoSection{
     line-height: 5px !important;
 }
+.profileCards .candidateImg{
+    background: rgba(217, 205, 231, 0.2);
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border: 3px solid rgba(217, 205, 231);
+    padding: 0.5em;
+    border-radius:75%
+}
 
-.profileCards .companyTitle{
+.profileCards .candidateTitle{
     position: relative;
     top: -35px;
     background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 1.5px 25px 1.5px rgba(93, 0, 155, 0.1);
+    box-shadow: 0 1.5px 25px 1.5px rgb(120, 81, 169, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     border: 1px solid rgba(217, 205, 231);;
@@ -1170,8 +1178,8 @@ input{
 }
  /* Skills Section */
  .profileCards .interests{
-    background: rgba(93, 0, 155, 0.04);
-    box-shadow: 0 1.5px 10px 1.5px rgba(93, 0, 155, 0.25);
+    background: rgba(217, 205, 231, 0.2);
+    box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
     backdrop-filter: blur( 5px );
     -webkit-backdrop-filter: blur( 5px );
     border-radius: 10px;
@@ -1190,7 +1198,7 @@ input{
     height: 50px;
     width: 50px;
     background-color: #ffffff;
-    border: 1px solid rgba(217, 205, 231);;
+    border: 1px solid rgba(217, 205, 231);
     border-radius: 10px;
     padding: 0px;
     margin: 1px;
