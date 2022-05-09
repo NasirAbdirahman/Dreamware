@@ -67,8 +67,7 @@ a{
 */
 
 .dual-section {
-    padding-top: 8em;
-    
+    margin-top: 10em;
     display:flex;
     flex-direction: row;
     width:100%;
@@ -84,25 +83,48 @@ a{
     border-right-color: transparent;
     border-left-color: transparent;*/   
 }
+.reversedDual-section {
+    margin-top: 10em;
+    display:flex;
+    flex-direction: row-reverse;
+    width:100%;
+    /*height: 100%;*/
+    
+   /* background: rgba(94, 0, 155, 0.07);
+    backdrop-filter: blur(5px);*/
+    
+    /*Border Styling for Section
+    border-style: solid;
+    border-bottom-color: #D9CDE7;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;*/   
+}
 
 .text-panel{
-    width: 50%;
+    width: 55%;
     text-align: center;
     align-self: center;
 }
 .subtitle{
-    margin-top: -40px;
+    margin-top: -30px;
 }
 
 .img-panel{
-    width: 50%;
+    width: 45%;
     margin-top: 2em;
     align-self: center;
 }
 
 
 .single-section {  
-    padding-top: 8em;
+    margin-top: 10em;
+    text-align: center;
+}
+
+.footer-section {  
+    margin-top: 5em;
+    margin-bottom: 5em;
     text-align: center;
 }
 
