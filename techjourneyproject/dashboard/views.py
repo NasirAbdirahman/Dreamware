@@ -33,6 +33,11 @@ def index(request):
     return render(request, 'index.html', {'members' : members, 'skills': skills}) #renders the templates file
 
 
+#Companies Index page View
+def companies(request):
+    return render(request, 'companies.html') #renders the templates file
+
+
 #User Registration View 
 def register(request):
 
@@ -57,6 +62,7 @@ def register(request):
 
 
     return render(request, 'register.html',{'createuser_form': createuser_form})
+
 
 
 #User Login View 
@@ -96,10 +102,12 @@ def view_login(request):
     return render(request, 'login.html',{'login_form': login_form})
 
 
+
 #User Logout 
 def view_logout(request):
     logout(request)
     return redirect('/')
+
 
 
 #Member Dashboard page View
@@ -166,6 +174,7 @@ def memberProfile(request):
     )
 
 
+
 #Company Dashboard page View
 @login_required(login_url='/login/') 
 #@permission_required('dashboard.CustomUser.is_company',raise_exception=True) #NOT WORKING(https://stackoverflow.com/questions/62689245/permission-required-decorator-not-working-on-view-in-django)
@@ -200,6 +209,7 @@ def companyDashboard(request):
 
     else:
         raise PermissionDenied()
+
 
 
 #Company profile View

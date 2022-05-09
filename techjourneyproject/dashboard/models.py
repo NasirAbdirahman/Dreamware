@@ -95,8 +95,8 @@ class Member(models.Model):
         ('BE', 'Back-End'),
         ('FS', 'Full-Stack'),
         ('MD', 'Mobile Dev'),
-        ('DO', 'Dev Ops'),
-        ('CS', 'CyberSec.')
+        ('DO', 'Dev-Ops'),
+        ('CS', 'Cyber-Sec.')
     )
 
     #Members Current Work Status

@@ -68,10 +68,10 @@ a{
 */
 
 .dual-section {
-    padding-top: 10em;
+    padding-top: 9.5em;
     display:flex;
     flex-direction: row;
-    width:100%;
+    width:auto;
     /*height: 100%;*/
     
    /* background: rgba(94, 0, 155, 0.07);
@@ -85,10 +85,10 @@ a{
     border-left-color: transparent;*/   
 }
 .reversedDual-section {
-    padding-top: 10em;
+    padding-top: 9.5em;
     display:flex;
     flex-direction: row-reverse;
-    width:100%;
+    width:auto;
     /*height: 100%;*/
     
    /* background: rgba(94, 0, 155, 0.07);
@@ -115,11 +115,12 @@ a{
     width: 45%;
     margin-top: 2em;
     align-self: center;
+    justify-content: center;
 }
 
 
 .single-section {  
-    padding-top: 13em;
+    padding-top: 12em;
     text-align: center;
 }
 
@@ -1206,8 +1207,9 @@ NOT USED*/
 .profileCards .text {
     font-size: 14px;
 }
- /* Skills Section */
- .profileCards .interests{
+
+/* Skills Section */
+.profileCards .interests{
     background: rgba(217, 205, 231, 0.2);
     box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
     backdrop-filter: blur( 5px );
@@ -1224,6 +1226,7 @@ NOT USED*/
     justify-content: center;
     margin-top: -10px;
 }
+
 .profileCards .interestsCards{
     height: 50px;
     width: 50px;
@@ -1234,3 +1237,37 @@ NOT USED*/
     margin: 1px;
     text-align: center;
 }
+
+
+/*------------------------------------------------------------------------*/
+
+
+/* 
+    Companies Page Styling
+*/
+
+.cards-panel{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.cards-panel .profileCards .cards{
+   /* WHITE CARD-PURPLE SHADE*/
+   top: 75px;
+   background: rgb(255, 255, 255);
+   box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
+   backdrop-filter: blur( 10px );
+   -webkit-backdrop-filter: blur( 10px );
+   border-radius: 10px;
+   border: 1px solid rgba(217, 205, 231);
+   margin: 3em;
+   padding: 15px; 
+   height:auto;
+   width:250px;
+   max-height:500px;
+   max-width:500px;
+
+}
+
