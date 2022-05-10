@@ -296,7 +296,37 @@ button{
 
 }
 
+.btn-cancel {
+    background-color:rgb(255, 0, 0);
+    color: #ffffff;
+    font-size: 20px !important;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+    margin-left: 1em;
+    width:auto
 
+}
+.btn-cancel:hover {
+    background-color:rgb(255, 255, 255);
+    color: #000000 !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.352);
+
+}
+
+.btn-submit {
+    background-color:rgba(217, 205, 231);
+    font-size: 20px !important;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+    width:auto
+
+}
+.btn-submit:hover {
+    background-color:rgba(120, 81, 169);
+    color: #ffffff !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.352);
+
+}
 /*------------------------------------------------------------------------*/
 
 
@@ -1274,3 +1304,98 @@ NOT USED*/
 
 }
 
+
+/*------------------------------------------------------------------------*/
+
+
+/* 
+    Update Profiles Page Styling
+        -Members
+        -Companies
+*/
+
+.updateProfileSection {
+    display:flex;
+    flex-flow: row wrap;
+    text-align: center;
+    width:100%;
+
+}
+
+.updateProfileSection input{
+    width: 75%;
+    padding-top: 0.9em;
+    padding-bottom: 0.9em;
+    text-align: center;
+    margin-bottom: 2em; 
+    border: 1px solid rgb(121, 81, 169);
+}
+
+/*Header*/
+.updateMember-title {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+/*Panels*/
+.userData-panel{
+    width:49.5%;
+    border-style: solid;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-right-color: rgba(120, 81, 169);
+    border-left-color: transparent; 
+
+}
+
+.memberData-panel{
+    width: 50%;
+    /*margin-top: 2em; */
+}
+
+
+/*Submit/Cancel section*/
+.updateMemberInput{
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+
+/* 
+    Independent ID stylings
+*/
+
+#id_personal_goal{
+    width: 75%;
+    padding-top: 0.9em;
+    padding-bottom: 0.9em;
+    text-align: center;
+    margin-bottom: 2em; 
+    border: 1px solid rgb(121, 81, 169);
+}
+
+#id_personal_story{
+    width: 75%;
+    padding-top: 0.9em;
+    padding-bottom: 0.9em;
+    text-align: center;
+    margin-bottom: 2em; 
+    border: 1px solid rgb(121, 81, 169);
+}
+
+#id_availability{
+    width: 50%;
+    margin: 0.5em 0 1.5em 0;
+}
+
+#id_workstatus{
+    width: 50%;
+    margin: 0.5em 0 1.5em 0;
+}
+
+#id_relocation{
+    width: 50%;
+    margin: 0.5em 0 1.5em 0;
+}

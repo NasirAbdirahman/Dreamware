@@ -6,7 +6,7 @@ from .models import CustomUser, Member, TechSkills
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password
-
+from django.forms.widgets import ClearableFileInput
 
 '''Forms for Admin to create and update users from Admin Panel'''
 
@@ -108,7 +108,9 @@ class UpdateMemberForm(forms.ModelForm):
 
 # Member Model Form - A form for letting members update their profile data
 class MemberProfileForm(forms.ModelForm):
-    picture = forms.ImageField() #upload to images folder in database
+
+    #upload to images folder in database
+    picture = forms.ImageField()
     location = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder': 'Location'}))
     personal_story = forms.Textarea()
     personal_goal = forms.Textarea()

@@ -27,8 +27,7 @@ class Footer extends HTMLElement {
             <a href="/"><img src="/static/images/dreamwareLogo.png" height="18%" width="18%"></a>
   
             <ul class="nav-links">
-              <ol><a href="/companies">Companies</a> </ol>
-              <ol><a href="/">Team</a> </ol>           
+              <ol><a href="/">About Us</a> </ol>           
             </ul>
   
           </nav>

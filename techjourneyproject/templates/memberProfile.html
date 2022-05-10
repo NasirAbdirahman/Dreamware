@@ -23,98 +23,111 @@
 
         <main>
             <a href="/"><img src="/static/images/dreamwareLogo.png" height="10%" width="10%"></a>
+            <section class="updateMember-title">
+                <h1>Edit Your Profile</h1>
+                <h2 class="subtitle">Hey {{user.first_name}}! Hope you're having a great day!</h2>
 
-            <section class="register-section">
-                
-                <section class="register-panel">
-                    
-                    <section>
-                        <img src="/static/images/dreamwareLogo.png" height="45%" width="45%">
-                        <h1 class="register-title">Edit Your Profile</h1>
-                    </section>
-                    
-                                      
-                    
-                    <form  method="POST" enctype="multipart/form-data" >
-                        {% csrf_token %} 
+            </section>
+            <!-- User Greeting 
+            {% if user.is_authenticated %}
+                {% if user.is_company %}
+                    <header-component 
+                        linkOneHref="/" linkOneText="Candidates"
+                        linkTwoHref="/" linkTwoText="Features"
+                        loginHref="/logout" loginText="Logout" 
+                        btnHref="/companyDashboard" btnText="Dashboard" 
+                    >
+                    </header-component> 
+                    {% else %}
+                        <header-component 
+                            linkOneHref="/" linkOneText="Companies" 
+                            linkTwoHref="/#features" linkTwoText="Features"
+                            loginHref="/logout" loginText="Logout" 
+                            btnHref="/memberDashboard" btnText="Dashboard" 
+                        >
+                        </header-component> 
+                    {% endif %}
+            {% else %}
+                <header-component 
+                    linkOneHref="/companies" linkOneText="Companies"
+                    linkTwoHref="/#features" linkTwoText="Features"
+                    loginHref="/login" loginText="Login" 
+                    btnHref="/register" btnText="Signup"
+                > 
+                </header-component>  
+            {% endif %}-->
 
-                        {% for message in messages %}
-                            <p class="invalid-warning">{{message}}</p>
-                        {% endfor %}
+           
+            <form  method="POST" enctype="multipart/form-data" >
+                {% csrf_token %} 
 
+                {% for message in messages %}
+                    <p class="invalid-warning">{{message}}</p>
+                {% endfor %}
+
+                <section class="updateProfileSection">
+                    <!--User Data-->
+                    <section class="userData-panel">
+                        <h2>Personal Data</h2>
                         <label class="input-labels" for={ user_form.first_name }>First Name</label>
                         {{ user_form.first_name }}<br>
+                        <label class="input-labels" for={ user_form.last_name }>Last Name</label>
+                        {{ user_form.last_name }} <br> 
+                        <label class="input-labels" for={ user_form.email }>Email</label>
+                        {{ user_form.email }} <br>
+                        {{ profile_form.picture }} <br>
+                        <label class="input-labels" for={ user_form.personal_goal }>Personal Goal</label>
+                        {{ profile_form.personal_goal }} <br>
+                        <label class="input-labels" for={ user_form.location }>Location</label>
+                        {{ profile_form.location }} <br>
+                    </section>
 
-                        Last Name: {{ user_form.last_name }} <br> 
-                        Email: {{ user_form.email }} <br> 
+                    <!--Member Data-->
+                    <section class="memberData-panel">
+                        <h2>Member Data</h2>
+                        <label class="input-labels" for={ user_form.personal_story }>Personal Story</label>
+                        {{ profile_form.personal_story }} <br>
+                        <label class="input-labels" for={ user_form.previous_occupation }> Previous Occupation</label>
+                        {{ profile_form.previous_occupation }} <br>
 
-                        Picture: {{ profile_form.picture }} <br>
-                        Location: {{ profile_form.location }} <br>
-                        Personal Story:{{ profile_form.personal_story }} <br>
-                        Personal Goal:{{ profile_form.personal_goal }} <br>
-                        Education: {{ profile_form.education }} <br>
-                        Linkedin: {{ profile_form.linkedin }}  <br>
-                        Github: {{ profile_form.github }}  <br>
-                        Portfolio: {{ profile_form.portfolio }}  <br>
-                        Previous Occupation: {{ profile_form.previous_occupation }}  <br>
-                        Interests: {{ profile_form.interests }}  <br>
-                        Availability: {{ profile_form.availability }}  <br>
-                        Work Status: {{ profile_form.workstatus }}  <br>
-                        Relocation: {{ profile_form.relocation }}  <br>
-                        Tech Skills: {{ profile_form.skills }} <br><br><br>
+                        <label class="input-labels" for={ user_form.education }> Education</label>
+                        {{ profile_form.education }} <br>
+                        <label class="input-labels" for={ user_form.linkedin }> Linkedin</label>
+                        {{ profile_form.linkedin }} <br>
+                        <label class="input-labels" for={ user_form.github }> Github</label>
+                        {{ profile_form.github }} <br>
+                        <label class="input-labels" for={ user_form.portfolio }> Portfolio</label>
+                        {{ profile_form.portfolio }} <br>
+                      
+                        <label class="input-labels" for={ user_form.availability }> Availability</label>
+                        {{ profile_form.availability }} <br>
+                        <label class="input-labels" for={ user_form.workstatus }> Work Status</label>
+                        {{ profile_form.workstatus }} <br>
+                        <label class="input-labels" for={ user_form.relocation }> Relocation</label>
+                        {{ profile_form.relocation }} <br>
 
-                            
-                        <input type="submit" value="Save Changes" name="save" />
-                        <input type="reset" value="Cancel" name="cancel" />
-                        <br/>
-                    </form>
+
+                        <!--
+                        <label class="input-labels" for={ user_form.interests }> Interests</label>
+                        {{ profile_form.interests }} <br>
+
+                        <label class="input-labels" for={ user_form.skills }> Tech Skills</label>
+                        {{ profile_form.skills }} <br>-->
+
+                    </section>
 
                 </section>
+                <!--Input Section-->
+                <section class="updateMemberInput">
+                    <input class="btn-submit" type="submit" value="Update Profile" name="save" />
+                    <input class="btn-cancel" type="reset" value="Cancel" href="/"> </input>
+                </section>
 
-      
-            </section>
+            </form>
+
 
         </main>
 
     </body>
 
-    <!-- Footer 
-    <footer-component></footer-component>-->
-
 </html>
-<!--
-{% for message in messages %}
-    <h2>{{message}}</h2>
-{% endfor %}
-<h1>Edit Profile Page</h1>
-
-<h1>Welcome {{user.first_name}}, this is your profile</h1>
-
-<form  method="POST" enctype="multipart/form-data">
-    {% csrf_token %} 
-    First Name: {{ user_form.first_name }}<br>
-    Last Name: {{ user_form.last_name }} <br> 
-    Email: {{ user_form.email }} <br> 
-
-    Picture: {{ profile_form.picture }} <br>
-    Location: {{ profile_form.location }} <br>
-    Personal Story:{{ profile_form.personal_story }} <br>
-    Education: {{ profile_form.education }} <br>
-    Linkedin: {{ profile_form.linkedin }}  <br>
-    Github: {{ profile_form.github }}  <br>
-    Portfolio: {{ profile_form.portfolio }}  <br>
-    Previous Occupation: {{ profile_form.previous_occupation }}  <br>
-    Interests: {{ profile_form.interests }}  <br>
-    Availability: {{ profile_form.availability }}  <br>
-    Work Status: {{ profile_form.workstatus }}  <br>
-    Tech Skills: {{ profile_form.skills }} <br><br><br>
-
-         
-    <input type="submit" value="Save Changes" name="save" />
-    <input type="reset" value="Cancel" name="cancel" />
-    <br/>
-</form>
-<a href="/logout/">Logout</a>
-<a href="/dashboard/">Dashboard</a>
-
--->
