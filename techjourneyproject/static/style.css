@@ -533,7 +533,7 @@ input{
 
 /* Member Profile Card Hover effect on checkmark */
 .memberProfile:hover input ~ .checkmark {
-    background: rgba(217, 205, 231, 0.5);
+    background: rgba(121, 81, 169, 0.1);
     box-shadow: 0 1.5px 25px 1.5px rgb(255, 255, 255);
     border: 1px solid rgb(120, 81, 169);
 }
@@ -1353,7 +1353,10 @@ NOT USED*/
     width: 50%;
     /*margin-top: 2em; */
 }
-
+/*global Dropdown padding */
+.memberData-panel select{
+    padding: 5px;
+}
 
 /*Submit/Cancel section*/
 .updateMemberInput{
@@ -1362,7 +1365,11 @@ NOT USED*/
     margin-top: 3em;
 }
 
-
+/*Back button container*/
+.homeBtn{
+    margin-top: 1em;
+    width: 10%;
+}
 /* 
     Independent ID stylings
 */
@@ -1398,4 +1405,85 @@ NOT USED*/
 #id_relocation{
     width: 50%;
     margin: 0.5em 0 1.5em 0;
+}
+
+/* Interests & Skills Checkbox */
+
+.checkboxesFormContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.interestsSkillsForm{
+    display: flex;
+    flex-flow: row;
+
+}
+.interestsSkillsForm input{
+    visibility: hidden;
+}
+
+.interestsSkillsForm .skill-checkmark {
+    position: absolute;
+    margin-left: 0.2em;
+    height: 30px;
+    width: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgb(120, 81, 169);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.interestsSkillsForm .skill-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.interestsSkillsForm:hover input ~ .skill-checkmark {
+    background: rgba(121, 81, 169, 0.1);
+    box-shadow: 0 1.5px 25px 1.5px rgb(255, 255, 255);
+    border: 1px solid rgb(120, 81, 169);
+}
+
+
+.interestsSkillsForm input:checked ~ .skill-checkmark {
+    background-color: rgb(120, 81, 169);
+    box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169);
+}
+
+
+.interestsSkillsForm .skill-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+.interestsSkillsForm input:checked ~ .skill-checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.interestsSkillsForm .skill-checkmark:after {
+    left: 10px;
+    top: 3px;
+    width: 5.5px;
+    height: 15px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.interestsTitle{
+    padding-top: 2em;
+    inline-size: 77px;
+    word-break: break-all;
+}
+
+.interestsTitle .title{
+    font-size: 14px;
 }

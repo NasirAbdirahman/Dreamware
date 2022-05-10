@@ -22,49 +22,27 @@
     <body>
 
         <main>
-            <a href="/"><img src="/static/images/dreamwareLogo.png" height="10%" width="10%"></a>
+            <a href="/"><img src="/static/images/dreamwareLogo.png" height="12%" width="12%"></a>
+            <section class="homeBtn">
+                <a href="/memberDashboard" class="btn-main">Dashboard</a>
+
+
+            </section>
+
+
             <section class="updateMember-title">
                 <h1>Edit Your Profile</h1>
                 <h2 class="subtitle">Hey {{user.first_name}}! Hope you're having a great day!</h2>
-
             </section>
-            <!-- User Greeting 
-            {% if user.is_authenticated %}
-                {% if user.is_company %}
-                    <header-component 
-                        linkOneHref="/" linkOneText="Candidates"
-                        linkTwoHref="/" linkTwoText="Features"
-                        loginHref="/logout" loginText="Logout" 
-                        btnHref="/companyDashboard" btnText="Dashboard" 
-                    >
-                    </header-component> 
-                    {% else %}
-                        <header-component 
-                            linkOneHref="/" linkOneText="Companies" 
-                            linkTwoHref="/#features" linkTwoText="Features"
-                            loginHref="/logout" loginText="Logout" 
-                            btnHref="/memberDashboard" btnText="Dashboard" 
-                        >
-                        </header-component> 
-                    {% endif %}
-            {% else %}
-                <header-component 
-                    linkOneHref="/companies" linkOneText="Companies"
-                    linkTwoHref="/#features" linkTwoText="Features"
-                    loginHref="/login" loginText="Login" 
-                    btnHref="/register" btnText="Signup"
-                > 
-                </header-component>  
-            {% endif %}-->
 
            
             <form  method="POST" enctype="multipart/form-data" >
                 {% csrf_token %} 
-
+                <section class="updateMember-title">
                 {% for message in messages %}
                     <p class="invalid-warning">{{message}}</p>
                 {% endfor %}
-
+                    </section>  
                 <section class="updateProfileSection">
                     <!--User Data-->
                     <section class="userData-panel">
@@ -106,13 +84,43 @@
                         <label class="input-labels" for={ user_form.relocation }> Relocation</label>
                         {{ profile_form.relocation }} <br>
 
+                        <p>Interests</p>
+                        <section class="checkboxesFormContainer">
+                            
+                            {% for interest in profile_form.interests %}
 
-                        <!--
-                        <label class="input-labels" for={ user_form.interests }> Interests</label>
-                        {{ profile_form.interests }} <br>
+                                <label for="{{ interest.id_for_label }}" class="interestsSkillsForm">
+                                
+                                    <div class="interestsTitle">
+                                        <p class="title">{{ interest.choice_label }} </p>
+                                    </div>
+                                    {{ interest.tag }} 
+                                    <span class="skill-checkmark"></span> 
+                            
+                                </label>
 
-                        <label class="input-labels" for={ user_form.skills }> Tech Skills</label>
-                        {{ profile_form.skills }} <br>-->
+                            {% endfor %}
+
+                        </section>
+
+                        <p>Technology Skills</p>
+                        <section class="checkboxesFormContainer">
+                            {% for skill in profile_form.skills %}
+
+                                <label for="{{ skill.id_for_label }}" class="interestsSkillsForm">
+                                
+                                    <div class="interestsTitle">
+                                        <p class="title">{{ skill.choice_label }} </p>
+                                    </div>
+                                    {{ skill.tag }} 
+                                    <span class="skill-checkmark"></span> 
+                            
+                                </label>
+
+                            {% endfor %}
+
+                        </section>
+                            
 
                     </section>
 
