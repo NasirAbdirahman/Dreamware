@@ -791,11 +791,6 @@ NOT USED*/
         display: flex;
         flex-flow: row wrap;
         justify-content: space-evenly;
-        /*border: 3px solid ;
-        border-top-color: transparent;
-        border-bottom-color: rgba(217, 205, 231);;
-        border-right-color: transparent;
-        border-left-color: transparent;*/
         margin-top: 48px;
         height:auto;
     }
