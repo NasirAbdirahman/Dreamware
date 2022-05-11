@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="techjourneyproject/static/images/dreamwareLogo.png" alt="Logo" width="80" height="80">
+    <img src="techjourneyproject/static/images/dreamwareLogo.png" alt="Logo" width="75%" height="75%">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
