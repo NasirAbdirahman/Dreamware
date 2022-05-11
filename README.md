@@ -10,7 +10,7 @@
   <p align="center">
     A community of transitioning software engineers
     <br />
-    <a href="https://github.com/NasirAbdirahman/Django-Dashboard"><strong>Explore the code »</strong></a>
+    <a href="https://github.com/NasirAbdirahman/Django-Dashboard" target="blank"><strong>Explore the code »</strong></a>
     <br />
     <br />
     <a href="">Live Demo coming soon..</a>
