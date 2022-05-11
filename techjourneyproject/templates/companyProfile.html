@@ -22,61 +22,77 @@
     <body>
 
         <main>
-            <a href="/"><img src="/static/images/dreamwareLogo.png" height="10%" width="10%"></a>
+            <a href="/"><img src="/static/images/dreamwareLogo.png" height="12%" width="12%"></a>
+            <section class="homeBtn">
+                <a href="/companyDashboard" class="btn-main">Dashboard</a>
 
-            <section class="register-section">
-                
-                <section class="register-panel">
-                    
-                    <section>
-                        <img src="/static/images/dreamwareLogo.png" height="45%" width="45%">
-                        <h1 class="register-title">Edit Your Profile</h1>
-                    </section>
-                    
-                                      
-                    
-                    <form  method="POST" enctype="multipart/form-data" >
-                        {% csrf_token %} 
 
-                        {% for message in messages %}
-                            <p class="invalid-warning">{{message}}</p>
-                        {% endfor %}
+            </section>
 
+
+            <section class="updateUser-title">
+                <h1>Edit Your Profile</h1>
+                <h2 class="subtitle">Hey {{user.first_name}}! Hope you're having a great day!</h2>
+            </section>
+
+           
+            <form  method="POST" enctype="multipart/form-data" >
+                {% csrf_token %} 
+                <section class="updateUser-title">
+                {% for message in messages %}
+                    <p class="invalid-warning">{{message}}</p>
+                {% endfor %}
+                    </section>  
+                <section class="updateProfileSection">
+                    <!--User Data-->
+                    <section class="userData-panel">
+                        <h2>Personal Data</h2>
                         <label class="input-labels" for={ user_form.first_name }>First Name</label>
                         {{ user_form.first_name }}<br>
+                        <label class="input-labels" for={ user_form.last_name }>Last Name</label>
+                        {{ user_form.last_name }} <br> 
+                        <label class="input-labels" for={ user_form.email }>Email</label>
+                        {{ user_form.email }} <br>
+                        <label class="input-labels" for={ profile_form.company_title }>Company Title</label>
+                        {{ profile_form.company_title }} <br>
+                    </section>
 
-                        Last Name: {{ user_form.last_name }} <br> 
-                        Email: {{ user_form.email }} <br> 
+                    <!--Company Position Data-->
+                    <section class="memberData-panel">
 
-                        Picture: {{ profile_form.picture }} <br>
-                        Location: {{ profile_form.location }} <br>
-                        Personal Story:{{ profile_form.personal_story }} <br>
-                        Personal Goal:{{ profile_form.personal_goal }} <br>
-                        Education: {{ profile_form.education }} <br>
-                        Linkedin: {{ profile_form.linkedin }}  <br>
-                        Github: {{ profile_form.github }}  <br>
-                        Portfolio: {{ profile_form.portfolio }}  <br>
-                        Previous Occupation: {{ profile_form.previous_occupation }}  <br>
-                        Interests: {{ profile_form.interests }}  <br>
-                        Availability: {{ profile_form.availability }}  <br>
-                        Work Status: {{ profile_form.workstatus }}  <br>
-                        Relocation: {{ profile_form.relocation }}  <br>
-                        Tech Skills: {{ profile_form.skills }} <br><br><br>
+                        <h2>Company Application Info</h2>
+                        <label class="input-labels" for={ profile_form.company_name }>Company Name</label>
+                        {{ profile_form.company_name }} <br>
+                        <label class="input-labels" for={ profile_form.position_title }> Position Title</label>
+                        {{ profile_form.position_title }} <br>
+                        <label class="input-labels" for={ profile_form.location }>Location</label>
+                        {{ profile_form.location }} <br>
+                        <label class="input-labels" for={ profile_form.salary }> Starting Salary </label>
+                        {{ profile_form.salary }} <br>
+                        <p>Technology Skills Listed</p>
+                        <label class="input-labels" for={ profile_form.skill_one }>Skill One</label>
+                        {{ profile_form.skill_one }} <br>
+                        <label class="input-labels" for={ profile_form.skill_two }>Skill Two</label>
+                        {{ profile_form.skill_two }} <br>
+                        <label class="input-labels" for={ profile_form.skill_three}>Skill Three</label>
+                        {{ profile_form.skill_three }} <br>
+                        <p>Company Logo</p>
+                        {{ profile_form.company_logo }} <br>
 
-                            
-                        <input type="submit" value="Save Changes" name="save" />
-                        <input type="reset" value="Cancel" name="cancel" />
-                        <br/>
-                    </form>
+                    </section>
 
                 </section>
+                <!--Input Section-->
+                <section class="updateUserInput">
+                    <input class="btn-submit" type="submit" value="Update Profile" name="save" />
+                    <input class="btn-cancel" type="reset" value="Cancel" href="/"> </input>
+                </section>
 
-      
-            </section>
+            </form>
+
 
         </main>
 
     </body>
-
 
 </html>

@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.core.validators import validate_email
 from django.db.models import Q
 from django.core.exceptions import PermissionDenied
+
 #Imported models we create
 from .models import Member
 from .models import TechSkills
@@ -15,7 +16,7 @@ from .models import CustomUser
 from .models import Companies
 
 #imported forms
-from .forms import MemberProfileForm, UpdateMemberForm, CreateMemberForm, UserLoginForm# MemberSkillsForm
+from .forms import MemberProfileForm, UpdateUserForm, CreateMemberForm, UserLoginForm, CompanyProfileForm# MemberSkillsForm
 
 
 '''
@@ -144,7 +145,7 @@ def memberDashboard(request):
 def memberProfile(request):
 
     if request.method == 'POST':
-        user_form = UpdateMemberForm(request.POST, instance=request.user)
+        user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = MemberProfileForm(request.POST,request.FILES, instance=request.user.member, )
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
@@ -162,7 +163,7 @@ def memberProfile(request):
                 }
             ) 
     else:
-        user_form = UpdateMemberForm(instance=request.user)
+        user_form = UpdateUserForm(instance=request.user)
         profile_form = MemberProfileForm(instance=request.user.member)
 
 
@@ -219,8 +220,8 @@ def companyProfile(request):
     #Custom permission check for non-company users
     if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
         if request.method == 'POST':
-            user_form = UpdateMemberForm(request.POST, instance=request.user)
-            profile_form = MemberProfileForm(request.POST,request.FILES, instance=request.user.member, )
+            user_form = UpdateUserForm(request.POST, instance=request.user)
+            profile_form = CompanyProfileForm(request.POST,request.FILES, instance=request.user.companies, )
             if user_form.is_valid() and profile_form.is_valid():
                 user_form.save()
                 profile_form.save()
@@ -237,14 +238,14 @@ def companyProfile(request):
                     }
                 ) 
         else:
-            user_form = UpdateMemberForm(instance=request.user)
-            #profile_form = MemberProfileForm(instance=request.user.member)
+            user_form = UpdateUserForm(instance=request.user)
+            profile_form = CompanyProfileForm(instance=request.user.companies)
 
 
         return render(request, 'companyProfile.html',
             {
                 'user_form': user_form,
-                #'profile_form': profile_form,
+                'profile_form': profile_form,
             }
         )
 

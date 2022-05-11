@@ -2,7 +2,7 @@ from secrets import choice
 from tkinter import Widget
 from xml.dom import ValidationErr
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, ReadOnlyPasswordHashField
-from .models import CustomUser, Member, TechSkills
+from .models import Companies, CustomUser, Member, TechSkills
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password
@@ -93,8 +93,8 @@ class CreateMemberForm(forms.ModelForm):
 
 
 
-# A form for letting members update their user data 
-class UpdateMemberForm(forms.ModelForm):
+# A form for letting Users update their personal data 
+class UpdateUserForm(forms.ModelForm):
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=50)
     email = forms.EmailField()
@@ -135,29 +135,27 @@ class MemberProfileForm(forms.ModelForm):
         #fields = '__all__'
 
 
-'''# Company Model Form - A form for letting companies update their profile data
+# Company Model Form - A form for letting companies update their profile data
 class CompanyProfileForm(forms.ModelForm):
-    picture = forms.ImageField() #upload to images folder in database
+
+    #upload to images folder in database
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    company_name = forms.CharField()
+    company_logo = forms.ImageField()
+    company_title = forms.CharField()
+    position_title = forms.CharField()
     location = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder': 'Location'}))
-    personal_story = forms.Textarea()
-    personal_goal = forms.Textarea()
-    education = forms.CharField()
-    linkedin = forms.URLField()
-    github = forms.URLField()
-    portfolio = forms.URLField()
-    interests = forms.CheckboxSelectMultiple()
-    previous_occupation = forms.CharField()
-    availability = forms.CheckboxSelectMultiple
-    workstatus = forms.CheckboxSelectMultiple
-    relocation =  forms.CheckboxSelectMultiple
-    skills = forms.ModelMultipleChoiceField(required=False,queryset=TechSkills.objects.all(),widget=forms.CheckboxSelectMultiple)
+    salary = forms.IntegerField()
+    skill_one = forms.CharField()
+    skill_two = forms.CharField()
+    skill_three = forms.CharField()
     
     class Meta:
-        model = Member
+        model = Companies
         fields = (
-            'picture','location','personal_story','personal_goal','education','linkedin',
-            'github','portfolio','previous_occupation','availability',
-            'workstatus','interests','relocation' ,'skills'
-            )
+            'first_name','last_name','company_logo','company_title','company_name','position_title',
+            'location','salary','skill_one','skill_two',
+            'skill_three'
+        )
         #fields = '__all__'
-'''

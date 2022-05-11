@@ -1309,7 +1309,7 @@ NOT USED*/
 
 
 /* 
-    Update Profiles Page Styling
+    updateUserProfile Page Styling
         -Members
         -Companies
 */
@@ -1332,7 +1332,7 @@ NOT USED*/
 }
 
 /*Header*/
-.updateMember-title {
+.updateUser-title {
     text-align: center;
     margin-top: 1em;
     margin-bottom: 3em;
@@ -1359,7 +1359,7 @@ NOT USED*/
 }
 
 /*Submit/Cancel section*/
-.updateMemberInput{
+.updateUserInput{
     display: flex;
     justify-content: center;
     margin-top: 3em;

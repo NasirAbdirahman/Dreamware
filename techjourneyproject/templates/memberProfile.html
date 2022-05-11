@@ -30,7 +30,7 @@
             </section>
 
 
-            <section class="updateMember-title">
+            <section class="updateUser-title">
                 <h1>Edit Your Profile</h1>
                 <h2 class="subtitle">Hey {{user.first_name}}! Hope you're having a great day!</h2>
             </section>
@@ -38,7 +38,7 @@
            
             <form  method="POST" enctype="multipart/form-data" >
                 {% csrf_token %} 
-                <section class="updateMember-title">
+                <section class="updateUser-title">
                 {% for message in messages %}
                     <p class="invalid-warning">{{message}}</p>
                 {% endfor %}
@@ -126,7 +126,7 @@
 
                 </section>
                 <!--Input Section-->
-                <section class="updateMemberInput">
+                <section class="updateUserInput">
                     <input class="btn-submit" type="submit" value="Update Profile" name="save" />
                     <input class="btn-cancel" type="reset" value="Cancel" href="/"> </input>
                 </section>
