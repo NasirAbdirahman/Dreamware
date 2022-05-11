@@ -25,7 +25,7 @@
             {% if user.is_company %}
                 <header-component 
                     linkOneHref="/companyCandidateBoard" linkOneText="Candidates"
-                    linkTwoHref="/" linkTwoText="Features"
+                    linkTwoHref="/companyProfile" linkTwoText="Profile"
                     loginHref="/logout" loginText="Logout" 
                     btnHref="/companyDashboard" btnText="Dashboard" 
                 >
@@ -33,7 +33,7 @@
                 {% else %}
                     <header-component 
                         linkOneHref="/memberJobBoard" linkOneText="Companies" 
-                        linkTwoHref="/#features" linkTwoText="Features"
+                        linkTwoHref="/memberProfile" linkTwoText="Profile"
                         loginHref="/logout" loginText="Logout" 
                         btnHref="/memberDashboard" btnText="Dashboard" 
                     >

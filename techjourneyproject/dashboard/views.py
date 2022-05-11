@@ -268,4 +268,10 @@ def memberJobBoard(request):
 @login_required(login_url='/login/') 
 #@permission_required('dashboard.CustomUser.is_company',raise_exception=True) #NOT WORKING(https://stackoverflow.com/questions/62689245/permission-required-decorator-not-working-on-view-in-django)
 def companyCandidateBoard(request):
-    return render(request, 'companyCandidateBoard.html') #renders the templates file
+    #Custom permission check for non-company users
+    if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+       #Fetch all companies
+        candidates = Member.objects.all()
+        return render(request, 'companyCandidateBoard.html', {'candidates':candidates}) #renders the templates file
+    else:
+        raise PermissionDenied()

@@ -1505,8 +1505,8 @@ NOT USED*/
     text-align: center;
 }
 
-/*Job postings container*/
-.jobSections {
+/*Job/Candidate Board container*/
+.boardSection {
     background: rgba(217, 205, 231, 0.2);
     box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
     backdrop-filter: blur( 10px );

@@ -1,4 +1,4 @@
-<!--Members Job Board Index View-->
+<!--Company Candidate Job Board Index View-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,49 +15,107 @@
         <script src="{% static 'components/footer.js' %}" type="text/javascript" defer></script>
         <script src="{% static 'components/button.js' %}" type="text/javascript" defer></script>
 
-        <title>DreamWare: Transitioning Engineers</title>
+        <title>DreamWare: Job Opportunities</title>
     </head>
 
     <body>
 
         <!-- Main Nav Bar -->
-        {% if user.is_authenticated %}
-            {% if user.is_company %}
-                <header-component 
-                    linkOneHref="/" linkOneText="Home"
-                    linkTwoHref="/" linkTwoText="Candidates"
-                    loginHref="/logout" loginText="Logout" 
-                    btnHref="/companyDashboard" btnText="Dashboard" 
-                >
-                </header-component> 
-                {% else %}
-                    <header-component 
-                        linkOneHref="/" linkOneText="Home" 
-                        linkTwoHref="/#features" linkTwoText="Companies"
-                        loginHref="/logout" loginText="Logout" 
-                        btnHref="/memberDashboard" btnText="Dashboard" 
-                    >
-                    </header-component> 
-                {% endif %}
-        {% else %}
-            <header-component 
-                linkOneHref="/" linkOneText="Home"
-                linkTwoHref="/companies/#features" linkTwoText="Features"
-                loginHref="/login" loginText="Login" 
-                btnHref="/register" btnText="Signup"
-            > 
-            </header-component>  
-        {% endif %}
 
+        <header-component 
+            linkOneHref="/" linkOneText="Home"
+            linkTwoHref="/companyProfile" linkTwoText="Profile"
+            loginHref="/logout" loginText="Logout" 
+            btnHref="/companyDashboard" btnText="Dashboard" 
+        ></header-component>
+    
             
         <main>
             
             <!-- Greeting Section -->
             <section class="greeting-section">
                 <h1>Transitioning Candidates</h1>
-                <h2 class="subtitle"> Welcome {{user.first_name}} Browse through our amazing engineers!
+                <h2 class="subtitle"> Welcome {{user.first_name}}! Browse through our amazing engineers!
                     They are looking forward to meeting you!
                 </h2>
+            </section>
+
+            <!--Candidate Profiles -->
+            <section class="boardSection">
+
+                <section class="profileCards">
+                    {% if candidates %}
+
+                        {% for candidate in candidates %}
+                    
+                            <section class="cards">
+
+                                <section class="infoSection">
+                                    <div class="candidateTitle">
+                                        <p class="title"> {{candidate.user.first_name}}, {{candidate.user.last_name}}</p>
+                                    </div>
+
+                                    <img class="candidateImg"src="/media/{{candidate.picture}}"  width="100px" height="100px">
+                                    <p>{{candidate.get_workstatus_display}}</p>
+                                    <p>{{candidate.get_availability_display}}</p>
+                                    <p>{{candidate.get_relocation_display}}</p>
+                                    
+                                </section>
+                                
+                                <section class="interests">
+                                    <p>Interests</p>
+                                    <section class="interestsContainer">
+                                        {% for x in candidate.interests_list %}
+                                            <div class="interestsCards">
+                                                <p class="text">{{x}}</p>
+                                            </div>
+                                        {% endfor %}
+                                    </section>
+                                </section>
+                            </section>
+                
+                        {% endfor %}
+
+                    {% else %}
+
+                        <!--Default Card if no Matches-->
+                        <section class="cards">
+
+                            <section class="infoSection">
+                                <div class="companyTitle">
+                                    <p class="title"> Sorry their are no candidates! :(</p>
+                                </div>
+                                <img class="candidateImg"src="/media/defaultuser.png"  width="100px" height="100px">
+                                <p> Work Status </p>
+                                <p>Availability </p>
+                                <p>Open to relocate</p>
+                            </section>
+                        
+                            <section class="interests">
+                                <p> Candidate's Interests</p>
+                                <section class="interestsContainer">
+                                
+                                        <div class="interestsCards">
+                                            <p class="text">Front-End</p>
+                                        </div>
+                                    
+                                        <div class="interestsCards">
+                                            <p class="text">Back-End</p>
+                                        </div>
+                                    
+                                        <div class="interestsCards">
+                                            <p class="text">Dev-ops</p>
+                                        </div>
+                                    
+                                </section>
+                            </section>
+                            
+                        </section>
+                        
+                    {% endif %}
+
+                </section>
+
             </section>
 
         </main>
