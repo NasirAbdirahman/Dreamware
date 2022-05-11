@@ -1499,8 +1499,23 @@ NOT USED*/
         -Companies
 */
 
-
+/*Main container*/
 .greeting-section {  
-    padding-top: 5em;
+    padding: 5em 0 3em 0;
     text-align: center;
+}
+
+/*Job postings container*/
+.jobSections {
+    background: rgba(217, 205, 231, 0.2);
+    box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    text-align: center;
+    margin: 15px;
+    padding:7px;
+    margin-bottom: 2em;
+        
 }

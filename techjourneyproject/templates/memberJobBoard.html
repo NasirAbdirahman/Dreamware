@@ -21,44 +21,132 @@
     <body>
 
         <!-- Main Nav Bar -->
-        {% if user.is_authenticated %}
-            {% if user.is_company %}
-                <header-component 
-                    linkOneHref="/" linkOneText="Home"
-                    linkTwoHref="/" linkTwoText="Candidates"
-                    loginHref="/logout" loginText="Logout" 
-                    btnHref="/companyDashboard" btnText="Dashboard" 
-                >
-                </header-component> 
-                {% else %}
-                    <header-component 
-                        linkOneHref="/" linkOneText="Home" 
-                        linkTwoHref="/#features" linkTwoText="Companies"
-                        loginHref="/logout" loginText="Logout" 
-                        btnHref="/memberDashboard" btnText="Dashboard" 
-                    >
-                    </header-component> 
-                {% endif %}
-        {% else %}
-            <header-component 
-                linkOneHref="/" linkOneText="Home"
-                linkTwoHref="/companies/#features" linkTwoText="Features"
-                loginHref="/login" loginText="Login" 
-                btnHref="/register" btnText="Signup"
-            > 
-            </header-component>  
-        {% endif %}
-
+        <header-component 
+            linkOneHref="/" linkOneText="Home" 
+            linkTwoHref="/memberProfile" linkTwoText="Profile"
+            loginHref="/logout" loginText="Logout" 
+            btnHref="/memberDashboard" btnText="Dashboard" 
+        >
+        </header-component> 
+              
             
         <main>
             
             <!-- Greeting Section -->
             <section class="greeting-section">
-                <h1>Partner Companies</h1>
+                <h1>Partner Companies' Job Board</h1>
                 <h2 class="subtitle"> Welcome {{user.first_name}}! Browse through our partner's job postings<br>
                     and apply for your next opportunity!
                 </h2>
             </section>
+            <!--Companies Job Posts-->
+            <section class="jobSections">
+                <section class="companyCards">
+                                
+                    <!--Company Cards-->
+                    {% if companies %}
+
+                        {% for company in companies %}
+                    
+                            <section class="cards">
+
+                                <section class="infoSection">
+                                    <div class="companyTitle">
+                                        <p class="title"> {{company.company_name}}</p>
+                                    </div>
+                                
+                                    <p> {{company.position_title}}</p>
+                                    <p>{{company.location}}</p>
+
+                                    {% if company.salary == none %}
+                                        <p>Salary Not Disclosed</p>
+                                    {% else %}
+                                        <p>{{company.salary}} USD</p>
+                                    {% endif %}
+                                </section>
+                            
+                                <section class="skills">
+                                    <p>Skills</p>
+                                    <section class="skills-container">
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+                                            <div class="text">{{company.skill_one}}</div>
+                                        </div>
+
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+                                            <div class="text">{{company.skill_two}}</div>
+                                        </div>
+                                        <div class="skill-circle">
+                                            <svg>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                            </svg>
+                                            <div class="text">{{company.skill_three}}</div>
+                                        </div>
+                                    </section>
+                                </section>
+                                
+                            </section>
+                
+                        {% endfor %}
+
+                    {% else %}
+
+                        <!--Error Loading-->
+                        <p class="dashboard-title">Sorry their are no companies! :(</p>
+                        <section class="cards">
+
+                            <section class="infoSection">
+                                <div class="companyTitle">
+                                    <p class="title"> Company Name </p>
+                                </div>
+                                <p> Position Title </p>
+                                <p>Location or Remote </p>
+                                <p>Starting Salary</p>
+                            </section>
+                        
+                            <section class="skills">
+                                <p>Top 3 Skills</p>
+                                <section class="skills-container">
+                                    <div class="skill-circle">
+                                        <svg>
+                                            <circle cx="30" cy="30" r="30"></circle>
+                                            <circle cx="30" cy="30" r="30"></circle>
+                                        </svg>
+                                        <div class="text">One</div>
+                                    </div>
+
+                                    <div class="skill-circle">
+                                        <svg>
+                                            <circle cx="30" cy="30" r="30"></circle>
+                                            <circle cx="30" cy="30" r="30"></circle>
+                                        </svg>
+                                        <div class="text">Two</div>
+                                    </div>
+                                    <div class="skill-circle">
+                                        <svg>
+                                            <circle cx="30" cy="30" r="30"></circle>
+                                            <circle cx="30" cy="30" r="30"></circle>
+                                        </svg>
+                                        <div class="text">Three</div>
+                                    </div>
+                                </section>
+                            </section>
+                            
+                        </section>
+                        
+                    {% endif %}
+
+                </section>
+            </section>
+
 
         </main>
 

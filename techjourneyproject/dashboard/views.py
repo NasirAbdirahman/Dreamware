@@ -256,10 +256,16 @@ def companyProfile(request):
 #Member's JobBoard page View
 @login_required(login_url='/login/') 
 def memberJobBoard(request):
-    return render(request, 'memberJobBoard.html') #renders the templates file
+    if request.user.member or request.user.is_admin is True:
+        #Fetch all companies
+        companies = Companies.objects.all()
+        return render(request, 'memberJobBoard.html', {'companies':companies}) #renders the templates file
+    else:
+        raise PermissionDenied()
 
 
 #Company's CandidateBoard page View
 @login_required(login_url='/login/') 
+#@permission_required('dashboard.CustomUser.is_company',raise_exception=True) #NOT WORKING(https://stackoverflow.com/questions/62689245/permission-required-decorator-not-working-on-view-in-django)
 def companyCandidateBoard(request):
     return render(request, 'companyCandidateBoard.html') #renders the templates file
