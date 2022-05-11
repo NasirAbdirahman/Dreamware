@@ -1,23 +1,19 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/NasirAbdirahman/Django-Dashboard">
     <img src="techjourneyproject/static/images/dreamwareLogo.png" alt="Logo" width="55%" height="55%">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">DreamWare</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    A community of transitioning software engineers
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/NasirAbdirahman/Django-Dashboard"><strong>Explore the code »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="">Live Demo coming soon..</a>
   </p>
 </div>
 
@@ -42,7 +38,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <!--<li><a href="#contributing">Contributing</a></li>-->
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
