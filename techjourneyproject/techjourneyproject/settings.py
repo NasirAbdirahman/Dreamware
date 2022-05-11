@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dashboard' #my app is registered in django project
+    'fontawesomefree',
+    'dashboard', #my app is registered in django project,
 ]
 
 #Use the new CustomUser class as Auth

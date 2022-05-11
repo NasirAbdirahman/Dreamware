@@ -54,8 +54,8 @@ p {
     font-family: 'JosefinSans-regular', sans-serif;
     font-size: 18px;
 }
-
-a{
+/* Nav links global*/
+a {
     text-decoration: none ;
     color: #000000
 }
@@ -690,13 +690,6 @@ NOT USED*/
 
     /* Contact Section*/
     .contactSection{
-
-        /*padding: 7px; 
-        border: 2px solid ;
-        border-top-color: transparent;
-        border-bottom-color: rgba(217, 205, 231);;
-        border-right-color: transparent;
-        border-left-color: transparent;*/
         background: rgb(255, 255, 255);
         box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
         backdrop-filter: blur( 10px );
@@ -705,39 +698,31 @@ NOT USED*/
         border: 1px solid rgb(255, 255, 255);
         margin: 15px 11px 11px 11px;
         padding: 0 7px 10px 7px;
-      
-    
+
     }
 
     .contactLinks{
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-evenly;
-       
+        justify-content: space-evenly; 
     }
 
     .contactCards{
-        height: 45px;
-        width: 45px;
+        height: max-content;
+        width: max-content;
+        padding: 5px;
         background-color: #ffffff;
+        box-shadow: 0 1.5px 5px 1.5px rgb(120, 81, 169, 0.3);
         border: 1px solid rgba(217, 205, 231);
-        border-radius: 10px;
-        padding: 2px;
-        margin: 1px;
-        text-align: center;  
+        border-radius: 10px; 
     }
-
+    /*GLobal Icon styling*/
+    .contactCards a {
+        color: rgb(120, 81, 169) !important;
+    }
+    
     /* Interests Section*/
     .interestsSection{
-
-        /*padding: 10px; 
-        margin-bottom: 7px;
-        border: 2px solid ;
-        border-top-color: transparent;
-        border-bottom-color: rgba(217, 205, 231);;
-        border-right-color: transparent;
-        border-left-color: transparent;
-        /*border: 1px solid rgba(217, 205, 231);;*/
 
         background: rgb(255, 255, 255);
         box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
@@ -759,6 +744,7 @@ NOT USED*/
         height: 50px;
         width: 50px;
         background-color: #ffffff;
+        box-shadow: 0 1.5px 5px 1.5px rgb(120, 81, 169, 0.3);
         border: 1px solid rgba(217, 205, 231);
         border-radius: 10px;
         padding: 1.5px;
@@ -891,7 +877,7 @@ NOT USED*/
         }
         
         /*TechSkill SVG*/
-        svg {
+        .techskills svg {
             position: relative;
             width: 150px;
             height: 150px;
@@ -899,7 +885,7 @@ NOT USED*/
         }
 
         /*TechSKill SVG Circle*/
-        svg circle {
+        .techskills svg circle {
             fill: none;
             stroke: #ffffff;
             stroke-width: 10;
@@ -908,13 +894,13 @@ NOT USED*/
         }
 
         /*Inner circle stroke*/
-        svg circle:nth-child(2) {
+        .techskills svg circle:nth-child(2) {
             stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
             stroke-dashoffset: 440;
         }
 
         /*outer circle stroke-Purple*/
-        svg circle:nth-child(2) {
+        .techskills svg circle:nth-child(2) {
             stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
             stroke: rgba(120, 81, 169);   /*(217, 205, 231)  */      
             /*animation: progress 4s infinite linear; */  
@@ -1055,7 +1041,35 @@ NOT USED*/
             margin-top: -10px;
         }
 
+        /*TechSkill SVG*/
+        .companyCards svg {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            z-index: 1000;
+        }
 
+        /*TechSKill SVG Circle*/
+        .companyCards svg circle {
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: translate(5px, 5px);         
+        }
+
+        /*Inner circle stroke*/
+        .companyCards svg circle:nth-child(2) {
+            stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
+            stroke-dashoffset: 440;
+        }
+
+        /*outer circle stroke-Purple*/
+        .companyCards svg circle:nth-child(2) {
+            stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
+            stroke: rgba(120, 81, 169);   /*(217, 205, 231)  */      
+            /*animation: progress 4s infinite linear; */  
+        }
         /*Inner Frosted circle-DON'T CHANGE*/
         .companyCards .skill-circle {
             position: relative;
@@ -1069,18 +1083,8 @@ NOT USED*/
             margin: 1px;/*Space between skills*/
         }
 
-         /*Inner circle stroke*/
-        .companyCards svg circle:nth-child(2) {
-            stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
-            stroke-dashoffset: 440;
-        }
 
-        /*outer circle stroke-Purple*/
-        .companyCards svg circle:nth-child(2) {
-            stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
-            stroke: rgba(120, 81, 169);           
-            /*animation: progress 4s infinite linear; */  
-        }
+
           
         /*Inner frosted circle-text*/
         .companyCards .text {
