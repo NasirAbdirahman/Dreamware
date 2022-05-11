@@ -1487,3 +1487,20 @@ NOT USED*/
 .interestsTitle .title{
     font-size: 14px;
 }
+
+
+
+/*------------------------------------------------------------------------*/
+
+
+/* 
+    memberJobBoard & companyCandidateBoard Page Styling
+        -Members
+        -Companies
+*/
+
+
+.greeting-section {  
+    padding-top: 5em;
+    text-align: center;
+}

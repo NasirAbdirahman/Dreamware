@@ -1,0 +1,71 @@
+<!--Members Job Board Index View-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8" />
+        <meta name= "viewport" content= "width=device-width, initial-scale=1" />
+
+        <!-- CSS -->
+        {% load static %}   
+        <link rel="stylesheet" href="{% static 'style.css' %}"> 
+        <!-- Custom Components -->
+        <script src="{% static 'components/header.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/footer.js' %}" type="text/javascript" defer></script>
+        <script src="{% static 'components/button.js' %}" type="text/javascript" defer></script>
+
+        <title>DreamWare: Transitioning Engineers</title>
+    </head>
+
+    <body>
+
+        <!-- Main Nav Bar -->
+        {% if user.is_authenticated %}
+            {% if user.is_company %}
+                <header-component 
+                    linkOneHref="/" linkOneText="Home"
+                    linkTwoHref="/" linkTwoText="Candidates"
+                    loginHref="/logout" loginText="Logout" 
+                    btnHref="/companyDashboard" btnText="Dashboard" 
+                >
+                </header-component> 
+                {% else %}
+                    <header-component 
+                        linkOneHref="/" linkOneText="Home" 
+                        linkTwoHref="/#features" linkTwoText="Companies"
+                        loginHref="/logout" loginText="Logout" 
+                        btnHref="/memberDashboard" btnText="Dashboard" 
+                    >
+                    </header-component> 
+                {% endif %}
+        {% else %}
+            <header-component 
+                linkOneHref="/" linkOneText="Home"
+                linkTwoHref="/companies/#features" linkTwoText="Features"
+                loginHref="/login" loginText="Login" 
+                btnHref="/register" btnText="Signup"
+            > 
+            </header-component>  
+        {% endif %}
+
+            
+        <main>
+            
+            <!-- Greeting Section -->
+            <section class="greeting-section">
+                <h1>Transitioning Candidates</h1>
+                <h2 class="subtitle"> Welcome {{user.first_name}} Browse through our amazing engineers!
+                    They are looking forward to meeting you!
+                </h2>
+            </section>
+
+        </main>
+
+    </body>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+
+</html>
+

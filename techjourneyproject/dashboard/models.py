@@ -162,6 +162,8 @@ class Companies(models.Model):
     company_title = models.CharField(max_length=100)
     company_name =  models.CharField(max_length=60)
     company_logo = models.ImageField(default="defaultuser.png",upload_to="company_images") #upload to images folder in database
+    #CONTACT INFO-LINKEDIN,PHONE ETC.
+    
     #Job Description
     position_title = models.CharField(max_length=60)
     salary = models.IntegerField(null=True, blank=True)#MUST BE STARTING SALARY

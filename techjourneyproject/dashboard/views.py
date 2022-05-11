@@ -251,3 +251,15 @@ def companyProfile(request):
 
     else:
         raise PermissionDenied()
+
+
+#Member's JobBoard page View
+@login_required(login_url='/login/') 
+def memberJobBoard(request):
+    return render(request, 'memberJobBoard.html') #renders the templates file
+
+
+#Company's CandidateBoard page View
+@login_required(login_url='/login/') 
+def companyCandidateBoard(request):
+    return render(request, 'companyCandidateBoard.html') #renders the templates file
