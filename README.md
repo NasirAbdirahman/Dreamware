@@ -70,8 +70,11 @@ Dreamware is a membership site that connects individuals that are transitioning 
 ### Features
 <strong>Overall:</strong>The home page explaining membership advantage for candidates. The companies page explaining partner advantage for companies. The Register page for visitors to create either a member or company account. The login page for members to login to the site.
 
+https://user-images.githubusercontent.com/73849492/167973896-a36cb2ab-33b1-40a2-a2e5-3ab203297488.mp4
 
-https://user-images.githubusercontent.com/73849492/167973510-f6d8cb6a-61bf-4ff3-b9cf-0761a705beaf.mp4
+
+
+
 
 
 
