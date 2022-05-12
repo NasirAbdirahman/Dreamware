@@ -76,6 +76,9 @@ https://user-images.githubusercontent.com/73849492/167973896-a36cb2ab-33b1-40a2-
 <strong>Member Access-Only:</strong>Member dashboard showcasing their personal information, contact info, technology skills and top companies that their skills have matched with. Member’s Profile editing page. The jobs page for members to view all active partner companies’ job listings.
 
 
+https://user-images.githubusercontent.com/73849492/167975222-d857adf3-302b-4bcb-b612-5645ce162ce0.mov
+
+
 <strong>Company Access-Only:</strong>Company representative dashboard showcasing their personal information, company information, copy of job posting that candidates’ currently see, and top candidates’ whose skills have matched their job post. Company representative Profile editing page. The candidates’ page for companies to view all active Dreamware candidates.
 
 
