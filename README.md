@@ -53,7 +53,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Dreamware is a membership site that connects individuals that are transitioning into software engineers and companies wishing to hire them. Hailing from multiple industries, they share a common dream, to enter the tech industry.  Whether they are bootcamp grads, self-taught programmers, or current students, Dreamware allows them to share their profiles, skills and connect with top companies that are sourcing for diverse, multi-disciplinary talent to fill positions.
+Dreamware is a membership site that connects individuals that are transitioning into software engineers with companies wishing to hire them. Hailing from multiple industries, they share a common dream, to enter the tech industry.  Whether they are bootcamp grads, self-taught programmers, or current students, Dreamware allows them to share their profiles, skills and connect with top companies that are sourcing for diverse, multi-disciplinary talent to fill positions.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
