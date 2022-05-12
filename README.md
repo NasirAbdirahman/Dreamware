@@ -61,7 +61,7 @@ Dreamware is a membership site that connects individuals that are transitioning 
 
 ### Built With
 
-* [Django.js](https://www.djangoproject.com/)
+* [Django](https://www.djangoproject.com/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -95,12 +95,12 @@ https://user-images.githubusercontent.com/73849492/167976335-d2983062-6276-4dc6-
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To view the website locally. Follow the simple example steps below.
+To view the website locally. Follow the simple example steps below. The website dependencies/packages will be installed in a pipenv shell(a virtual env.[pipenv](https://pipenv.pypa.io/en/latest/)).
 
 ### Prerequisites
 
 * Python - Install from (https://www.python.org/downloads/)
-* Pipenv - (requires 'pip', if you donwload Python from above source, already installed)
+* Pipenv - (requires 'pip', if you download Python from above source, already installed)
   ```sh
   pip install pipenv
   ```
@@ -114,23 +114,23 @@ To view the website locally. Follow the simple example steps below.
 
 2. Install ALL project Packages/Dependencies in Pipenv shell
   * Open pipenv shell in terminal
-     ```sh
-     pipenv shell
-     ```
-  * Install dep./pack. in shell
-   ```sh
-   pipenv install --dev
-   ```
+  ```sh
+  pipenv shell
+  ```
+  * Install dependencies/packages in shell env
+  ```sh
+  pipenv install --dev
+  ```
 3. Launch Project
   * navigate into folder
-   ```sh
-   cd techjourneyproject
-   ```
-   * Launch
-   ```sh
-   python manage.py runserver
-   ```
-   * Navigate to localhost
+  ```sh
+  cd techjourneyproject
+  ```
+  * Launch
+  ```sh
+  python manage.py runserver
+  ```
+  * Navigate to localhost
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
