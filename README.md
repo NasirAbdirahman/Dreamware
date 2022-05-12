@@ -99,32 +99,39 @@ To view the website locally. Follow the simple example steps below.
 
 ### Prerequisites
 
-* Python
-* Install from (https://www.python.org/downloads/)
-* Check npm & Node.JS proper installation
+* Python - Install from (https://www.python.org/downloads/)
+* Pipenv - (requires 'pip', if you donwload Python from above source, already installed)
   ```sh
-  node -v //v14.9.0
-  npm -v  //6.14.10
+  pip install pipenv
   ```
+
 
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+1. Clone project
+  * Download ZIP File from repo, Unzip file & open folder in IDE of your choice.
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+2. Install ALL project Packages/Dependencies in Pipenv shell
+  * Open pipenv shell in terminal
+     ```sh
+     pipenv shell
+     ```
+  * Install dep./pack. in shell
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   pipenv install --dev
    ```
-3. Install NPM packages
+3. Launch Project
+  * navigate into folder
    ```sh
-   npm install
+   cd techjourneyproject
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+   * Launch
+   ```sh
+   python manage.py runserver
    ```
+   * Navigate to localhost
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
