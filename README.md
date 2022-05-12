@@ -61,32 +61,20 @@ Dreamware is a membership site that connects individuals that are transitioning 
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+* [Django.js](https://www.djangoproject.com/)
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ### Features
+<p><strong>Overall:</strong></p>The home page explaining membership advantage for candidates. The companies page explaining partner advantage for companies. The Register page for visitors to create either a member or company account. The login page for members to login to the site.
+
+<p><strong>Member Access-Only:</strong></p>Member dashboard showcasing their personal information, contact info, technology skills and top companies that their skills have matched with. Member’s Profile editing page. The jobs page for members to view all active partner companies’ job listings.
+
+<p><strong>Company Access-Only:</strong></p>Company representative dashboard showcasing their personal information, company information, copy of job posting that candidates’ currently see, and top candidates’ whose skills have matched their job post. Company representative Profile editing page. The candidates’ page for companies to view all active Dreamware candidates.
 
 
-
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
