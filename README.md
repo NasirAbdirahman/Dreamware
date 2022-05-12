@@ -83,7 +83,7 @@ https://user-images.githubusercontent.com/73849492/167975222-d857adf3-302b-4bcb-
 <strong>Company Access-Only:</strong>Company representative dashboard showcasing their personal information, company information, copy of job posting that candidates’ currently see, and top candidates’ whose skills have matched their job post. Company representative Profile editing page. The candidates’ page for companies to view all active Dreamware candidates.
 
 
-<video src="">https://user-images.githubusercontent.com/73849492/167976335-d2983062-6276-4dc6-8408-462028985167.mov
+https://user-images.githubusercontent.com/73849492/167976335-d2983062-6276-4dc6-8408-462028985167.mov
 
 
 
