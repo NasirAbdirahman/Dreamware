@@ -95,16 +95,18 @@ https://user-images.githubusercontent.com/73849492/167976335-d2983062-6276-4dc6-
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To view the website locally. Follow the simple example steps below.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+* Python
+* Install from (https://www.python.org/downloads/)
+* Check npm & Node.JS proper installation
   ```sh
-  npm install npm@latest -g
+  node -v //v14.9.0
+  npm -v  //6.14.10
   ```
+
 
 ### Installation
 
