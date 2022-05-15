@@ -41,7 +41,7 @@ class Header extends HTMLElement {
           <ul class="nav-links">
             <ol><a href=${linkOneHref}> ${linkOneText}</a> </ol>
             <ol><a href=${linkTwoHref}> ${linkTwoText}</a> </ol>
-            <ol><a href=${loginHref} class="authenticate-link"> ${loginText}</a> </ol>
+            <ol><a href=${loginHref} class="cta-text"> ${loginText}</a> </ol>
             <ol><a class="nav-btn" href=${btnHref}>${btnText}</a></ol>
           </ul>
 
