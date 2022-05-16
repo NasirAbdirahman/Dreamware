@@ -14,6 +14,7 @@ from .models import Member
 from .models import TechSkills
 from .models import CustomUser
 from .models import Companies
+from .models import JobPost
 
 #imported forms
 from .forms import MemberProfileForm, UpdateUserForm, CreateMemberForm, UserLoginForm, CompanyProfileForm# MemberSkillsForm
@@ -184,13 +185,13 @@ def companyDashboard(request):
     if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
         #Return User's Company Model
         users = Companies.objects.filter(user=request.user)
-
+        
         #return User's Company Model Skills
-        skillOne = request.user.companies.skill_one
+        '''skillOne = request.user.companies.skill_one
         skillTwo = request.user.companies.skill_two
         skillThree = request.user.companies.skill_three
         #return User's Company TechSkills as list
-        topSkills ={skillOne,skillTwo,skillThree}
+        topSkills ={skillOne,skillTwo,skillThree}'''
 
         '''#return User's Company JD
         companyName = request.user.companies.company_name
@@ -202,10 +203,10 @@ def companyDashboard(request):
 
         #filtering all the Members whose skills field contains companies skill
             #If Member MODEL skills contains ANYTHING Company needs
-        candidates = Member.objects.filter(skills__name__in = topSkills).distinct() #removes duplicate values returned
+        #candidates = Member.objects.filter(skills__name__in = topSkills).distinct() #removes duplicate values returned
     
         return render(request, 'companyDashboard.html',
-            {'users': users, 'topSkills':topSkills, 'candidates':candidates}
+            {'users': users} #'topSkills':topSkills, 'candidates':candidates}
         )# 'companies':companies}) #{'members' : members ,'skills': skills})
 
     else:

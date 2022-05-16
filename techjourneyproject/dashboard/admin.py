@@ -5,8 +5,9 @@ from django.contrib.auth.models import Group
 #Imported models we created
 from .models import Member
 from .models import TechSkills
-from .models import Companies #potential. Not added
+from .models import Companies
 from .models import CustomUser
+from .models import JobPost
 #imported form to manage user creation through adminPanel
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
@@ -60,6 +61,7 @@ admin.site.register(Member)
 admin.site.register(TechSkills)
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(Companies)
+admin.site.register(JobPost)
 
 # unregister the Group model from admin.
 admin.site.unregister(Group)

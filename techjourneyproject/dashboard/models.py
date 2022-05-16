@@ -137,7 +137,7 @@ class Member(models.Model):
     relocation = models.CharField(max_length=2, choices=RELOCATION_STATUS)
 
     #Tech Skills field
-    skills = models.ManyToManyField(TechSkills,related_name="CustomUsers")
+    skills = models.ManyToManyField(TechSkills)
 
 
     #return all fields or just return specifics
@@ -150,29 +150,23 @@ class Member(models.Model):
         list_ = list.split(',')
         return list_
 
-
 #Companies Model
 class Companies(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     #Company representative email-- Would have validators ensuring non-frauds, depending on org.
     email = models.EmailField()
+
     #USER FIELDS FOR REPRESENTATIVE
     first_name = models.CharField(blank=False,max_length=50)
     last_name = models.CharField(blank=False,max_length=50)
-    company_title = models.CharField(max_length=100)
+    picture = models.ImageField(default="defaultuser.png",upload_to="company_images") #upload to images folder in database
     company_name =  models.CharField(max_length=60)
-    company_logo = models.ImageField(default="defaultuser.png",upload_to="company_images") #upload to images folder in database
-    #CONTACT INFO-LINKEDIN,PHONE ETC.
-    
-    #Job Description
-    position_title = models.CharField(max_length=60)
-    salary = models.IntegerField(null=True, blank=True)#MUST BE STARTING SALARY
-    location = models.CharField(max_length=65)
-    skill_one = models.CharField(max_length=100)
-    skill_two = models.CharField(max_length=100)
-    skill_three = models.CharField(max_length=100)
-    #job_link = models.URLField() #URL LINK-POTENTIALLY
-  
+    company_title = models.CharField(max_length=100)
+    linkedin = models.URLField(default="https://www.linkedin.com")
+
+    #company jobs post Field
+    #jobs = models.ManyToManyField('JobPost', blank=True)
+
     #return all fields or just return specifics
     def __str__(self):
         return self.email
@@ -182,3 +176,23 @@ class Companies(models.Model):
         permissions = [
             ("is_company", "Is a company"),
         ]'''
+  
+        
+#Company Job Post Model
+class JobPost(models.Model):
+    #company Name
+    company = models.ForeignKey(Companies, related_name="companyjob", on_delete=models.CASCADE)
+    #Job Description
+    company_name = models.CharField(max_length=60)
+    position_title = models.CharField(max_length=60)
+    salary = models.IntegerField(null=True, blank=True)#MUST BE STARTING SALARY
+    location = models.CharField(max_length=65)
+    skill_one = models.CharField(max_length=100)
+    skill_two = models.CharField(max_length=100)
+    skill_three = models.CharField(max_length=100)
+    job_link = models.URLField() #URL LINK for job
+  
+    #return all fields or just return specifics
+    def __str__(self):
+        return self.company_name
+
