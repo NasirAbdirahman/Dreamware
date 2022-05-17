@@ -150,6 +150,8 @@ class Member(models.Model):
         list_ = list.split(',')
         return list_
 
+
+
 #Companies Model
 class Companies(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
@@ -169,7 +171,7 @@ class Companies(models.Model):
 
     #return all fields or just return specifics
     def __str__(self):
-        return self.email
+        return self.company_name
 
     #Can add permissions to model here if needed
     '''class Meta:

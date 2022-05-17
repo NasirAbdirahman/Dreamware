@@ -122,12 +122,13 @@ def memberDashboard(request):
     skills = list(request.user.member.skills.all())
     #member_skills = list(skills)
 
-    #filtering all the companies whose skill fields(Skill_one,skill_two,skill_three) contains members skill
-    companies = Companies.objects.filter(#If Company MODEL skill_one contains ANYTHING user has
+    # CHANGE -- FILTER ALL JOB POSTS WHOSE SKILLS CONTAIN MEMBER SKILLS
+    # filtering all the companies whose skill fields(Skill_one,skill_two,skill_three) contains members skill
+    '''companies = Companies.objects.filter(#If Company MODEL skill_one contains ANYTHING user has
         Q(skill_one__in = skills) | 
         Q(skill_two__in = skills) |
         Q(skill_three__in = skills)
-    )
+    )'''
 
     #If Company MODEL skill_one contains ANYTHING user has
     #companies = Companies.objects.filter(skill_one__in=member_skills)
@@ -137,7 +138,7 @@ def memberDashboard(request):
     
     #members = Member.objects.all()
     
-    return render(request, 'memberDashboard.html',{'users': users, 'companies':companies}) #{'members' : members ,'skills': skills})
+    return render(request, 'memberDashboard.html',{'users': users})# 'companies':companies}) #{'members' : members ,'skills': skills})
 
 
 

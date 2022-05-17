@@ -42,11 +42,9 @@
                 <section class="dashboard-lCol">
                     
                     <!--Profile Info -->
-                    <section class="profileSection"> 
-                        
+                    <section class="profileSection">               
                         <img class="profileImg"src="/media/{{user.member.picture}}"  width="100px" height="100px">
-                       
-                       
+
                         <section class="profileText">
                             <p class="dashboard-text">{{user.first_name}}, {{user.last_name}}</p>
                             <p class="dashboard-text">{{user.member.education}}</p>
@@ -175,7 +173,7 @@
                     <section class="companiesSection">
                     
                         <p class="dashboard-title">Top Companies</p>
-                        <section class="companySubtitle">
+                        <section class="dashboard-subtitle">
                             {% if companies %}
                                 <p>These companies have positions that match your skillset</p>
                             {% else %}
