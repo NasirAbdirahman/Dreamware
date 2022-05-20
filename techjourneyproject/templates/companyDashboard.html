@@ -135,13 +135,18 @@
                     <section class="postingSection">
                     
                         <p class="dashboard-title">Active Job Postings</p>
+                    
                         <section class="dashboard-subtitle">
-                            {% if user.companies.companyjob.all %}
-                                <p>These are your active job postings</p>
-                            {% else %}
+                            {% if not user.companies.companyjob.all %}
                                 <p>This is where all your job postings will be listed.</p>
-                            {% endif %}
+                            {% endif %}    
+                            <section class="jobBtn">
+                                <a href="/jobPost" class="btn-main">Post A Job</a>
+    
+                            </section>
                         </section>
+                       
+                       
                         
                         <section class="companyCards">
                             {% if user.companies.companyjob.all %}

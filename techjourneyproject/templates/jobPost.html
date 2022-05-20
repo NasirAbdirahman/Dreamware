@@ -32,7 +32,7 @@
 
             <section class="updateUser-title">
                 <h1>Create a New Job Post</h1>
-                <h2 class="subtitle">Hey {{user.first_name}}! Hope you're having a great day!</h2>
+                <h2 class="subtitle">Hey {{user.first_name}}! Find your perfect candidate by posting on our job board</h2>
             </section>
 
            
@@ -48,7 +48,7 @@
                     <!--User Data-->
                     <section class="userData-panel">
 
-                        <h2>Personal Data</h2>
+                        <p>Fill out all the details for the position </p>
                         <label class="input-labels" for={ post_form.company_name }>Company Name</label>
                         {{ post_form.company_name }} <br>
                         <label class="input-labels" for={ post_form.company_title }>Position Title</label>
@@ -57,29 +57,27 @@
                         {{ post_form.location }} <br>
                         <label class="input-labels" for={ post_form.salary }>Salary</label>
                         {{ post_form.salary }}<br>
+
+                       
+                    </section>
+
+                   
+                    <section class="memberData-panel">
+
+                        <p>Desired Skills: </p>
                         <label class="input-labels" for={ post_form.skill_one }>Skill One</label>
                         {{ post_form.skill_one }} <br> 
                         <label class="input-labels" for={ post_form.skill_two }>Skill Two</label>
                         {{ post_form.skill_two }} <br> 
                         <label class="input-labels" for={ post_form.skill_three }>Skill Three</label>
                         {{ post_form.skill_three }} <br> 
+
+                        <p>Link to your job portal: </p>
                         <label class="input-labels" for={ post_form.job_link }>Application Link</label>
                         {{ post_form.job_link }} <br> 
                         
+
                     </section>
-
-                    <!--Company Position Data
-                    <section class="memberData-panel">
-
-                        <h2>Company Data</h2>
-                        <label class="input-labels" for={ post_form.company_name }>Company Name</label>
-                        {{ post_form.company_name }} <br>
-                        <label class="input-labels" for={ post_form.company_title }>Company Title</label>
-                        {{ post_form.company_title }} <br>
-                        <label class="input-labels" for={ post_form.linkedin }>Linkedin</label>
-                        {{ post_form.linkedin }} <br>
-
-                    </section>-->
 
                 </section>
                 <!--Input Section-->

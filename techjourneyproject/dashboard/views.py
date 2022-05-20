@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.core.validators import validate_email
 from django.db.models import Q
 from django.core.exceptions import PermissionDenied
-
+from django.utils.safestring import mark_safe
 #Imported models we create
 from .models import Member
 from .models import TechSkills
@@ -194,13 +194,6 @@ def companyDashboard(request):
         #return User's Company TechSkills as list
         topSkills ={skillOne,skillTwo,skillThree}'''
 
-        '''#return User's Company JD
-        companyName = request.user.companies.company_name
-        position=request.user.companies.position_title
-        salary=request.user.companies.salary
-        location=request.user.companies.location
-        #return User's Company TechSkills as list
-        JD =(companyName,position,salary,location)'''
 
         #filtering all the Members whose skills field contains companies skill
             #If Member MODEL skills contains ANYTHING Company needs
@@ -256,18 +249,22 @@ def companyProfile(request):
 
 
 
-#Company Job Posting
+#Company Job Posting View
 def companyJobPost(request):
-    if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+    if request.user.is_company is True or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
         if request.method == 'POST':
             post_form = JobPostForm(request.POST)
             if post_form.is_valid():
+                #Create form instance
                 job = post_form.save(commit=False)
+                #assign company to job post
                 job.company = request.user.companies
+                #Save form
                 job.save()
+
                 messages.success(request,
-                    'Your Job Post was created successfully.We will review it before publishing it. Thank you!'
-                )
+                    mark_safe('We have received your job post! We will review it to ensure compliance with our guidelines. <br/>We will inform you within 24hrs, when it is published. Thank you!'
+                    ))
                 return redirect('jobPost')
             else:
                 # Redirect back to the same page if the data

@@ -276,7 +276,7 @@ button{
 .btn-main {
     background-color:rgba(217, 205, 231);
     font-size: 20px !important;
-    padding: 10px 20px 10px 20px;
+    padding: 15px 20px 10px 20px;
     border-radius: 15px;
     margin-left: 15px;
 
@@ -1354,6 +1354,14 @@ input{
         width: 10%;
     }
 
+    /*Job Post button container*/
+    .jobBtn{
+        margin-top: -3em;
+        margin-right: 1em;
+        display: flex;
+        justify-content: flex-end !important;
+    }
+
     /* 
         Independent ID stylings
     */
@@ -1503,3 +1511,12 @@ input{
     padding:7px;
     margin-bottom: 2em;       
 }
+
+/*------------------------------------------------------------------------*/
+
+
+/* 
+    updateUserProfile Page Styling
+        -Members
+        -Companies
+*/
