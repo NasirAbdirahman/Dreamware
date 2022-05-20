@@ -54,6 +54,7 @@ p {
     font-family: 'JosefinSans-regular', sans-serif;
     font-size: 18px;
 }
+
 /* Nav links global*/
 a {
     text-decoration: none ;
@@ -96,18 +97,7 @@ a {
     padding-top: 9.5em;
     display:flex;
     flex-direction: row-reverse;
-    width:auto;
-    /*height: 100%;*/
-    
-   /* background: rgba(94, 0, 155, 0.07);
-    backdrop-filter: blur(5px);*/
-    
-    /*Border Styling for Section
-    border-style: solid;
-    border-bottom-color: #D9CDE7;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-left-color: transparent;*/   
+    width:auto; 
 }
 
 .text-panel{
@@ -115,6 +105,7 @@ a {
     text-align: center;
     align-self: center;
 }
+
 .subtitle{
     margin-top: -30px;
 }
@@ -125,7 +116,6 @@ a {
     align-self: center;
     justify-content: center;
 }
-
 
 .single-section {  
     padding-top: 12em;
@@ -185,6 +175,7 @@ header {
     border-color: rgba(120, 81, 169);
     align-self: center;
 }
+
 .nav-btn:hover {
     background-color:rgba(120, 81, 169);
     color: #ffffff !important;
@@ -207,18 +198,15 @@ header {
     align-items: center;
     padding-top:10px;
     padding-bottom: 5px;
-
     border-style: solid;
     border-top-color: rgba(120, 81, 169);
     border-bottom-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;
-
 }
 
 .footer-nav .nav-links{
-
-display: inherit;
+    display: inherit;
    margin-right: 1em;
 
 }
@@ -310,6 +298,7 @@ button{
     width:auto
 
 }
+
 .btn-cancel:hover {
     background-color:rgb(255, 255, 255);
     color: #000000 !important;
@@ -325,6 +314,7 @@ button{
     width:auto
 
 }
+
 .btn-submit:hover {
     background-color:rgba(120, 81, 169);
     color: #ffffff !important;

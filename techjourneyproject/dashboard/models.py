@@ -171,19 +171,23 @@ class Companies(models.Model):
 
     #return all fields or just return specifics
     def __str__(self):
-        return self.company_name
+        return self.company_name #self.email (OPTION)
 
     #Can add permissions to model here if needed
     '''class Meta:
         permissions = [
             ("is_company", "Is a company"),
-        ]'''
-  
+       ]'''
+
         
 #Company Job Post Model
 class JobPost(models.Model):
-    #company Name
+    #ADD ADMIN APPROVAL CAPABILITIES
+    #admin_approved = models.BooleanField(default=False)
+
+    #company Name/ Custom User's company
     company = models.ForeignKey(Companies, related_name="companyjob", on_delete=models.CASCADE)
+
     #Job Description
     company_name = models.CharField(max_length=60)
     position_title = models.CharField(max_length=60)
@@ -192,7 +196,7 @@ class JobPost(models.Model):
     skill_one = models.CharField(max_length=100)
     skill_two = models.CharField(max_length=100)
     skill_three = models.CharField(max_length=100)
-    job_link = models.URLField() #URL LINK for job
+    job_link = models.URLField() #URL LINK for job application
   
     #return all fields or just return specifics
     def __str__(self):

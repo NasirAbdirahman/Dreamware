@@ -30,15 +30,15 @@
                     btnHref="/companyDashboard" btnText="Dashboard" 
                 >
                 </header-component> 
-                {% else %}
-                    <header-component 
-                        linkOneHref="/memberJobBoard" linkOneText="Jobs" 
-                        linkTwoHref="/memberProfile" linkTwoText="Profile"
-                        loginHref="/logout" loginText="Logout" 
-                        btnHref="/memberDashboard" btnText="Dashboard" 
-                    >
-                    </header-component> 
-                {% endif %}
+            {% else %}
+                <header-component 
+                    linkOneHref="/memberJobBoard" linkOneText="Jobs" 
+                    linkTwoHref="/memberProfile" linkTwoText="Profile"
+                    loginHref="/logout" loginText="Logout" 
+                    btnHref="/memberDashboard" btnText="Dashboard" 
+                >
+                </header-component> 
+            {% endif %}
         {% else %}
             <header-component 
                 linkOneHref="/companies" linkOneText="Companies"
