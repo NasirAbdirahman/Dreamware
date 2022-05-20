@@ -18,6 +18,7 @@ urlpatterns = [
     path('companyProfile/', views.companyProfile, name='companyProfile'),
     path('memberJobBoard/', views.memberJobBoard, name='memberJobBoard'),
     path('companyCandidateBoard/', views.companyCandidateBoard, name='companyCandidateBoard'),
+    path('jobPost/', views.companyJobPost, name='jobPost'),
     path('companies/', views.companies, name='companies'),
     path('register/', views.register, name='register'),
     path('login/', views.view_login, name='login'),

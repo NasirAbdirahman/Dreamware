@@ -17,7 +17,7 @@ from .models import Companies
 from .models import JobPost
 
 #imported forms
-from .forms import MemberProfileForm, UpdateUserForm, CreateMemberForm, UserLoginForm, CompanyProfileForm# MemberSkillsForm
+from .forms import MemberProfileForm, UpdateUserForm, CreateMemberForm, UserLoginForm, CompanyProfileForm, JobPostForm# MemberSkillsForm
 
 
 '''
@@ -148,7 +148,7 @@ def memberProfile(request):
 
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
-        profile_form = MemberProfileForm(request.POST,request.FILES, instance=request.user.member, )
+        profile_form = MemberProfileForm(request.POST,request.FILES, instance=request.user.member )
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -223,7 +223,7 @@ def companyProfile(request):
     if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
         if request.method == 'POST':
             user_form = UpdateUserForm(request.POST, instance=request.user)
-            profile_form = CompanyProfileForm(request.POST,request.FILES, instance=request.user.companies, )
+            profile_form = CompanyProfileForm(request.POST,request.FILES, instance=request.user.companies)
             if user_form.is_valid() and profile_form.is_valid():
                 user_form.save()
                 profile_form.save()
@@ -253,6 +253,34 @@ def companyProfile(request):
 
     else:
         raise PermissionDenied()
+
+
+
+#Company Job Posting
+def companyJobPost(request):
+    if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+        if request.method == 'POST':
+            post_form = JobPostForm(request.POST)
+            if post_form.is_valid():
+                job = post_form.save(commit=False)
+                job.company = request.user.companies
+                job.save()
+                messages.success(request,
+                    'Your Job Post was created successfully.We will review it before publishing it. Thank you!'
+                )
+                return redirect('jobPost')
+            else:
+                # Redirect back to the same page if the data
+                # was invalid
+                return render(request, "jobPost.html",{'post_form': post_form,}) 
+        else:
+            post_form = JobPostForm()
+
+        return render(request, 'jobPost.html',{'post_form': post_form,})
+    else:
+        raise PermissionDenied()
+
+
 
 
 #Member's JobBoard page View
