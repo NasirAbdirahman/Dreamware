@@ -161,6 +161,7 @@ class Companies(models.Model):
     #USER FIELDS FOR REPRESENTATIVE
     first_name = models.CharField(blank=False,max_length=50)
     last_name = models.CharField(blank=False,max_length=50)
+    #Preferably a company logo/insignia
     picture = models.ImageField(default="defaultuser.png",upload_to="company_images") #upload to images folder in database
     company_name =  models.CharField(max_length=60)
     company_title = models.CharField(max_length=100)
@@ -179,7 +180,7 @@ class Companies(models.Model):
             ("is_company", "Is a company"),
        ]'''
 
-        
+      
 #Company Job Post Model
 class JobPost(models.Model):
     #ADD ADMIN APPROVAL CAPABILITIES

@@ -131,7 +131,7 @@ class MemberProfileForm(forms.ModelForm):
             'picture','location','personal_story','personal_goal','education','linkedin',
             'github','portfolio','previous_occupation','availability',
             'workstatus','interests','relocation' ,'skills'
-            )
+        )
         #fields = '__all__'
 
 
@@ -141,7 +141,7 @@ class CompanyProfileForm(forms.ModelForm):
     #upload to images folder in database
     first_name = forms.CharField()
     last_name = forms.CharField()
-    picture = forms.ImageField()
+    picture = forms.ImageField()#Preferably a company logo/insignia
     company_name = forms.CharField()
     company_title = forms.CharField()
     linkedin = forms.URLField()

@@ -1473,7 +1473,8 @@ input{
         font-size: 14px;
     }
 
-
+    /* Company Split panel*/
+    
 
 /*------------------------------------------------------------------------*/
 
@@ -1501,6 +1502,5 @@ input{
     text-align: center;
     margin: 15px;
     padding:7px;
-    margin-bottom: 2em;
-        
+    margin-bottom: 2em;       
 }

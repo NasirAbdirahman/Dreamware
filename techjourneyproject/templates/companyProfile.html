@@ -39,48 +39,36 @@
             <form  method="POST" enctype="multipart/form-data" >
                 {% csrf_token %} 
                 <section class="updateUser-title">
-                {% for message in messages %}
-                    <p class="invalid-warning">{{message}}</p>
-                {% endfor %}
-                    </section>  
+                    {% for message in messages %}
+                        <p class="invalid-warning">{{message}}</p>
+                    {% endfor %}
+                </section>  
+
                 <section class="updateProfileSection">
                     <!--User Data-->
                     <section class="userData-panel">
+
                         <h2>Personal Data</h2>
                         <label class="input-labels" for={ user_form.first_name }>First Name</label>
                         {{ user_form.first_name }}<br>
                         <label class="input-labels" for={ user_form.last_name }>Last Name</label>
                         {{ user_form.last_name }} <br> 
                         <label class="input-labels" for={ user_form.email }>Email</label>
-                        {{ user_form.email }} <br>
+                        {{ user_form.email }} <br>           
+                        {{ profile_form.picture }} <br>
+                        
+                    </section>
+
+                    <!--Company Position Data-->
+                    <section class="memberData-panel">
+
+                        <h2>Company Data</h2>
                         <label class="input-labels" for={ profile_form.company_name }>Company Name</label>
                         {{ profile_form.company_name }} <br>
                         <label class="input-labels" for={ profile_form.company_title }>Company Title</label>
                         {{ profile_form.company_title }} <br>
                         <label class="input-labels" for={ profile_form.linkedin }>Linkedin</label>
                         {{ profile_form.linkedin }} <br>
-                    </section>
-
-                    <!--Company Position Data-->
-                    <section class="memberData-panel">
-
-                        <h2>Company Application Info</h2>
-                        <label class="input-labels" for={ profile_form.company_name }>Company Name</label>
-                        {{ profile_form.company_name }} <br>
-                        <label class="input-labels" for={ profile_form.position_title }> Position Title</label>
-                        {{ profile_form.position_title }} <br>
-                        <label class="input-labels" for={ profile_form.location }>Location</label>
-                        {{ profile_form.location }} <br>
-                        <label class="input-labels" for={ profile_form.salary }> Starting Salary </label>
-                        {{ profile_form.salary }} <br>
-                        <p>Technology Skills Listed</p>
-                        <label class="input-labels" for={ profile_form.skill_one }>Skill One</label>
-                        {{ profile_form.skill_one }} <br>
-                        <label class="input-labels" for={ profile_form.skill_two }>Skill Two</label>
-                        {{ profile_form.skill_two }} <br>
-                        <label class="input-labels" for={ profile_form.skill_three}>Skill Three</label>
-                        {{ profile_form.skill_three }} <br>
-
 
                     </section>
 
