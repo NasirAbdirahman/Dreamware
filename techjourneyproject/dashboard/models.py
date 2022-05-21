@@ -200,8 +200,8 @@ class JobPost(models.Model):
     skill_two = models.CharField(max_length=100)
     skill_three = models.CharField(max_length=100)
     job_link = models.URLField() #URL LINK for job application
+    date_posted = models.DateTimeField(default=timezone.now)
   
     #return all fields or just return specifics
     def __str__(self):
         return self.company_name
-

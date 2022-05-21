@@ -111,6 +111,9 @@ def view_logout(request):
     return redirect('/')
 
 
+#
+###MEMBER MODEL VIEWS
+#
 
 #Member Dashboard page View
 @login_required(login_url='/login/')
@@ -133,7 +136,6 @@ def memberDashboard(request):
     ) 
     
     return render(request, 'memberDashboard.html',{'users': users, 'companies':companies})
-
 
 
 #Member profile View
@@ -171,6 +173,24 @@ def memberProfile(request):
     )
 
 
+#Member's JobBoard page View
+@login_required(login_url='/login/') 
+def memberJobBoard(request):
+    if request.user.member or request.user.is_admin is True:
+        #Fetch all Job postings and order by name
+        #jobs = JobPost.objects.order_by('company_name')
+        #Fetch all Job postings and order by date posted descending, then alphabetically
+        jobs = JobPost.objects.order_by('-date_posted','company_name')
+    
+        return render(request, 'memberJobBoard.html', {'jobs':jobs}) #renders the templates file
+    else:
+        raise PermissionDenied()
+
+
+
+#
+###COMPANY MODEL VIEWS
+#
 
 #Company Dashboard page View
 @login_required(login_url='/login/') 
@@ -184,6 +204,7 @@ def companyDashboard(request):
 
         #returns all the job posts of company
         jobs = JobPost.objects.filter(company=request.user.companies)
+
         #returns skills on each job post
         skillOne = [job.skill_one for job in jobs]  
         skillTwo = [job.skill_two for job in jobs]  
@@ -194,8 +215,7 @@ def companyDashboard(request):
         #filtering all the Members whose skills field contains companies skill
             #If Member MODEL skills contains ANYTHING Company needs
         candidates = Member.objects.filter(skills__name__in = topSkills).distinct() #removes duplicate values returned
-
-        print(candidates)
+        
         return render(request, 'companyDashboard.html',
             {'users': users, 'candidates':candidates} #'topSkills':topSkills, 'candidates':candidates}
         )
@@ -276,26 +296,14 @@ def companyJobPost(request):
 
 
 
-#Member's JobBoard page View
-@login_required(login_url='/login/') 
-def memberJobBoard(request):
-    if request.user.member or request.user.is_admin is True:
-        #Fetch all companies
-        companies = Companies.objects.all()
-        return render(request, 'memberJobBoard.html', {'companies':companies}) #renders the templates file
-    else:
-        raise PermissionDenied()
-
-
-
 #Company's CandidateBoard page View
 @login_required(login_url='/login/') 
 #@permission_required('dashboard.CustomUser.is_company',raise_exception=True) #NOT WORKING(https://stackoverflow.com/questions/62689245/permission-required-decorator-not-working-on-view-in-django)
 def companyCandidateBoard(request):
     #Custom permission check for non-company users
     if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
-       #Fetch all companies
-        candidates = Member.objects.all()
+       #Fetch all candidates, then order by last name
+        candidates = Member.objects.order_by('last_name')
         return render(request, 'companyCandidateBoard.html', {'candidates':candidates}) #renders the templates file
     else:
         raise PermissionDenied()

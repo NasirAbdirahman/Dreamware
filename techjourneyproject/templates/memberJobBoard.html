@@ -43,36 +43,37 @@
             <!--Companies Job Posts-->
             <section class="boardSection">
                 <section class="companyCards">
-                    {% if companies %}
+                    {% if jobs %}
 
-                        {% for company in companies %}
+                        {% for job in jobs %}
                     
                             <section class="cards">
 
                                 <section class="infoSection">
                                     <div class="companyTitle">
-                                        <p class="title"> {{company.company_name}}</p>
+                                        <p class="title"> {{job.company_name}}</p>
                                     </div>
                                 
-                                    <p> {{company.position_title}}</p>
-                                    <p>{{company.location}}</p>
-
-                                    {% if company.salary == none %}
-                                        <p>Salary Not Disclosed</p>
+                                    <p class="title"> {{job.position_title}}</p>
+                                    <p class="title">{{job.location}}</p>
+                                    {% if job.salary == none %}
+                                        <p >Salary Not Disclosed</p>
                                     {% else %}
-                                        <p>{{company.salary}} USD</p>
+                                        <p class="title">{{job.salary}} USD</p>
                                     {% endif %}
+                                   
+                                    <p>Posted: {{job.date_posted.date}}</p>
                                 </section>
                             
                                 <section class="skills">
-                                    <p>Skills</p>
+                                    <p>Top 3 Skills</p>
                                     <section class="skills-container">
                                         <div class="skill-circle">
                                             <svg>
                                                 <circle cx="30" cy="30" r="30"></circle>
                                                 <circle cx="30" cy="30" r="30"></circle>
                                             </svg>
-                                            <div class="text">{{company.skill_one}}</div>
+                                            <div class="text">{{job.skill_one}}</div>
                                         </div>
 
                                         <div class="skill-circle">
@@ -80,20 +81,24 @@
                                                 <circle cx="30" cy="30" r="30"></circle>
                                                 <circle cx="30" cy="30" r="30"></circle>
                                             </svg>
-                                            <div class="text">{{company.skill_two}}</div>
+                                            <div class="text">{{job.skill_two}}</div>
                                         </div>
                                         <div class="skill-circle">
                                             <svg>
                                                 <circle cx="30" cy="30" r="30"></circle>
                                                 <circle cx="30" cy="30" r="30"></circle>
                                             </svg>
-                                            <div class="text">{{company.skill_three}}</div>
+                                            <div class="text">{{job.skill_three}}</div>
                                         </div>
                                     </section>
                                 </section>
+
+                                <section class="btn-container">
+                                    <a href="{{job.job_link}}" target="_blank" class="btn-main">Apply</a>
+                                </section>
                                 
                             </section>
-                
+                           
                         {% endfor %}
 
                     {% else %}

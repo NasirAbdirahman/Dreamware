@@ -288,6 +288,7 @@ button{
 
 }
 
+/*Profile Pages and Job post*/
 .btn-cancel {
     background-color:rgb(255, 0, 0);
     color: #ffffff;
@@ -915,6 +916,7 @@ input{
 
 /*
     Third Row
+        -Companies Job Board Cards
 */
 
 .companiesSection{
@@ -967,9 +969,7 @@ input{
         backdrop-filter: blur(10px);
         border-radius: 10px;
         border: 1px solid rgba(217, 205, 231);;
-        margin-bottom: -30px;
-
-        
+        margin-bottom: -30px; 
     }
 
     .companyCards .title{
@@ -1009,7 +1009,7 @@ input{
         position: relative;
         width: 150px;
         height: 150px;
-        z-index: 1000;
+        z-index: 1;
     }
 
     /*TechSKill SVG Circle*/
@@ -1042,7 +1042,7 @@ input{
         box-shadow: inset 0 0 30px rgb(120, 81, 169);
         background: inherit;
         backdrop-filter: blur(5px);
-        z-index: 1000;
+        z-index: 1;
         margin: 1px;/*Space between skills*/
     }
 
@@ -1060,6 +1060,12 @@ input{
         justify-content: center;
         align-items: center;
         border-radius: 50%;
+    }
+    /* Job Link URL button*/
+    .companyCards .cards .btn-container{
+        position: relative;
+        margin-top: 1.5em;
+        
     }
     
          
