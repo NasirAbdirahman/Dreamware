@@ -20,10 +20,11 @@ def create_member(sender, instance, created, **kwargs):
             #Company Model created and saved
             Companies.objects.create(user=instance,**default_data)
             instance.save()
+            
         #ensures member model not created for admin users
         elif instance.has_perm('dashboard.is_admin') is not True:
             #Default data when new user is created,email is immediately passed to member
-            default_data = dict(email=instance.email)
+            default_data = dict(email=instance.email,first_name=instance.first_name,last_name=instance.last_name)
             
             #member model created & saved for user
             Member.objects.create(user=instance, **default_data)

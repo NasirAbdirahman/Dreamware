@@ -117,28 +117,22 @@ def view_logout(request):
 def memberDashboard(request):
     #Return User's Member Model
     users = Member.objects.filter(user=request.user)
+    #Returns Member's Tech Skills
+    member_skills = request.user.member.skills.all()
+    
+    #loops thru all skills and makes it into a list of names
+    #skills = list(request.user.member.skills.all())
+    skills = [skill.name for skill in member_skills]
 
-    #Returns User's Member Skills
-    skills = list(request.user.member.skills.all())
-    #member_skills = list(skills)
 
-    # CHANGE -- FILTER ALL JOB POSTS WHOSE SKILLS CONTAIN MEMBER SKILLS
-    # filtering all the companies whose skill fields(Skill_one,skill_two,skill_three) contains members skill
-    '''companies = Companies.objects.filter(#If Company MODEL skill_one contains ANYTHING user has
+    # filtering all the job posts whose skill fields(Skill_one,skill_two,skill_three) contains anything in members_skill
+    companies = JobPost.objects.filter(
         Q(skill_one__in = skills) | 
         Q(skill_two__in = skills) |
         Q(skill_three__in = skills)
-    )'''
-
-    #If Company MODEL skill_one contains ANYTHING user has
-    #companies = Companies.objects.filter(skill_one__in=member_skills)
-    #companiesskills = Companies.objects.values_list('skill_one','skill_two', 'skill_three')#flat returns single values
-
-    #interests = Member.objects.filter(interests = request.user.member.get_interests_display)
+    ) 
     
-    #members = Member.objects.all()
-    
-    return render(request, 'memberDashboard.html',{'users': users})# 'companies':companies}) #{'members' : members ,'skills': skills})
+    return render(request, 'memberDashboard.html',{'users': users, 'companies':companies})
 
 
 
@@ -184,24 +178,27 @@ def memberProfile(request):
 def companyDashboard(request):
     #Custom permission check for non-company users
     if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+        
         #Return User's Company Model
         users = Companies.objects.filter(user=request.user)
-        
-        #return User's Company Model Skills
-        '''skillOne = request.user.companies.skill_one
-        skillTwo = request.user.companies.skill_two
-        skillThree = request.user.companies.skill_three
-        #return User's Company TechSkills as list
-        topSkills ={skillOne,skillTwo,skillThree}'''
 
+        #returns all the job posts of company
+        jobs = JobPost.objects.filter(company=request.user.companies)
+        #returns skills on each job post
+        skillOne = [job.skill_one for job in jobs]  
+        skillTwo = [job.skill_two for job in jobs]  
+        skillThree = [job.skill_three for job in jobs]
+        #Merge all skills into list
+        topSkills = [*skillOne,*skillTwo,*skillThree]
 
         #filtering all the Members whose skills field contains companies skill
             #If Member MODEL skills contains ANYTHING Company needs
-        #candidates = Member.objects.filter(skills__name__in = topSkills).distinct() #removes duplicate values returned
-    
+        candidates = Member.objects.filter(skills__name__in = topSkills).distinct() #removes duplicate values returned
+
+        print(candidates)
         return render(request, 'companyDashboard.html',
-            {'users': users} #'topSkills':topSkills, 'candidates':candidates}
-        )# 'companies':companies}) #{'members' : members ,'skills': skills})
+            {'users': users, 'candidates':candidates} #'topSkills':topSkills, 'candidates':candidates}
+        )
 
     else:
         raise PermissionDenied()
@@ -279,7 +276,6 @@ def companyJobPost(request):
 
 
 
-
 #Member's JobBoard page View
 @login_required(login_url='/login/') 
 def memberJobBoard(request):
@@ -289,6 +285,7 @@ def memberJobBoard(request):
         return render(request, 'memberJobBoard.html', {'companies':companies}) #renders the templates file
     else:
         raise PermissionDenied()
+
 
 
 #Company's CandidateBoard page View

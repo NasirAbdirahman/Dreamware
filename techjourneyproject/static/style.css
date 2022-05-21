@@ -303,7 +303,6 @@ button{
     background-color:rgb(255, 255, 255);
     color: #000000 !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.352);
-
 }
 
 .btn-submit {
@@ -312,14 +311,12 @@ button{
     padding: 10px 20px 10px 20px;
     border-radius: 15px;
     width:auto
-
 }
 
 .btn-submit:hover {
     background-color:rgba(120, 81, 169);
     color: #ffffff !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.352);
-
 }
 /*------------------------------------------------------------------------*/
 

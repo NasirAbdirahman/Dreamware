@@ -119,8 +119,12 @@ class Member(models.Model):
         ('NO', 'No Relocation')
     )
 
+    #inherited information from Custom User
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    first_name = models.CharField(blank = False,max_length=50)
+    last_name = models.CharField(blank = False,max_length=50)
     email = models.EmailField()
+
     #resume = models.ImageField(upload_to="images/") #upload to images folder in database
     picture = models.ImageField(default="defaultuser.png",upload_to="profile_images") #upload to images folder in database
     location = models.CharField(max_length=100)
@@ -142,7 +146,7 @@ class Member(models.Model):
 
     #return all fields or just return specifics
     def __str__(self):
-        return self.email
+        return f"{self.first_name},{self.last_name}"
 
     #Returns a list version of interests(Allows looping in template in view)
     def interests_list(self):
@@ -154,36 +158,34 @@ class Member(models.Model):
 
 #Companies Model
 class Companies(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    #Company representative email-- Would have validators ensuring non-frauds, depending on org.
-    email = models.EmailField()
 
+    #inherited information from Custom User
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    email = models.EmailField() # WILL have validators ensuring non-frauds, depending on org.
     #USER FIELDS FOR REPRESENTATIVE
     first_name = models.CharField(blank=False,max_length=50)
     last_name = models.CharField(blank=False,max_length=50)
+    
     #Preferably a company logo/insignia
     picture = models.ImageField(default="defaultuser.png",upload_to="company_images") #upload to images folder in database
-    company_name =  models.CharField(max_length=60)
+    company_name =  models.CharField(max_length=60, default='Company: TBA') #Default given due to info not asked at creation of company model
     company_title = models.CharField(max_length=100)
     linkedin = models.URLField(default="https://www.linkedin.com")
 
-    #company jobs post Field
-    #jobs = models.ManyToManyField('JobPost', blank=True)
-
     #return all fields or just return specifics
     def __str__(self):
-        return self.company_name #self.email (OPTION)
+        return f"{self.first_name},{self.last_name} ; {self.company_name}"
 
-    #Can add permissions to model here if needed
+    #Company Permissions
     '''class Meta:
         permissions = [
             ("is_company", "Is a company"),
-       ]'''
+        ]'''
 
       
 #Company Job Post Model
 class JobPost(models.Model):
-    #ADD ADMIN APPROVAL CAPABILITIES
+    #ADMIN APPROVAL CAPABILITIES
     #admin_approved = models.BooleanField(default=False)
 
     #company Name/ Custom User's company
