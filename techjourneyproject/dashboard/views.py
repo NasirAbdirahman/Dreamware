@@ -178,10 +178,10 @@ def memberProfile(request):
 @login_required(login_url='/login/') 
 def memberJobBoard(request):
     if request.user.member or request.user.is_admin is True:
-        #Fetch all Job postings and order by name
-        #jobs = JobPost.objects.order_by('company_name')
-        #Fetch all Job postings and order by date posted descending, then alphabetically
-        jobs = JobPost.objects.order_by('-date_posted','company_name')
+
+        # Fetch all Job postings that are APPROVED BY ADMIN,
+        # Then order by date_posted descending, then alphabetically
+        jobs = JobPost.objects.filter(admin_approved=True).order_by('-date_posted','company_name')
     
         return render(request, 'memberJobBoard.html', {'jobs':jobs}) #renders the templates file
     else:
@@ -218,7 +218,7 @@ def companyDashboard(request):
         candidates = Member.objects.filter(skills__name__in = topSkills).distinct().order_by('last_name')[:7] 
 
         return render(request, 'companyDashboard.html',
-            {'users': users, 'candidates':candidates} #'topSkills':topSkills, 'candidates':candidates}
+            {'users': users, 'candidates':candidates}
         )
 
     else:

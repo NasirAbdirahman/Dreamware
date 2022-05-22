@@ -186,7 +186,7 @@ class Companies(models.Model):
 #Company Job Post Model
 class JobPost(models.Model):
     #ADMIN APPROVAL CAPABILITIES
-    #admin_approved = models.BooleanField(default=False)
+    admin_approved = models.BooleanField(default=False)
 
     #company Name/ Custom User's company
     company = models.ForeignKey(Companies, related_name="companyjob", on_delete=models.CASCADE)
@@ -199,7 +199,7 @@ class JobPost(models.Model):
     skill_one = models.CharField(max_length=100)
     skill_two = models.CharField(max_length=100)
     skill_three = models.CharField(max_length=100)
-    job_link = models.URLField() #URL LINK for job application
+    job_link = models.URLField()
     date_posted = models.DateTimeField(default=timezone.now)
   
     #return all fields or just return specifics
