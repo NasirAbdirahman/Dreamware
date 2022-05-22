@@ -1065,6 +1065,8 @@ input{
     .companyCards .cards .btn-container{
         position: relative;
         margin-top: 1.5em;
+        /* IF BTN TO BE LIKE TITLE
+        top: 25px;*/
         
     }
     
@@ -1354,7 +1356,6 @@ input{
     /*Back button container*/
     .homeBtn{
         margin-top: 1em;
-        width: 10%;
     }
 
     /*Job Post button container*/

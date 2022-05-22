@@ -128,14 +128,15 @@ def memberDashboard(request):
     skills = [skill.name for skill in member_skills]
 
 
-    # filtering all the job posts whose skill fields(Skill_one,skill_two,skill_three) contains anything in members_skill
-    companies = JobPost.objects.filter(
+    # filtering all the job posts whose skill fields contains anything in members_skill
+    # returning top 7 matched jobs by date posted then alphabetically
+    jobs = JobPost.objects.filter(
         Q(skill_one__in = skills) | 
         Q(skill_two__in = skills) |
         Q(skill_three__in = skills)
-    ) 
+    ).order_by('-date_posted','company_name')[:7]
     
-    return render(request, 'memberDashboard.html',{'users': users, 'companies':companies})
+    return render(request, 'memberDashboard.html',{'users': users, 'jobs':jobs})
 
 
 #Member profile View
@@ -209,13 +210,13 @@ def companyDashboard(request):
         skillOne = [job.skill_one for job in jobs]  
         skillTwo = [job.skill_two for job in jobs]  
         skillThree = [job.skill_three for job in jobs]
-        #Merge all skills into list
+        #Merge all jobpost skills into list
         topSkills = [*skillOne,*skillTwo,*skillThree]
 
-        #filtering all the Members whose skills field contains companies skill
-            #If Member MODEL skills contains ANYTHING Company needs
-        candidates = Member.objects.filter(skills__name__in = topSkills).distinct() #removes duplicate values returned
-        
+        #filtering all the Members whose skills field contains any sought companies skill
+        #returns only 7 candidates,removes duplicate values returned, then order by last name
+        candidates = Member.objects.filter(skills__name__in = topSkills).distinct().order_by('last_name')[:7] 
+
         return render(request, 'companyDashboard.html',
             {'users': users, 'candidates':candidates} #'topSkills':topSkills, 'candidates':candidates}
         )

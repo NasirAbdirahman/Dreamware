@@ -24,7 +24,7 @@
         <!-- Main Nav Bar -->
         <header-component 
             linkOneHref="/" linkOneText="Home"
-            linkTwoHref="/companyCandidateBoard" linkTwoText="Candidates"
+            linkTwoHref="/CandidateBoard" linkTwoText="Candidates"
             loginHref="/logout" loginText="Logout" 
             btnHref="/companyProfile" btnText="Profile" 
         >
@@ -78,58 +78,6 @@
 
                 <!--Right Column-->
                 <section class="dashboard-rCol">
-                    
-                    <!--Company SKills Summary
-                    <section class="personalSection">
-
-                        <section class="rowOne-lCol">
-                            <p class="dashboard-title">Top Skills Sought</p>
-
-                            {% if topSkills %}
-    
-                                <section class="company-techskills">
-                                    {% for skill in topSkills %}
-                                        <div class="skill-circle">
-                                            <svg>
-                                                <circle cx="50" cy="50" r="50"></circle>
-                                                <circle cx="50" cy="50" r="50"></circle>
-                                            </svg>
-                                            <div class="text">{{skill}}</div>
-                                        </div>
-                                    {% endfor %}          
-                                </section>
-
-                            {% else %} 
-
-                                <p>Skills will be listed here once you add them.</p>
-                                <section class="company-techskills">
-                                    <div class="skill-circle">
-                                        <svg>
-                                            <circle cx="50" cy="50" r="50"></circle>
-                                            <circle cx="50" cy="50" r="50"></circle>
-                                        </svg>
-                                        <div class="text">Skill</div>
-                                    </div>
-                                    <div class="skill-circle">
-                                        <svg>
-                                            <circle cx="50" cy="50" r="50"></circle>
-                                            <circle cx="50" cy="50" r="50"></circle>
-                                        </svg>
-                                        <div class="text">Skill</div>
-                                    </div>
-                                    <div class="skill-circle">
-                                        <svg>
-                                            <circle cx="50" cy="50" r="50"></circle>
-                                            <circle cx="50" cy="50" r="50"></circle>
-                                        </svg>
-                                        <div class="text">Skill</div>
-                                    </div>
-                                </section>
-                                
-                            {% endif %}
-                        </section>
-
-                    </section>-->
 
                     <!-- Job Postings section-->
                     <section class="postingSection">
@@ -158,23 +106,19 @@
                                                 <p class="title"> {{job.company_name}}</p>                                         
                                             </div>
 
-                                            <p> {{job.position_title}}</p>
-
-                                            <p> {{job.location}}</p>
-                                            
-                                            {% if job.salary %}
-                                                {% if job.salary == none %}
-                                                    <p>Salary Not Disclosed</p>
-                                                {% else %}
-                                                    <p>{{job.salary}} USD</p>
-                                                {% endif %}                                      
+                                            <p class="title"> {{job.position_title}}</p>
+                                            <p class="title">{{job.location}}</p>
+                                            {% if job.salary == none %}
+                                                <p >Salary Not Disclosed</p>
                                             {% else %}
-                                                <p>Starting Salary</p>
+                                                <p class="title">{{job.salary}} USD</p>
                                             {% endif %}
+                                        
+                                            <p>Posted: {{job.date_posted.date}}</p>
                                         </section>
                                     
                                         <section class="skills">
-                                            <p>Skills</p>
+                                            <p>Top 3 Skills</p>
                                             <section class="skills-container">
                                                 
                                                 <div class="skill-circle">
@@ -200,6 +144,10 @@
                                                 </div>
                                                 
                                             </section>
+                                        </section>
+
+                                        <section class="btn-container">
+                                            <a href="{{job.job_link}}" target="_blank" class="btn-main">Job Link</a>
                                         </section>
                                         
                                     </section>
