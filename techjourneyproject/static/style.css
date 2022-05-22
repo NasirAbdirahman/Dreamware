@@ -54,6 +54,7 @@ p {
     font-family: 'JosefinSans-regular', sans-serif;
     font-size: 18px;
 }
+
 /* Nav links global*/
 a {
     text-decoration: none ;
@@ -65,6 +66,9 @@ a {
     font-size: inherit;
     color:rgba(120, 81, 169)
 }
+
+
+
 /*------------------------------------------------------------------------*/
 
 
@@ -93,18 +97,7 @@ a {
     padding-top: 9.5em;
     display:flex;
     flex-direction: row-reverse;
-    width:auto;
-    /*height: 100%;*/
-    
-   /* background: rgba(94, 0, 155, 0.07);
-    backdrop-filter: blur(5px);*/
-    
-    /*Border Styling for Section
-    border-style: solid;
-    border-bottom-color: #D9CDE7;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-left-color: transparent;*/   
+    width:auto; 
 }
 
 .text-panel{
@@ -112,6 +105,7 @@ a {
     text-align: center;
     align-self: center;
 }
+
 .subtitle{
     margin-top: -30px;
 }
@@ -122,7 +116,6 @@ a {
     align-self: center;
     justify-content: center;
 }
-
 
 .single-section {  
     padding-top: 12em;
@@ -182,6 +175,7 @@ header {
     border-color: rgba(120, 81, 169);
     align-self: center;
 }
+
 .nav-btn:hover {
     background-color:rgba(120, 81, 169);
     color: #ffffff !important;
@@ -204,18 +198,15 @@ header {
     align-items: center;
     padding-top:10px;
     padding-bottom: 5px;
-
     border-style: solid;
     border-top-color: rgba(120, 81, 169);
     border-bottom-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;
-
 }
 
 .footer-nav .nav-links{
-
-display: inherit;
+    display: inherit;
    margin-right: 1em;
 
 }
@@ -285,7 +276,7 @@ button{
 .btn-main {
     background-color:rgba(217, 205, 231);
     font-size: 20px !important;
-    padding: 10px 20px 10px 20px;
+    padding: 15px 20px 10px 20px;
     border-radius: 15px;
     margin-left: 15px;
 
@@ -297,6 +288,7 @@ button{
 
 }
 
+/*Profile Pages and Job post*/
 .btn-cancel {
     background-color:rgb(255, 0, 0);
     color: #ffffff;
@@ -307,11 +299,11 @@ button{
     width:auto
 
 }
+
 .btn-cancel:hover {
     background-color:rgb(255, 255, 255);
     color: #000000 !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.352);
-
 }
 
 .btn-submit {
@@ -320,13 +312,24 @@ button{
     padding: 10px 20px 10px 20px;
     border-radius: 15px;
     width:auto
-
 }
+
 .btn-submit:hover {
     background-color:rgba(120, 81, 169);
     color: #ffffff !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.352);
+}
 
+/*Inactive btn for under review job posts*/
+.inactive-btn {
+    background-color:rgb(255, 0, 0);
+    color: #ffffff;
+    font-size: 20px !important;
+    padding: 15px 20px 10px 20px;
+    border-radius: 15px;
+    margin-left: 15px;
+    pointer-events: none;
+    cursor: default;
 }
 /*------------------------------------------------------------------------*/
 
@@ -593,12 +596,14 @@ input{
     -GlOBAL + MemberDashboard
 */
 
-/*.dashboard-container{ /WHEN ADDED TO HTML, MAKES ENTIRE BG MOVE ON SCROLL/
+/*NOT USED
+.dashboard-container{ /WHEN ADDED TO HTML, MAKES ENTIRE BG MOVE ON SCROLL/
     background: rgb(120, 81, 169, 0.05);
     width:auto;
     overflow: hidden;
 }
-NOT USED*/
+*/
+
 .dashboard{
     background: rgba(217, 205, 231, 0.2);
     background-size: contain;
@@ -606,17 +611,16 @@ NOT USED*/
 }
 
 
-
 /*Dashboard Font*/
 .dashboard-title{
     display: block !important;
     color: #000000;
     font-family: 'JosefinSans-semibold',sans-serif;
-    font-size: 20px;
-    /*text-decoration: underline rgba(120, 81, 169);
-    text-decoration-style:wavy;
-    text-underline-offset: 2.5px;*/
-   
+    font-size: 20px; 
+}
+
+.dashboard-subtitle {
+    margin-top: -15px;
 }
 
 .dashboard-text{
@@ -649,15 +653,6 @@ NOT USED*/
 
     /* Profile Section*/
     .profileSection{
-
-       /* border: 2px solid ;
-        border-top-color: transparent;
-        border-bottom-color: rgba(217, 205, 231);
-        border-right-color: transparent;
-        border-left-color: transparent;
-        justify-content: center;
-        text-align: center;
-        padding-top: 20px;*/
 
         background: rgb(255, 255, 255);
         box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
@@ -713,12 +708,13 @@ NOT USED*/
         border: 1px solid rgba(217, 205, 231);
         border-radius: 10px; 
     }
-    /*GLobal Icon styling*/
+
+    /*Global Icon styling*/
     .contactCards a {
         color: rgb(120, 81, 169) !important;
     }
     
-    /* Interests Section*/
+    /* Interests Section */
     .interestsSection{
 
         background: rgb(255, 255, 255);
@@ -737,6 +733,7 @@ NOT USED*/
         flex-flow: row wrap;
         justify-content: space-evenly;
     }
+
     .interestsCards{
         height: 50px;
         width: 50px;
@@ -750,7 +747,7 @@ NOT USED*/
       
     }
 
-    /* Status Section*/
+    /* Status Section */
     .statusSection{
 
         background: rgb(255, 255, 255);
@@ -770,7 +767,9 @@ NOT USED*/
        
     }
 
+
 /*------------------------------------------------------------------------*/
+
 
 /*
     Right Column Styling
@@ -778,171 +777,30 @@ NOT USED*/
 .dashboard-rCol{
     width: 75%;
     margin-left: 25%;
-    
 }
 
-    /*
-        First Row
-    */
-    .personalSection{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-evenly;
-        margin-top: 48px;
-        height:auto;
-    }
+/*
+    MemberDashboard First Row
+*/
+.personalSection{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin-top: 48px;
+    height:auto;
+}
 
-        /*Personal Goal Section*/
-        .rowOne-lCol{           
-            width: 46%;
-            margin: 30px 5px 0 0;
-            padding: 5px;
-            justify-content: center;
-            text-align: center;  
-            /*border: 3px solid ;
-            border-top-color: transparent;
-            border-bottom-color: transparent;
-            border-right-color: rgba(217, 205, 231);;
-            border-left-color: transparent;*/
-            background: rgb(255, 255, 255);
-            box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 10px );
-            border-radius: 10px;
-            border: 1px solid rgb(255, 255, 255);
-        }
-
-
-        /*Personal Story Section*/
-        .rowOne-rCol{
-            width: 46%;
-            margin: 30px 0 0 0;
-            padding: 5px;
-            justify-content: center;
-            text-align: center; 
-            /*background-color: #ffffff;
-            border-radius: 20px;
-            border: 1px solid rgba(217, 205, 231);;*/
-            background: rgb(255, 255, 255);
-            box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 10px );
-            border-radius: 10px;
-            border: 1px solid rgb(255, 255, 255);
-        }
-
-
-    /*
-        Second Row
-    */
-
-    .skillsSection{
-        background: rgb(255, 255, 255);
-        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
-        backdrop-filter: blur( 10px );
-        -webkit-backdrop-filter: blur( 10px );
-        border-radius: 10px;
-        border: 1px solid rgb(255, 255, 255);
-        text-align: center;
-        margin: 15px;
-        padding: 7px 0 25px 0;
-        padding-top: 7px;
-          
-    }
-        .techskills{
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: center;
-            background: rgba(217, 205, 231, 0.2);
-            box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 10px );
-            border-radius: 10px;
-            border: 1px solid rgb(255, 255, 255);
-            padding: 15px;
-            margin: 10px 100px 10px 100px;
-            
-            /* ALLOWS SCROLLING WITHIN TECHSKILLS
-            overflow-y:scroll;
-            overflow-x: hidden;
-            */
-        }
-        
-        /*TechSkill SVG*/
-        .techskills svg {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            z-index: 1000;
-        }
-
-        /*TechSKill SVG Circle*/
-        .techskills svg circle {
-            fill: none;
-            stroke: #ffffff;
-            stroke-width: 10;
-            stroke-linecap: round;
-            transform: translate(5px, 5px);         
-        }
-
-        /*Inner circle stroke*/
-        .techskills svg circle:nth-child(2) {
-            stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
-            stroke-dashoffset: 440;
-        }
-
-        /*outer circle stroke-Purple*/
-        .techskills svg circle:nth-child(2) {
-            stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
-            stroke: rgba(120, 81, 169);   /*(217, 205, 231)  */      
-            /*animation: progress 4s infinite linear; */  
-        }
-        
-        /*Inner Frosted circle-DON'T CHANGE*/
-        .skill-circle {
-            position: relative;
-            flex-flow: row wrap; /*MAKE LONG SKILL TEXT BREAK*/
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            box-shadow: inset 0 0 30px rgb(120, 81, 169);
-            background: inherit;
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            margin: 3px;/*Space between*/
-        }
-          
-        /*Inner frosted circle-text*/
-        .skill-circle .text {
-            position: absolute;
-            display: flex;
-            flex-direction: row;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: #000000;
-            font-family: 'JosefinSans-regular', sans-serif;
-            font-size: 15px;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-        }
-          
-
-     /*
-        Third Row
-    */
-
-    .companiesSection{
-        /* REMOVED ALLOWED FOR CENTERING
-        display: inherit;
-        flex-flow: row wrap;*/ 
-        
+    /*Personal Goal Section*/
+    .rowOne-lCol{        
+        width: 46%;
+        margin: 30px 5px 0 0;
+        padding: 5px;
+        justify-content: center;
+        text-align: center;  
         /*border: 3px solid ;
         border-top-color: transparent;
-        border-bottom-color: rgba(217, 205, 231);;
-        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-right-color: rgba(217, 205, 231);;
         border-left-color: transparent;*/
         background: rgb(255, 255, 255);
         box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
@@ -950,322 +808,468 @@ NOT USED*/
         -webkit-backdrop-filter: blur( 10px );
         border-radius: 10px;
         border: 1px solid rgb(255, 255, 255);
-        text-align: center;
-        margin: 15px;
-        padding-top:7px;
-        
-       
     }
-        .companyCards{
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-evenly;
-            margin-top: 50px;         
-        }
 
-        .companyCards .cards {
-            /* WHITE CARD-PURPLE SHADE*/
-            background: rgb(255, 255, 255);
-            box-shadow: 0 1.5px 10px 1.5px rgba(121, 81, 169, 0.3);
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 10px );
-            border-radius: 10px;
-            /*border: 1px solid ;
-            border-top-color: transparent;
-            border-bottom-color: rgba(217, 205, 231);;
-            border-right-color: rgba(217, 205, 231);;
-            border-left-color: rgba(217, 205, 231);;*/
-            border: 1px solid rgba(217, 205, 231);;
-            margin-bottom: 35px;
-            padding: 15px; 
-            max-height:300px;
-            max-width:300px;
-        }
-        .companiesSection .companySubtitle {
-            margin-top: -15px;
-
-        }
-        .companyCards .infoSection{
-            line-height: 5px !important;
-        }
-
-        .companyCards .companyTitle{
-            position: relative;
-            top: -35px;
-            background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 1.5px 25px 1.5px rgb(120, 81, 169, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            border: 1px solid rgba(217, 205, 231);;
-            margin-bottom: -30px;
-
-            
-        }
-        .companyCards .title{
-            color: #000000;
-            font-family: 'JosefinSans-semibold',sans-serif;
-            font-size: 20px;
-        }
-        
-        /* Skills Section */
-        .companyCards .skills{
-            /*background: rgba( 255, 255, 255, 0.75 );
-            box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 10px );
-            border-radius: 10px;
-            border: 1px solid rgb(255, 255, 255);*/
-            /* WHITE CARD-PURPLE SHADE*/
-            background: rgba(217, 205, 231, 0.2);
-            box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
-            backdrop-filter: blur( 10px );
-            -webkit-backdrop-filter: blur( 10px );
-            border-radius: 10px;
-            border: 1px solid rgb(255, 255, 255);
-            padding: 0 5px 5px 5px;
-            
-        }
-
-        .companyCards .skills-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-top: -10px;
-        }
-
-        /*TechSkill SVG*/
-        .companyCards svg {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            z-index: 1000;
-        }
-
-        /*TechSKill SVG Circle*/
-        .companyCards svg circle {
-            fill: none;
-            stroke: #ffffff;
-            stroke-width: 10;
-            stroke-linecap: round;
-            transform: translate(5px, 5px);         
-        }
-
-        /*Inner circle stroke*/
-        .companyCards svg circle:nth-child(2) {
-            stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
-            stroke-dashoffset: 440;
-        }
-
-        /*outer circle stroke-Purple*/
-        .companyCards svg circle:nth-child(2) {
-            stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
-            stroke: rgba(120, 81, 169);   /*(217, 205, 231)  */      
-            /*animation: progress 4s infinite linear; */  
-        }
-        /*Inner Frosted circle-DON'T CHANGE*/
-        .companyCards .skill-circle {
-            position: relative;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            box-shadow: inset 0 0 30px rgb(120, 81, 169);
-            background: inherit;
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            margin: 1px;/*Space between skills*/
-        }
-
-
-
-          
-        /*Inner frosted circle-text*/
-        .companyCards .text {
-            position: absolute;
-            display: flex;  
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: #000000;
-            font-family: 'JosefinSans-regular', sans-serif;
-            font-size: 12px;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-        }
-        
-         
-/* 
-    Company Dashboard Page Styling
-*/     
-
-.company-techskills{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    background: rgba(217, 205, 231, 0.2);
-    box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 10px );
-    border-radius: 10px;
-    border: 1px solid rgb(255, 255, 255);
-    padding: 15px;
-    margin: 50px 10px 10px 10px ;
-
-}
-
-/*TechSkill SVG*/
-.company-techskills svg {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    z-index: 1000;
-}
-
-/*TechSKill SVG Circle*/
-.company-techskills svg circle {
-    fill: none;
-    stroke: #ffffff;
-    stroke-width: 10;
-    stroke-linecap: round;
-    transform: translate(5px, 5px);         
-}
-
-/*Inner circle stroke*/
-.company-techskills svg circle:nth-child(2) {
-    stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
-    stroke-dashoffset: 440;
-}
-
-/*outer circle stroke-Purple*/
-.company-techskills svg circle:nth-child(2) {
-    stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
-    stroke: rgba(120, 81, 169);           
-    /*animation: progress 4s infinite linear; */  
-}
-
-/*Inner Frosted circle-DON'T CHANGE*/
-.company-techskills .skill-circle {
-    position: relative;
-    flex-flow: row wrap; /*MAKE LONG SKILL TEXT BREAK*/
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    box-shadow: inset 0 0 30px rgb(120, 81, 169);
-    background: inherit;
-    backdrop-filter: blur(5px);
-    z-index: 1000;
-    margin: 3px;/*Space between*/
-}
-  
-/*Inner frosted circle-text*/
-.company-techskills .skill-circle .text {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: #000000;
-    font-family: 'JosefinSans-regular', sans-serif;
-    font-size: 15px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
-
+    /*Personal Story Section*/
+    .rowOne-rCol{
+        width: 46%;
+        margin: 30px 0 0 0;
+        padding: 5px;
+        justify-content: center;
+        text-align: center; 
+        /*background-color: #ffffff;
+        border-radius: 20px;
+        border: 1px solid rgba(217, 205, 231);;*/
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+    }
 
 /*
-    Profile Card Styling
+    Second Row
 */
 
-.profileCards{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    margin-top: 50px;         
-}
-
-.profileCards .cards {
-    /* WHITE CARD-PURPLE SHADE*/
+.skillsSection{
     background: rgb(255, 255, 255);
     box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     border-radius: 10px;
-    border: 1px solid rgba(217, 205, 231);;
-    margin-bottom: 35px;
-    padding: 15px; 
-    height:auto;
-    width:auto;
-    max-height:500px;
-    max-width:500px;
+    border: 1px solid rgb(255, 255, 255);
+    text-align: center;
+    margin: 15px;
+    padding: 7px 0 25px 0;
+    padding-top: 7px;
+        
 }
-
-.profileCards .infoSection{
-    line-height: 5px !important;
-}
-.profileCards .candidateImg{
-    background: rgba(217, 205, 231, 0.2);
-    backdrop-filter: blur( 5px );
-    -webkit-backdrop-filter: blur( 5px );
-    border: 3px solid rgba(217, 205, 231);
-    padding: 0.5em;
-    border-radius:75%
-}
-
-.profileCards .candidateTitle{
-    position: relative;
-    top: -35px;
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 1.5px 25px 1.5px rgb(120, 81, 169, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border: 1px solid rgba(217, 205, 231);;
-    margin-bottom: -30px;
-
+    .techskills{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        background: rgba(217, 205, 231, 0.2);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        padding: 15px;
+        margin: 10px 100px 10px 100px;
+        
+        /* ALLOWS SCROLLING WITHIN TECHSKILLS
+        overflow-y:scroll;
+        overflow-x: hidden;
+        */
+    }
     
-}
-.profileCards .title{
-    color: #000000;
-    font-family: 'JosefinSans-semibold',sans-serif;
-    font-size: 20px;
-}
+    /*TechSkill SVG*/
+    .techskills svg {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        z-index: 1000;
+    }
 
-.profileCards .text {
-    font-size: 14px;
-}
+    /*TechSKill SVG Circle*/
+    .techskills svg circle {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 10;
+        stroke-linecap: round;
+        transform: translate(5px, 5px);         
+    }
 
-/* Skills Section */
-.profileCards .interests{
-    background: rgba(217, 205, 231, 0.2);
+    /*Inner circle stroke*/
+    .techskills svg circle:nth-child(2) {
+        stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
+        stroke-dashoffset: 440;
+    }
+
+    /*outer circle stroke-Purple*/
+    .techskills svg circle:nth-child(2) {
+        stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
+        stroke: rgba(120, 81, 169);   /*(217, 205, 231)  */      
+        /*animation: progress 4s infinite linear; */  
+    }
+    
+    /*Inner Frosted circle-DON'T CHANGE*/
+    .skill-circle {
+        position: relative;
+        flex-flow: row wrap; /*MAKE LONG SKILL TEXT BREAK*/
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 30px rgb(120, 81, 169);
+        background: inherit;
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        margin: 3px;/*Space between*/
+    }
+        
+    /*Inner frosted circle-text*/
+    .skill-circle .text {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #000000;
+        font-family: 'JosefinSans-regular', sans-serif;
+        font-size: 15px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+        
+
+/*
+    Third Row
+        -Companies Job Board Cards
+*/
+
+.companiesSection{
+    background: rgb(255, 255, 255);
     box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
-    backdrop-filter: blur( 5px );
-    -webkit-backdrop-filter: blur( 5px );
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
     border-radius: 10px;
     border: 1px solid rgb(255, 255, 255);
-    padding: 0 5px 5px 5px;
-    
-}
-
-.profileCards .interestsContainer{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    margin-top: -10px;
-}
-
-.profileCards .interestsCards{
-    height: 50px;
-    width: 50px;
-    background-color: #ffffff;
-    border: 1px solid rgba(217, 205, 231);
-    border-radius: 10px;
-    padding: 0px;
-    margin: 1px;
     text-align: center;
+    margin: 15px;
+    padding-top:7px;
+      
 }
+  
+    .companyCards{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        margin-top: 50px;         
+    }
+
+
+    .companyCards .cards {
+        /* WHITE CARD-PURPLE SHADE*/
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgba(121, 81, 169, 0.3);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        /*border: 1px solid ;
+        border-top-color: transparent;
+        border-bottom-color: rgba(217, 205, 231);;
+        border-right-color: rgba(217, 205, 231);;
+        border-left-color: rgba(217, 205, 231);;*/
+        border: 1px solid rgba(217, 205, 231);;
+        margin-bottom: 3em;
+        padding: 15px; 
+        max-height:300px;
+        max-width:300px;
+    }
+
+    .companyCards .infoSection{
+        line-height: 5px !important;
+    }
+
+    .companyCards .companyTitle{
+        position: relative;
+        top: -35px;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 1.5px 25px 1.5px rgb(120, 81, 169, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(217, 205, 231);;
+        margin-bottom: -30px; 
+    }
+
+    .companyCards .title{
+        color: #000000;
+        font-family: 'JosefinSans-semibold',sans-serif;
+        font-size: 20px;
+    }
+    
+    /* Skills Section */
+    .companyCards .skills{
+        /*background: rgba( 255, 255, 255, 0.75 );
+        box-shadow: 0 1.5px 25px 1.5px rgb(255, 254, 255);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);*/
+        /* WHITE CARD-PURPLE SHADE*/
+        background: rgba(217, 205, 231, 0.2);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        padding: 0 5px 5px 5px;
+        
+    }
+
+    .companyCards .skills-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: -10px;
+    }
+
+    /*TechSkill SVG*/
+    .companyCards svg {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        z-index: 1;
+    }
+
+    /*TechSKill SVG Circle*/
+    .companyCards svg circle {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 10;
+        stroke-linecap: round;
+        transform: translate(5px, 5px);         
+    }
+
+    /*Inner circle stroke*/
+    .companyCards svg circle:nth-child(2) {
+        stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
+        stroke-dashoffset: 440;
+    }
+
+    /*outer circle stroke-Purple*/
+    .companyCards svg circle:nth-child(2) {
+        stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
+        stroke: rgba(120, 81, 169);   /*(217, 205, 231)  */      
+        /*animation: progress 4s infinite linear; */  
+    }
+    /*Inner Frosted circle-DON'T CHANGE*/
+    .companyCards .skill-circle {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 30px rgb(120, 81, 169);
+        background: inherit;
+        backdrop-filter: blur(5px);
+        z-index: 1;
+        margin: 1px;/*Space between skills*/
+    }
+
+    /*Inner frosted circle-text*/
+    .companyCards .text {
+        position: absolute;
+        display: flex;  
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #000000;
+        font-family: 'JosefinSans-regular', sans-serif;
+        font-size: 12px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+    /* Job Link URL button*/
+    .companyCards .cards .btn-container{
+        position: relative;
+        margin-top: 1.5em;
+        /* IF BTN TO BE LIKE TITLE
+        top: 25px;*/
+        
+    }
+    
+         
+/* 
+    Company Dashboard Page Styling
+*/     
+    /* Job posting Container - thirdRow*/
+    .postingSection{
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        text-align: center;
+        margin: 77px 15px 15px 15px;
+        padding-top:7px;
+        
+    }
+    .company-techskills{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        background: rgba(217, 205, 231, 0.2);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        padding: 15px;
+        margin: 50px 10px 10px 10px ;
+
+    }
+
+    /*TechSkill SVG*/
+    .company-techskills svg {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        z-index: 1000;
+    }
+
+    /*TechSKill SVG Circle*/
+    .company-techskills svg circle {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 10;
+        stroke-linecap: round;
+        transform: translate(5px, 5px);         
+    }
+
+    /*Inner circle stroke*/
+    .company-techskills svg circle:nth-child(2) {
+        stroke-dasharray: 440;/*440 WORDS FOR BIGGER CIRCLES*/
+        stroke-dashoffset: 440;
+    }
+
+    /*outer circle stroke-Purple*/
+    .company-techskills svg circle:nth-child(2) {
+        stroke-dashoffset: calc(440 - (330 * 100) / 100 );/*Same calc(0);*/
+        stroke: rgba(120, 81, 169);           
+        /*animation: progress 4s infinite linear; */  
+    }
+
+    /*Inner Frosted circle-DON'T CHANGE*/
+    .company-techskills .skill-circle {
+        position: relative;
+        flex-flow: row wrap; /*MAKE LONG SKILL TEXT BREAK*/
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 30px rgb(120, 81, 169);
+        background: inherit;
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        margin: 3px;/*Space between*/
+    }
+    
+    /*Inner frosted circle-text*/
+    .company-techskills .skill-circle .text {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #000000;
+        font-family: 'JosefinSans-regular', sans-serif;
+        font-size: 15px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+
+
+    /*
+        Profile Card Styling
+    */
+
+    .profileCards{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        margin-top: 50px;         
+    }
+
+    .profileCards .cards {
+        /* WHITE CARD-PURPLE SHADE*/
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+        border-radius: 10px;
+        border: 1px solid rgba(217, 205, 231);;
+        margin-bottom: 35px;
+        padding: 15px; 
+        height:auto;
+        width:auto;
+        max-height:500px;
+        max-width:500px;
+    }
+
+    .profileCards .infoSection{
+        line-height: 5px !important;
+    }
+
+    .profileCards .candidateImg{
+        background: rgba(217, 205, 231, 0.2);
+        backdrop-filter: blur( 5px );
+        -webkit-backdrop-filter: blur( 5px );
+        border: 3px solid rgba(217, 205, 231);
+        padding: 0.5em;
+        border-radius:75%
+    }
+
+    .profileCards .candidateTitle{
+        position: relative;
+        top: -35px;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 1.5px 25px 1.5px rgb(120, 81, 169, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(217, 205, 231);;
+        margin-bottom: -30px;
+
+        
+    }
+    .profileCards .title{
+        color: #000000;
+        font-family: 'JosefinSans-semibold',sans-serif;
+        font-size: 20px;
+    }
+
+    .profileCards .text {
+        font-size: 14px;
+    }
+
+    /* Interests Section */
+    .profileCards .interests{
+        background: rgba(217, 205, 231, 0.2);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169, 0.3);
+        backdrop-filter: blur( 5px );
+        -webkit-backdrop-filter: blur( 5px );
+        border-radius: 10px;
+        border: 1px solid rgb(255, 255, 255);
+        padding: 0 5px 5px 5px;
+        
+    }
+
+    .profileCards .interestsContainer{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        margin-top: -10px;
+    }
+
+    .profileCards .interestsCards{
+        height: 50px;
+        width: 50px;
+        background-color: #ffffff;
+        border: 1px solid rgba(217, 205, 231);
+        border-radius: 10px;
+        padding: 0px;
+        margin: 1px;
+        text-align: center;
+    }
+
 
 
 /*------------------------------------------------------------------------*/
@@ -1275,6 +1279,7 @@ NOT USED*/
     Companies Page Styling
 */
 
+/*Candidate Card Example Container*/
 .cards-panel{
     display: flex;
     flex-flow: row wrap;
@@ -1327,164 +1332,174 @@ NOT USED*/
     border: 1px solid rgb(121, 81, 169);
 }
 
-/*Header*/
-.updateUser-title {
-    text-align: center;
-    margin-top: 1em;
-    margin-bottom: 3em;
-}
+    /*Header*/
+    .updateUser-title {
+        text-align: center;
+        margin-top: 1em;
+        margin-bottom: 3em;
+    }
 
-/*Panels*/
-.userData-panel{
-    width:49.5%;
-    border-style: solid;
-    border-bottom-color: transparent;
-    border-top-color: transparent;
-    border-right-color: rgba(120, 81, 169);
-    border-left-color: transparent; 
+    /*Panels*/
+    .userData-panel{
+        width:49.5%;
+        border-style: solid;
+        border-bottom-color: transparent;
+        border-top-color: transparent;
+        border-right-color: rgba(120, 81, 169);
+        border-left-color: transparent; 
 
-}
+    }
 
-.memberData-panel{
-    width: 50%;
-    /*margin-top: 2em; */
-}
-/*global Dropdown padding */
-.memberData-panel select{
-    padding: 5px;
-}
+    .memberData-panel{
+        width: 50%;
+        /*margin-top: 2em; */
+    }
 
-/*Submit/Cancel section*/
-.updateUserInput{
-    display: flex;
-    justify-content: center;
-    margin-top: 3em;
-}
+    /*global Dropdown padding */
+    .memberData-panel select{
+        padding: 5px;
+    }
 
-/*Back button container*/
-.homeBtn{
-    margin-top: 1em;
-    width: 10%;
-}
-/* 
-    Independent ID stylings
-*/
+    /*Submit/Cancel section*/
+    .updateUserInput{
+        display: flex;
+        justify-content: center;
+        margin-top: 3em;
+    }
 
-#id_personal_goal{
-    width: 75%;
-    padding-top: 0.9em;
-    padding-bottom: 0.9em;
-    text-align: center;
-    margin-bottom: 2em; 
-    border: 1px solid rgb(121, 81, 169);
-}
+    /*Back button container*/
+    .homeBtn{
+        margin-top: 1em;
+    }
 
-#id_personal_story{
-    width: 75%;
-    padding-top: 0.9em;
-    padding-bottom: 0.9em;
-    text-align: center;
-    margin-bottom: 2em; 
-    border: 1px solid rgb(121, 81, 169);
-}
+    /*Job Post button container*/
+    .jobBtn{
+        margin-top: -3em;
+        margin-right: 1em;
+        display: flex;
+        justify-content: flex-end !important;
+    }
 
-#id_availability{
-    width: 50%;
-    margin: 0.5em 0 1.5em 0;
-}
+    /* 
+        Independent ID stylings
+    */
 
-#id_workstatus{
-    width: 50%;
-    margin: 0.5em 0 1.5em 0;
-}
+    #id_personal_goal{
+        width: 75%;
+        padding-top: 0.9em;
+        padding-bottom: 0.9em;
+        text-align: center;
+        margin-bottom: 2em; 
+        border: 1px solid rgb(121, 81, 169);
+    }
 
-#id_relocation{
-    width: 50%;
-    margin: 0.5em 0 1.5em 0;
-}
+    #id_personal_story{
+        width: 75%;
+        padding-top: 0.9em;
+        padding-bottom: 0.9em;
+        text-align: center;
+        margin-bottom: 2em; 
+        border: 1px solid rgb(121, 81, 169);
+    }
 
-/* Interests & Skills Checkbox */
+    #id_availability{
+        width: 50%;
+        margin: 0.5em 0 1.5em 0;
+    }
 
-.checkboxesFormContainer{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
+    #id_workstatus{
+        width: 50%;
+        margin: 0.5em 0 1.5em 0;
+    }
 
-.interestsSkillsForm{
-    display: flex;
-    flex-flow: row;
+    #id_relocation{
+        width: 50%;
+        margin: 0.5em 0 1.5em 0;
+    }
 
-}
-.interestsSkillsForm input{
-    visibility: hidden;
-}
+    /* Interests & Skills Checkbox */
 
-.interestsSkillsForm .skill-checkmark {
-    position: absolute;
-    margin-left: 0.2em;
-    height: 30px;
-    width: 30px;
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgb(120, 81, 169);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-}
+    .checkboxesFormContainer{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
 
-.interestsSkillsForm .skill-checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
+    .interestsSkillsForm{
+        display: flex;
+        flex-flow: row;
 
-.interestsSkillsForm:hover input ~ .skill-checkmark {
-    background: rgba(121, 81, 169, 0.1);
-    box-shadow: 0 1.5px 25px 1.5px rgb(255, 255, 255);
-    border: 1px solid rgb(120, 81, 169);
-}
+    }
 
+    .interestsSkillsForm input{
+        visibility: hidden;
+    }
 
-.interestsSkillsForm input:checked ~ .skill-checkmark {
-    background-color: rgb(120, 81, 169);
-    box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169);
-}
+    .interestsSkillsForm .skill-checkmark {
+        position: absolute;
+        margin-left: 0.2em;
+        height: 30px;
+        width: 30px;
+        background: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgb(120, 81, 169);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
 
+    .interestsSkillsForm .skill-checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
 
-.interestsSkillsForm .skill-checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
+    .interestsSkillsForm:hover input ~ .skill-checkmark {
+        background: rgba(121, 81, 169, 0.1);
+        box-shadow: 0 1.5px 25px 1.5px rgb(255, 255, 255);
+        border: 1px solid rgb(120, 81, 169);
+    }
 
 
-.interestsSkillsForm input:checked ~ .skill-checkmark:after {
-    display: block;
-}
-
-/* Style the checkmark/indicator */
-.interestsSkillsForm .skill-checkmark:after {
-    left: 10px;
-    top: 3px;
-    width: 5.5px;
-    height: 15px;
-    border: solid white;
-    border-width: 0 4px 4px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-.interestsTitle{
-    padding-top: 2em;
-    inline-size: 77px;
-    word-break: break-all;
-}
-
-.interestsTitle .title{
-    font-size: 14px;
-}
+    .interestsSkillsForm input:checked ~ .skill-checkmark {
+        background-color: rgb(120, 81, 169);
+        box-shadow: 0 1.5px 10px 1.5px rgb(120, 81, 169);
+    }
 
 
+    .interestsSkillsForm .skill-checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+
+    .interestsSkillsForm input:checked ~ .skill-checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .interestsSkillsForm .skill-checkmark:after {
+        left: 10px;
+        top: 3px;
+        width: 5.5px;
+        height: 15px;
+        border: solid white;
+        border-width: 0 4px 4px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .interestsTitle{
+        padding-top: 2em;
+        inline-size: 77px;
+        word-break: break-all;
+    }
+
+    .interestsTitle .title{
+        font-size: 14px;
+    }
+
+    
 
 /*------------------------------------------------------------------------*/
 
@@ -1497,7 +1512,7 @@ NOT USED*/
 
 /*Main container*/
 .greeting-section {  
-    padding: 5em 0 3em 0;
+    padding: 5em 0 1em 0;
     text-align: center;
 }
 
@@ -1512,6 +1527,14 @@ NOT USED*/
     text-align: center;
     margin: 15px;
     padding:7px;
-    margin-bottom: 2em;
-        
+    margin-bottom: 2em;       
 }
+
+/*------------------------------------------------------------------------*/
+
+
+/* 
+    updateUserProfile Page Styling
+        -Members
+        -Companies
+*/

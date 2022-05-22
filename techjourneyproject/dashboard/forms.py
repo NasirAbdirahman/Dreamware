@@ -2,7 +2,7 @@ from secrets import choice
 from tkinter import Widget
 from xml.dom import ValidationErr
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, ReadOnlyPasswordHashField
-from .models import Companies, CustomUser, Member, TechSkills
+from .models import Companies, CustomUser, Member, TechSkills, JobPost
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password
@@ -131,7 +131,7 @@ class MemberProfileForm(forms.ModelForm):
             'picture','location','personal_story','personal_goal','education','linkedin',
             'github','portfolio','previous_occupation','availability',
             'workstatus','interests','relocation' ,'skills'
-            )
+        )
         #fields = '__all__'
 
 
@@ -141,21 +141,30 @@ class CompanyProfileForm(forms.ModelForm):
     #upload to images folder in database
     first_name = forms.CharField()
     last_name = forms.CharField()
+    picture = forms.ImageField()#Preferably a company logo/insignia
     company_name = forms.CharField()
-    company_logo = forms.ImageField()
     company_title = forms.CharField()
+    linkedin = forms.URLField()
+    
+    class Meta:
+        model = Companies
+        fields = ('first_name','last_name','picture','company_name','company_title','linkedin')
+        #fields = '__all__'
+
+
+# Job Post Model Form - A form for letting companies create job postings
+class JobPostForm(forms.ModelForm):
+
+    company_name = forms.CharField()
     position_title = forms.CharField()
     location = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder': 'Location'}))
     salary = forms.IntegerField()
     skill_one = forms.CharField()
     skill_two = forms.CharField()
     skill_three = forms.CharField()
+    job_link = forms.URLField()
     
     class Meta:
-        model = Companies
-        fields = (
-            'first_name','last_name','company_logo','company_title','company_name','position_title',
-            'location','salary','skill_one','skill_two',
-            'skill_three'
-        )
+        model = JobPost
+        fields = ('company_name','position_title','location','salary','skill_one','skill_two','skill_three','job_link')
         #fields = '__all__'

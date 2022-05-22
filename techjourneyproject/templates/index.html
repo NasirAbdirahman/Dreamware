@@ -24,21 +24,21 @@
         {% if user.is_authenticated %}
             {% if user.is_company %}
                 <header-component 
-                    linkOneHref="/companyCandidateBoard" linkOneText="Candidates"
+                    linkOneHref="/CandidateBoard" linkOneText="Candidates"
                     linkTwoHref="/companyProfile" linkTwoText="Profile"
                     loginHref="/logout" loginText="Logout" 
                     btnHref="/companyDashboard" btnText="Dashboard" 
                 >
                 </header-component> 
-                {% else %}
-                    <header-component 
-                        linkOneHref="/memberJobBoard" linkOneText="Jobs" 
-                        linkTwoHref="/memberProfile" linkTwoText="Profile"
-                        loginHref="/logout" loginText="Logout" 
-                        btnHref="/memberDashboard" btnText="Dashboard" 
-                    >
-                    </header-component> 
-                {% endif %}
+            {% else %}
+                <header-component 
+                    linkOneHref="/JobBoard" linkOneText="Jobs" 
+                    linkTwoHref="/memberProfile" linkTwoText="Profile"
+                    loginHref="/logout" loginText="Logout" 
+                    btnHref="/memberDashboard" btnText="Dashboard" 
+                >
+                </header-component> 
+            {% endif %}
         {% else %}
             <header-component 
                 linkOneHref="/companies" linkOneText="Companies"
@@ -109,6 +109,7 @@
                 <h2 class="subtitle">Easily connect with our partners that are sourcing software engineers for entry level opportunities. <br>Match with companies that are looking for your listed skills.</h2>
                 <!--Company Card Examples-->
                 <section class="companyCards">
+
                     <!--Card One-->
                     <section class="cards">
 
@@ -150,6 +151,7 @@
                         </section>
                         
                     </section>
+
                     <!--Card Two-->
                     <section class="cards">
 
@@ -158,7 +160,7 @@
                                 <p class="title">Google</p>
                             </div>
                             <p> Early-Career Software Engineer</p>
-                            <p>MountainView,CA</p>
+                            <p>Remote</p>
                             <p>85,000 USD</p>
                         </section>
                     
@@ -191,6 +193,7 @@
                         </section>
                         
                     </section>
+
                     <!--Card Three-->
                     <section class="cards">
 
@@ -232,6 +235,7 @@
                         </section>
                         
                     </section>
+
                 </section>
             </section>
       

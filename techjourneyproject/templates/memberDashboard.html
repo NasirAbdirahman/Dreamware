@@ -24,7 +24,7 @@
         <!-- Main Nav Bar -->
         <header-component 
             linkOneHref="/" linkOneText="Home"
-            linkTwoHref="/memberJobBoard" linkTwoText="Jobs"
+            linkTwoHref="/JobBoard" linkTwoText="Jobs"
             loginHref="/logout" loginText="Logout" 
             btnHref="/memberProfile" btnText="Profile" 
         >
@@ -42,13 +42,11 @@
                 <section class="dashboard-lCol">
                     
                     <!--Profile Info -->
-                    <section class="profileSection"> 
-                        
+                    <section class="profileSection">               
                         <img class="profileImg"src="/media/{{user.member.picture}}"  width="100px" height="100px">
-                       
-                       
+
                         <section class="profileText">
-                            <p class="dashboard-text">{{user.first_name}}, {{user.last_name}}</p>
+                            <p class="dashboard-title">{{user.first_name}}, {{user.last_name}}</p>
                             <p class="dashboard-text">{{user.member.education}}</p>
                             <p class="dashboard-text">{{user.member.location}}</p>    
                         </section>
@@ -175,47 +173,51 @@
                     <section class="companiesSection">
                     
                         <p class="dashboard-title">Top Companies</p>
-                        <section class="companySubtitle">
-                            {% if companies %}
+                        <section class="dashboard-subtitle">
+                            {% if jobs %}
                                 <p>These companies have positions that match your skillset</p>
                             {% else %}
-                                <p>This is where companies you match with will be listed once you add your skills.</p>
+                                <p>Hmmm, No companies have matched yet, try adding some skills you have. <br>
+                                    It could also be that your dream company has not posted their job yet.<br>
+                                    Or their post is under review. 
+                                </p>
                             {% endif %}
                         </section>
                         
                         <section class="companyCards">
                             
                             <!--Company Cards-->
-                            {% if companies %}
+                            {% if jobs %}
 
-                                {% for company in companies %}
+                                {% for job in jobs %}
                             
                                     <section class="cards">
 
                                         <section class="infoSection">
                                             <div class="companyTitle">
-                                                <p class="title"> {{company.company_name}}</p>
+                                                <p class="title"> {{job.company_name}}</p>
                                             </div>
                                         
-                                            <p> {{company.position_title}}</p>
-                                            <p>{{company.location}}</p>
-
-                                            {% if company.salary == none %}
-                                                <p>Salary Not Disclosed</p>
+                                            <p class="title"> {{job.position_title}}</p>
+                                            <p class="title">{{job.location}}</p>
+                                            {% if job.salary == none %}
+                                                <p >Salary Not Disclosed</p>
                                             {% else %}
-                                                <p>{{company.salary}} USD</p>
+                                                <p class="title">{{job.salary}} USD</p>
                                             {% endif %}
+                                        
+                                            <p>Posted: {{job.date_posted.date}}</p>
                                         </section>
                                     
                                         <section class="skills">
-                                            <p>Skills</p>
+                                            <p>Top 3 Skills</p>
                                             <section class="skills-container">
                                                 <div class="skill-circle">
                                                     <svg>
                                                         <circle cx="30" cy="30" r="30"></circle>
                                                         <circle cx="30" cy="30" r="30"></circle>
                                                     </svg>
-                                                    <div class="text">{{company.skill_one}}</div>
+                                                    <div class="text">{{job.skill_one}}</div>
                                                 </div>
 
                                                 <div class="skill-circle">
@@ -223,16 +225,20 @@
                                                         <circle cx="30" cy="30" r="30"></circle>
                                                         <circle cx="30" cy="30" r="30"></circle>
                                                     </svg>
-                                                    <div class="text">{{company.skill_two}}</div>
+                                                    <div class="text">{{job.skill_two}}</div>
                                                 </div>
                                                 <div class="skill-circle">
                                                     <svg>
                                                         <circle cx="30" cy="30" r="30"></circle>
                                                         <circle cx="30" cy="30" r="30"></circle>
                                                     </svg>
-                                                    <div class="text">{{company.skill_three}}</div>
+                                                    <div class="text">{{job.skill_three}}</div>
                                                 </div>
                                             </section>
+                                        </section>
+
+                                        <section class="btn-container">
+                                            <a href="{{job.job_link}}" target="_blank" class="btn-main">Apply</a>
                                         </section>
                                         
                                     </section>

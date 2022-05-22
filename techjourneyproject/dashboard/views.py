@@ -8,15 +8,16 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.core.validators import validate_email
 from django.db.models import Q
 from django.core.exceptions import PermissionDenied
-
+from django.utils.safestring import mark_safe
 #Imported models we create
 from .models import Member
 from .models import TechSkills
 from .models import CustomUser
 from .models import Companies
+from .models import JobPost
 
 #imported forms
-from .forms import MemberProfileForm, UpdateUserForm, CreateMemberForm, UserLoginForm, CompanyProfileForm# MemberSkillsForm
+from .forms import MemberProfileForm, UpdateUserForm, CreateMemberForm, UserLoginForm, CompanyProfileForm, JobPostForm# MemberSkillsForm
 
 
 '''
@@ -110,34 +111,33 @@ def view_logout(request):
     return redirect('/')
 
 
+#
+###MEMBER MODEL VIEWS
+#
 
 #Member Dashboard page View
 @login_required(login_url='/login/')
 def memberDashboard(request):
     #Return User's Member Model
     users = Member.objects.filter(user=request.user)
+    #Returns Member's Tech Skills
+    member_skills = request.user.member.skills.all()
+    
+    #loops thru all skills and makes it into a list of names
+    #skills = list(request.user.member.skills.all())
+    skills = [skill.name for skill in member_skills]
 
-    #Returns User's Member Skills
-    skills = list(request.user.member.skills.all())
-    #member_skills = list(skills)
 
-    #filtering all the companies whose skill fields(Skill_one,skill_two,skill_three) contains members skill
-    companies = Companies.objects.filter(#If Company MODEL skill_one contains ANYTHING user has
+    # Fetch all Job postings that are APPROVED BY ADMIN,
+    # filtering all the job posts whose skill fields contains anything in members_skill
+    # returning top 7 matched jobs by date posted then alphabetically
+    jobs = JobPost.objects.filter(admin_approved=True).filter(
         Q(skill_one__in = skills) | 
         Q(skill_two__in = skills) |
         Q(skill_three__in = skills)
-    )
-
-    #If Company MODEL skill_one contains ANYTHING user has
-    #companies = Companies.objects.filter(skill_one__in=member_skills)
-    #companiesskills = Companies.objects.values_list('skill_one','skill_two', 'skill_three')#flat returns single values
-
-    #interests = Member.objects.filter(interests = request.user.member.get_interests_display)
+    ).order_by('-date_posted','company_name')[:7]
     
-    #members = Member.objects.all()
-    
-    return render(request, 'memberDashboard.html',{'users': users, 'companies':companies}) #{'members' : members ,'skills': skills})
-
+    return render(request, 'memberDashboard.html',{'users': users, 'jobs':jobs})
 
 
 #Member profile View
@@ -146,7 +146,7 @@ def memberProfile(request):
 
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
-        profile_form = MemberProfileForm(request.POST,request.FILES, instance=request.user.member, )
+        profile_form = MemberProfileForm(request.POST,request.FILES, instance=request.user.member )
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -175,6 +175,24 @@ def memberProfile(request):
     )
 
 
+#Member's JobBoard page View
+@login_required(login_url='/login/') 
+def memberJobBoard(request):
+    if request.user.member or request.user.is_admin is True:
+
+        # Fetch all Job postings that are APPROVED BY ADMIN,
+        # Then order by date_posted descending, then alphabetically
+        jobs = JobPost.objects.filter(admin_approved=True).order_by('-date_posted','company_name')
+    
+        return render(request, 'memberJobBoard.html', {'jobs':jobs}) #renders the templates file
+    else:
+        raise PermissionDenied()
+
+
+
+#
+###COMPANY MODEL VIEWS
+#
 
 #Company Dashboard page View
 @login_required(login_url='/login/') 
@@ -182,31 +200,28 @@ def memberProfile(request):
 def companyDashboard(request):
     #Custom permission check for non-company users
     if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+        
         #Return User's Company Model
         users = Companies.objects.filter(user=request.user)
 
-        #return User's Company Model Skills
-        skillOne = request.user.companies.skill_one
-        skillTwo = request.user.companies.skill_two
-        skillThree = request.user.companies.skill_three
-        #return User's Company TechSkills as list
-        topSkills ={skillOne,skillTwo,skillThree}
+        # Returns all the job posts of company
+        # ordered by those who have been APPROVED BY ADMIN = TRUE
+        jobPosts = JobPost.objects.filter(company=request.user.companies).order_by('-admin_approved')
 
-        '''#return User's Company JD
-        companyName = request.user.companies.company_name
-        position=request.user.companies.position_title
-        salary=request.user.companies.salary
-        location=request.user.companies.location
-        #return User's Company TechSkills as list
-        JD =(companyName,position,salary,location)'''
+        #returns skills on each job post
+        skillOne = [job.skill_one for job in jobPosts]  
+        skillTwo = [job.skill_two for job in jobPosts]  
+        skillThree = [job.skill_three for job in jobPosts]
+        #Merge all jobpost skills into list
+        topSkills = [*skillOne,*skillTwo,*skillThree]
 
-        #filtering all the Members whose skills field contains companies skill
-            #If Member MODEL skills contains ANYTHING Company needs
-        candidates = Member.objects.filter(skills__name__in = topSkills).distinct() #removes duplicate values returned
-    
+        #filtering all the Members whose skills field contains any sought companies skill
+        #removes duplicate values returned,returns only 7 candidates, then order by last name
+        candidates = Member.objects.filter(skills__name__in = topSkills).distinct().order_by('last_name')[:7] 
+
         return render(request, 'companyDashboard.html',
-            {'users': users, 'topSkills':topSkills, 'candidates':candidates}
-        )# 'companies':companies}) #{'members' : members ,'skills': skills})
+            {'users': users,'jobPosts':jobPosts, 'candidates':candidates}
+        )
 
     else:
         raise PermissionDenied()
@@ -221,7 +236,7 @@ def companyProfile(request):
     if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
         if request.method == 'POST':
             user_form = UpdateUserForm(request.POST, instance=request.user)
-            profile_form = CompanyProfileForm(request.POST,request.FILES, instance=request.user.companies, )
+            profile_form = CompanyProfileForm(request.POST,request.FILES, instance=request.user.companies)
             if user_form.is_valid() and profile_form.is_valid():
                 user_form.save()
                 profile_form.save()
@@ -253,15 +268,35 @@ def companyProfile(request):
         raise PermissionDenied()
 
 
-#Member's JobBoard page View
-@login_required(login_url='/login/') 
-def memberJobBoard(request):
-    if request.user.member or request.user.is_admin is True:
-        #Fetch all companies
-        companies = Companies.objects.all()
-        return render(request, 'memberJobBoard.html', {'companies':companies}) #renders the templates file
+
+#Company Job Posting View
+def companyJobPost(request):
+    if request.user.is_company is True or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+        if request.method == 'POST':
+            post_form = JobPostForm(request.POST)
+            if post_form.is_valid():
+                #Create form instance
+                job = post_form.save(commit=False)
+                #assign company to job post
+                job.company = request.user.companies
+                #Save form
+                job.save()
+
+                messages.success(request,
+                    mark_safe('We have received your job post! We will review it to ensure compliance with our guidelines. <br/>We will inform you within 24hrs, when it is published. Thank you!'
+                    ))
+                return redirect('jobPost')
+            else:
+                # Redirect back to the same page if the data
+                # was invalid
+                return render(request, "jobPost.html",{'post_form': post_form,}) 
+        else:
+            post_form = JobPostForm()
+
+        return render(request, 'jobPost.html',{'post_form': post_form,})
     else:
         raise PermissionDenied()
+
 
 
 #Company's CandidateBoard page View
@@ -270,8 +305,8 @@ def memberJobBoard(request):
 def companyCandidateBoard(request):
     #Custom permission check for non-company users
     if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
-       #Fetch all companies
-        candidates = Member.objects.all()
+       #Fetch all candidates, then order by last name
+        candidates = Member.objects.order_by('last_name')
         return render(request, 'companyCandidateBoard.html', {'candidates':candidates}) #renders the templates file
     else:
         raise PermissionDenied()
