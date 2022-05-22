@@ -128,9 +128,10 @@ def memberDashboard(request):
     skills = [skill.name for skill in member_skills]
 
 
+    # Fetch all Job postings that are APPROVED BY ADMIN,
     # filtering all the job posts whose skill fields contains anything in members_skill
     # returning top 7 matched jobs by date posted then alphabetically
-    jobs = JobPost.objects.filter(
+    jobs = JobPost.objects.filter(admin_approved=True).filter(
         Q(skill_one__in = skills) | 
         Q(skill_two__in = skills) |
         Q(skill_three__in = skills)
@@ -203,22 +204,23 @@ def companyDashboard(request):
         #Return User's Company Model
         users = Companies.objects.filter(user=request.user)
 
-        #returns all the job posts of company
-        jobs = JobPost.objects.filter(company=request.user.companies)
+        # Returns all the job posts of company
+        # ordered by those who have been APPROVED BY ADMIN = TRUE
+        jobPosts = JobPost.objects.filter(company=request.user.companies).order_by('-admin_approved')
 
         #returns skills on each job post
-        skillOne = [job.skill_one for job in jobs]  
-        skillTwo = [job.skill_two for job in jobs]  
-        skillThree = [job.skill_three for job in jobs]
+        skillOne = [job.skill_one for job in jobPosts]  
+        skillTwo = [job.skill_two for job in jobPosts]  
+        skillThree = [job.skill_three for job in jobPosts]
         #Merge all jobpost skills into list
         topSkills = [*skillOne,*skillTwo,*skillThree]
 
         #filtering all the Members whose skills field contains any sought companies skill
-        #returns only 7 candidates,removes duplicate values returned, then order by last name
+        #removes duplicate values returned,returns only 7 candidates, then order by last name
         candidates = Member.objects.filter(skills__name__in = topSkills).distinct().order_by('last_name')[:7] 
 
         return render(request, 'companyDashboard.html',
-            {'users': users, 'candidates':candidates}
+            {'users': users,'jobPosts':jobPosts, 'candidates':candidates}
         )
 
     else:

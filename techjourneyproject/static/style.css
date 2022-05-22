@@ -319,6 +319,18 @@ button{
     color: #ffffff !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.352);
 }
+
+/*Inactive btn for under review job posts*/
+.inactive-btn {
+    background-color:rgb(255, 0, 0);
+    color: #ffffff;
+    font-size: 20px !important;
+    padding: 15px 20px 10px 20px;
+    border-radius: 15px;
+    margin-left: 15px;
+    pointer-events: none;
+    cursor: default;
+}
 /*------------------------------------------------------------------------*/
 
 
@@ -931,12 +943,14 @@ input{
     padding-top:7px;
       
 }
+  
     .companyCards{
         display: flex;
         flex-flow: row wrap;
         justify-content: space-evenly;
         margin-top: 50px;         
     }
+
 
     .companyCards .cards {
         /* WHITE CARD-PURPLE SHADE*/
@@ -951,7 +965,7 @@ input{
         border-right-color: rgba(217, 205, 231);;
         border-left-color: rgba(217, 205, 231);;*/
         border: 1px solid rgba(217, 205, 231);;
-        margin-bottom: 35px;
+        margin-bottom: 3em;
         padding: 15px; 
         max-height:300px;
         max-width:300px;
