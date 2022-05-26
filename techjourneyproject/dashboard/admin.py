@@ -8,10 +8,11 @@ from .models import TechSkills
 from .models import Companies
 from .models import CustomUser
 from .models import JobPost
+
 #imported form to manage user creation through adminPanel
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
-#CustomUserAdmin 
+#CustomUserAdmin Panel
 class CustomUserAdmin(UserAdmin):
 
     #forms to create users through adminPanel
@@ -21,12 +22,12 @@ class CustomUserAdmin(UserAdmin):
 
     #Displayed fields of CustomUser Model on admin panel view
     list_display = (
-        'email', 'first_name','last_name','is_admin', 'is_staff', 'is_active', 'is_company', 'date_joined',#, 'date_joined', 'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus'
+        'email', 'first_name','last_name','is_admin', 'is_staff', 'is_active', 'is_company', 'date_joined'
     )
 
     #Displayed filters of CustomUser Model on admin panel view
     list_filter = (
-        'email', 'first_name','last_name','is_admin', 'is_staff', 'is_active','is_company'#, 'date_joined', 'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus'
+        'is_admin', 'is_staff', 'is_active','is_company'#, 'date_joined', 'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus'
     )
 
     #Displayed field sets of CustomUser Model in admin panel(controls the layout of admin add/change page)--Editor privileges
@@ -56,12 +57,70 @@ class CustomUserAdmin(UserAdmin):
     ordering = ('email',) 
 
 
-# Registered models 
-admin.site.register(Member)
-admin.site.register(TechSkills)
+##############################################################################################################
+##############################################################################################################
+
+#MemberModelAdmin Panel
+class MemberModelAdmin(admin.ModelAdmin):
+    #Displayed fields of Member Model on admin panel
+    list_display = (
+        'user','education','previous_occupation',
+    )
+
+    #Displayed filters of Member Model on admin panel
+    list_filter = (
+        'education', 'previous_occupation',
+    )
+
+    #Search field
+    search_fields = ('education', 'previous_occupation',)
+
+
+##############################################################################################################
+##############################################################################################################
+
+#CompanyModelAdmin Panel
+class CompanyModelAdmin(admin.ModelAdmin):
+    #Displayed fields of Member Model on admin panel
+    list_display = (
+        'user','company_name',
+    )
+
+    #Displayed filters of Member Model on admin panel
+    list_filter = (
+        'company_name',
+    )
+
+    #Search field
+    search_fields = ('company_name',)
+
+
+##############################################################################################################
+##############################################################################################################
+
+#JobPostAdmin Panel
+class JobPostAdmin(admin.ModelAdmin):
+    #Displayed fields of JobPost Model on admin panel
+    list_display = (
+        'company_name', 'position_title','admin_approved','date_posted'
+    )
+
+    #Displayed filters of JobPost Model on admin panel
+    list_filter = (
+        'company_name', 'position_title','admin_approved','date_posted'
+    )
+
+    #Search field
+    search_fields = ('company_name', 'position_title')
+
+
+
+# Registered models & Admin Panels
 admin.site.register(CustomUser, CustomUserAdmin)
-admin.site.register(Companies)
-admin.site.register(JobPost)
+admin.site.register(Member,MemberModelAdmin)
+admin.site.register(TechSkills)
+admin.site.register(Companies, CompanyModelAdmin)
+admin.site.register(JobPost, JobPostAdmin)
 
 # unregister the Group model from admin.
 admin.site.unregister(Group)

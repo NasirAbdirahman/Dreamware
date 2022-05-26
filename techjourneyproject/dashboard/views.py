@@ -66,7 +66,6 @@ def register(request):
     return render(request, 'register.html',{'createuser_form': createuser_form})
 
 
-
 #User Login View 
 def view_login(request):
     if request.method == 'POST':
@@ -104,16 +103,17 @@ def view_login(request):
     return render(request, 'login.html',{'login_form': login_form})
 
 
-
 #User Logout 
 def view_logout(request):
     logout(request)
     return redirect('/')
 
 
-#
-###MEMBER MODEL VIEWS
-#
+############################################################################
+############################################################################
+
+# MEMBER MODEL VIEWS
+
 
 #Member Dashboard page View
 @login_required(login_url='/login/')
@@ -190,9 +190,11 @@ def memberJobBoard(request):
 
 
 
-#
-###COMPANY MODEL VIEWS
-#
+############################################################################
+############################################################################
+
+# COMPANY MODEL VIEWS
+
 
 #Company Dashboard page View
 @login_required(login_url='/login/') 

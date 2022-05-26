@@ -51,7 +51,7 @@ class UserLoginForm(forms.ModelForm):
 '''Forms for users to create, update Member/Company profiles'''
 
 
-#Form for letting members register as Users
+#Form for letting users register as Members or Companies
 class CreateMemberForm(forms.ModelForm):
 
     #Fields created for Form
@@ -97,7 +97,7 @@ class CreateMemberForm(forms.ModelForm):
 class UpdateUserForm(forms.ModelForm):
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=50)
-    email = forms.EmailField()
+    email = forms.EmailField(disabled=True)
 
     class Meta:
         model = CustomUser
@@ -138,9 +138,10 @@ class MemberProfileForm(forms.ModelForm):
 # Company Model Form - A form for letting companies update their profile data
 class CompanyProfileForm(forms.ModelForm):
 
+    
+    '''first_name = forms.CharField()
+    last_name = forms.CharField()'''
     #upload to images folder in database
-    first_name = forms.CharField()
-    last_name = forms.CharField()
     picture = forms.ImageField()#Preferably a company logo/insignia
     company_name = forms.CharField()
     company_title = forms.CharField()
@@ -148,7 +149,8 @@ class CompanyProfileForm(forms.ModelForm):
     
     class Meta:
         model = Companies
-        fields = ('first_name','last_name','picture','company_name','company_title','linkedin')
+        fields = (#'first_name','last_name',
+        'picture','company_name','company_title','linkedin')
         #fields = '__all__'
 
 

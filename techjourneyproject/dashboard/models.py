@@ -56,9 +56,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     #Specifies that all objects for the class come from CustomUserManager
     objects = CustomUserManager() 
     
-    
+    # Overriding save method to values are lowercase before saving into DB
+    def save(self, *args, **kwargs):
+        self.first_name = self.first_name.capitalize()
+        self.last_name = self.last_name.capitalize()
+
+        return super(CustomUser, self).save(*args, **kwargs)
+
     def __str__(self):
-        return self.email 
+        return f"{self.first_name}, {self.last_name}"
 
 
 #Skills Model
@@ -130,7 +136,8 @@ class Member(models.Model):
     location = models.CharField(max_length=100)
     personal_goal = models.TextField(max_length=500)
     personal_story = models.TextField(max_length=500)
-    education = models.CharField(max_length=100)
+    #MAKE ONLY BOOTCAMPS OR SELF-TAUGHT
+    education = models.CharField(max_length=100) 
     linkedin = models.URLField()
     github = models.URLField()
     portfolio = models.URLField()
@@ -146,13 +153,19 @@ class Member(models.Model):
 
     #return all fields or just return specifics
     def __str__(self):
-        return f"{self.first_name},{self.last_name}"
+        return f"{self.user}"#f"{self.first_name}, {self.last_name}"
 
     #Returns a list version of interests(Allows looping in template in view)
     def interests_list(self):
         list = str(self.interests)
         list_ = list.split(',')
         return list_
+
+    # Overriding save method to values are lowercase before saving into DB
+    def save(self, *args, **kwargs):
+        self.previous_occupation = self.previous_occupation.capitalize()
+        return super(Member, self).save(*args, **kwargs)
+
 
 
 
@@ -166,15 +179,16 @@ class Companies(models.Model):
     first_name = models.CharField(blank=False,max_length=50)
     last_name = models.CharField(blank=False,max_length=50)
     
-    #Preferably a company logo/insignia
+    
+    #Preferably a company logo/insigniaR OR company point person
     picture = models.ImageField(default="defaultuser.png",upload_to="company_images") #upload to images folder in database
-    company_name =  models.CharField(max_length=60, default='Company: TBA') #Default given due to info not asked at creation of company model
+    company_name =  models.CharField(max_length=60, default='To Be Announced') #Default given due to info not asked at creation of company model
     company_title = models.CharField(max_length=100)
     linkedin = models.URLField(default="https://www.linkedin.com")
 
     #return all fields or just return specifics
     def __str__(self):
-        return f"{self.first_name},{self.last_name} ; {self.company_name}"
+        return f"{self.company_name} - {self.user}"
 
     #Company Permissions
     '''class Meta:
@@ -182,13 +196,18 @@ class Companies(models.Model):
             ("is_company", "Is a company"),
         ]'''
 
+    # Overriding save method so values are lowercase before saving into DB
+    def save(self, *args, **kwargs):
+        self.company_name = self.company_name.capitalize()
+        return super(Companies, self).save(*args, **kwargs)
+
       
-#Company Job Post Model
+# Job Post Model
 class JobPost(models.Model):
     #ADMIN APPROVAL CAPABILITIES
     admin_approved = models.BooleanField(default=False)
 
-    #company Name/ Custom User's company
+    #Custom User's company Model
     company = models.ForeignKey(Companies, related_name="companyjob", on_delete=models.CASCADE)
 
     #Job Description

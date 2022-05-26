@@ -29,6 +29,50 @@ def create_member(sender, instance, created, **kwargs):
             Member.objects.create(user=instance, **default_data)
             instance.save()
 
+# Signal for automatically updating Member/Company model when member/company 
+# changes CustomUser data IN EDIT PROFILE
+@receiver(pre_save,sender=CustomUser) #sender=settings.AUTH_USER_MODEL)
+def update_member(sender, instance,  **kwargs):
+
+    # if CustomUser is company
+    if instance.has_perm('dashboard.is_admin') is not True & instance.is_company is True:
+        #DELETING CURRENT VALUES
+        instance.companies.first_name = str(instance.companies.first_name).replace(instance.companies.first_name,'')
+        instance.companies.last_name = str(instance.companies.last_name).replace(instance.companies.last_name,'')
+        #instance.companies.email = str(instance.companies.email).replace(instance.companies.email,'')
+        
+        #NEW VALUES CREATED BY CUSTOMUSER EDITING
+        fname = instance.first_name
+        lname = instance.last_name
+        #email = instance.email
+
+        # ADDING VALUES FROM CUSTOMUSER TO MEMBER MODEL
+        instance.companies.first_name += fname
+        instance.companies.last_name += lname
+        #instance.companies.email += email
+
+        instance.companies.save()
+
+    # if CustomUser is member
+    elif instance.has_perm('dashboard.is_admin') is not True:
+
+        #DELETING CURRENT VALUES
+        instance.member.first_name = str(instance.member.first_name).replace(instance.member.first_name,'')
+        instance.member.last_name = str(instance.member.last_name).replace(instance.member.last_name,'')
+        #instance.member.email = str(instance.member.email).replace(instance.member.email,'')
+
+        #NEW VALUES CREATED BY CUSTOMUSER EDITING
+        fname = instance.first_name
+        lname = instance.last_name
+        #email = instance.email
+
+        # ADDING VALUES FROM CUSTOMUSER TO MEMBER MODEL
+        instance.member.first_name += fname
+        instance.member.last_name += lname
+        #instance.member.email += email
+        
+        instance.member.save()
+
 
 #Signal for notification to admin on creation of job posts
 '''@receiver(post_save, sender=JobPost)
