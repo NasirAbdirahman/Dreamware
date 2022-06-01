@@ -13,7 +13,6 @@
     <a href="https://github.com/NasirAbdirahman/Django-Dashboard"><strong>Explore the code »</strong></a>
     <br />
     <br />
-    <a href="">Live Demo coming soon..</a>
   </p>
 </div>
 
