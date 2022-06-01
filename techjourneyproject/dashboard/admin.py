@@ -27,17 +27,17 @@ class CustomUserAdmin(UserAdmin):
 
     #Displayed filters of CustomUser Model on admin panel view
     list_filter = (
-        'is_admin', 'is_staff', 'is_active','is_company'#, 'date_joined', 'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus'
+        'is_admin', 'is_staff', 'is_active','is_company'
     )
 
     #Displayed field sets of CustomUser Model in admin panel(controls the layout of admin add/change page)--Editor privileges
     fieldsets = (
         (None, 
             {
-            'fields': (('email', 'password'), ('first_name','last_name'))#'location','linkedin','github','portfolio','interests','previousoccupation','availability','workstatus')
+            'fields': (('email', 'password'), ('first_name','last_name'))
             }
         ),
-        ('Permissions', {'fields': ('is_staff', 'is_active', 'is_admin','is_company')}),#Shows permissions in admin panel
+        ('Permissions', {'fields': ('is_staff', 'is_active', 'is_admin','is_company')}),
     )
     
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin

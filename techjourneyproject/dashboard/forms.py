@@ -89,7 +89,6 @@ class CreateMemberForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ('first_name','last_name', 'email','is_company',)
-        #fields = '__all__'
 
 
 
@@ -102,7 +101,6 @@ class UpdateUserForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ('first_name','last_name', 'email',)
-        #fields = '__all__'
 
 
 
@@ -132,15 +130,11 @@ class MemberProfileForm(forms.ModelForm):
             'github','portfolio','previous_occupation','availability',
             'workstatus','interests','relocation' ,'skills'
         )
-        #fields = '__all__'
 
 
 # Company Model Form - A form for letting companies update their profile data
 class CompanyProfileForm(forms.ModelForm):
 
-    
-    '''first_name = forms.CharField()
-    last_name = forms.CharField()'''
     #upload to images folder in database
     picture = forms.ImageField()#Preferably a company logo/insignia
     company_name = forms.CharField()
@@ -149,9 +143,7 @@ class CompanyProfileForm(forms.ModelForm):
     
     class Meta:
         model = Companies
-        fields = (#'first_name','last_name',
-        'picture','company_name','company_title','linkedin')
-        #fields = '__all__'
+        fields = ('picture','company_name','company_title','linkedin')
 
 
 # Job Post Model Form - A form for letting companies create job postings
@@ -169,4 +161,3 @@ class JobPostForm(forms.ModelForm):
     class Meta:
         model = JobPost
         fields = ('company_name','position_title','location','salary','skill_one','skill_two','skill_three','job_link')
-        #fields = '__all__'

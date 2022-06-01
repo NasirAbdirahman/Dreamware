@@ -69,23 +69,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 #Skills Model
 class TechSkills(models.Model):
-    #Members Current Work Status
-    '''SKILL_LEVEL = (
-        ('EX', 'Exposed'),
-        ('FM', 'Familiar'),
-        ('PR', 'Proficient')
-    )
-    SKILLS = (
-        ('RE', 'React.JS')
-        etc...
-    )
-    
-    '''
-
     name = models.CharField(max_length=65,unique=True)
-    #TO WORK TRY 
-    # name = models.MultiSelectField(choices=SKILLS)
-    #skill_level = models.CharField(max_length=2, choices=SKILL_LEVEL)
     
     #return all fields or just return specifics
     def __str__(self):
@@ -130,13 +114,10 @@ class Member(models.Model):
     first_name = models.CharField(blank = False,max_length=50)
     last_name = models.CharField(blank = False,max_length=50)
     email = models.EmailField()
-
-    #resume = models.ImageField(upload_to="images/") #upload to images folder in database
     picture = models.ImageField(default="defaultuser.png",upload_to="profile_images") #upload to images folder in database
     location = models.CharField(max_length=100)
     personal_goal = models.TextField(max_length=500)
     personal_story = models.TextField(max_length=500)
-    #MAKE ONLY BOOTCAMPS OR SELF-TAUGHT
     education = models.CharField(max_length=100) 
     linkedin = models.URLField()
     github = models.URLField()
@@ -153,7 +134,7 @@ class Member(models.Model):
 
     #return all fields or just return specifics
     def __str__(self):
-        return f"{self.user}"#f"{self.first_name}, {self.last_name}"
+        return f"{self.user}"
 
     #Returns a list version of interests(Allows looping in template in view)
     def interests_list(self):
@@ -189,12 +170,6 @@ class Companies(models.Model):
     #return all fields or just return specifics
     def __str__(self):
         return f"{self.company_name} - {self.user}"
-
-    #Company Permissions
-    '''class Meta:
-        permissions = [
-            ("is_company", "Is a company"),
-        ]'''
 
     # Overriding save method so values are lowercase before saving into DB
     def save(self, *args, **kwargs):

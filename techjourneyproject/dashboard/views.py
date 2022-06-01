@@ -198,10 +198,9 @@ def memberJobBoard(request):
 
 #Company Dashboard page View
 @login_required(login_url='/login/') 
-#@permission_required('dashboard.CustomUser.is_company',raise_exception=True) #NOT WORKING(https://stackoverflow.com/questions/62689245/permission-required-decorator-not-working-on-view-in-django)
 def companyDashboard(request):
     #Custom permission check for non-company users
-    if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+    if request.user.is_company is True:
         
         #Return User's Company Model
         users = Companies.objects.filter(user=request.user)
@@ -232,10 +231,9 @@ def companyDashboard(request):
 
 #Company profile View
 @login_required(login_url='/login/') 
-#@permission_required('dashboard.is_company',raise_exception=True) #NOT WORKING(https://stackoverflow.com/questions/62689245/permission-required-decorator-not-working-on-view-in-django)
 def companyProfile(request):
     #Custom permission check for non-company users
-    if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
+    if request.user.is_company is True:
         if request.method == 'POST':
             user_form = UpdateUserForm(request.POST, instance=request.user)
             profile_form = CompanyProfileForm(request.POST,request.FILES, instance=request.user.companies)
@@ -303,11 +301,10 @@ def companyJobPost(request):
 
 #Company's CandidateBoard page View
 @login_required(login_url='/login/') 
-#@permission_required('dashboard.CustomUser.is_company',raise_exception=True) #NOT WORKING(https://stackoverflow.com/questions/62689245/permission-required-decorator-not-working-on-view-in-django)
 def companyCandidateBoard(request):
     #Custom permission check for non-company users
-    if request.user.is_company is True:# or request.user.is_superuser: #CAN ADD IF ADMIN NEEDS ACCESS
-       #Fetch all candidates, then order by last name
+    if request.user.is_company is True:
+        #Fetch all candidates, then order by last name
         candidates = Member.objects.order_by('last_name')
         return render(request, 'companyCandidateBoard.html', {'candidates':candidates}) #renders the templates file
     else:
